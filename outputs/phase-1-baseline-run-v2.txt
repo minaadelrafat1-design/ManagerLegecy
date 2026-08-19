@@ -1,0 +1,179 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 7 DAYS
+Advancing 7 consecutive days...
+====================================================================================================
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":11,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":11,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":24,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":24,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":25,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":25,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+  Day 7/7: 3358.23ms | Transfers=35 Negotiations=28 Events=25
+
+  SUMMARY:
+    Total time: 18625.28ms (7 days)
+    Average per day: 2660.75ms
+    Max day: 3536.58ms
+    Min day: 1436.83ms
+    State size growth: 41099 bytes (0.04 MB)
+    Initial state size: 43.43 MB
+    Final state size: 43.47 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 2545.27ms total (avg 363.61ms)
+    events: 1103.86ms total (avg 157.69ms)
+    injuries: 732.29ms total (avg 104.61ms)
+    recovery: 717.95ms total (avg 102.56ms)
+    fixtures: 692.58ms total (avg 98.94ms)
+    training: 663.25ms total (avg 94.75ms)
+    finances: 82.13ms total (avg 11.73ms)
+    scouting: 0.92ms total (avg 0.13ms)
+    development: 0.31ms total (avg 0.04ms)
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":11,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":11,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":24,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":24,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":22,"events":21,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":25,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":25,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 30 DAYS TOTAL
+Advancing 23 consecutive days...
+====================================================================================================
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":28,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":28,"events":28,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":41,"events":66,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":41,"events":66,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":50,"events":34,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":51,"events":38,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":51,"events":38,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":56,"events":49,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":56,"events":49,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":68,"events":52,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":68,"events":52,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4144,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4144,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+  Day 10/23: 7280.76ms | Transfers=36 Negotiations=77 Events=4166
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":83,"events":4172,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":84,"events":4175,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":84,"events":4175,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":84,"events":4177,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":84,"events":4177,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":96,"events":4192,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":96,"events":4192,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":104,"events":33,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":104,"events":33,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":36,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":36,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":36,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":36,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":116,"events":63,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":116,"events":63,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+  Day 20/23: 3202.72ms | Transfers=37 Negotiations=116 Events=64
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":117,"events":68,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":117,"events":68,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":117,"events":71,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":117,"events":71,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":130,"events":99,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":130,"events":99,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+  Day 23/23: 3227.46ms | Transfers=37 Negotiations=130 Events=20
+
+  SUMMARY:
+    Total time: 76653.18ms (23 days)
+    Average per day: 3332.75ms
+    Max day: 7280.76ms
+    Min day: 2274.07ms
+    State size growth: 1091280 bytes (1.04 MB)
+    Initial state size: 43.47 MB
+    Final state size: 44.51 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 17158.24ms total (avg 746.01ms)
+    events: 3859.34ms total (avg 167.80ms)
+    fixtures: 3461.64ms total (avg 150.51ms)
+    development: 3320.42ms total (avg 144.37ms)
+    training: 2413.27ms total (avg 104.92ms)
+    recovery: 2409.40ms total (avg 104.76ms)
+    injuries: 2393.97ms total (avg 104.09ms)
+    finances: 274.94ms total (avg 11.95ms)
+    scouting: 1.77ms total (avg 0.08ms)
+
+Attempting to load realistic career from localStorage...
+  (No realistic career available in test environment)
+
+====================================================================================================
+MEASUREMENT RESULTS - CSV DATA
+====================================================================================================
+
+## FRESH-7
+
+Date,Day,Season,Week,TotalMs,Clubs,Players,Transfers,Negotiations,Events,News,Fixtures,Inbox,Contracts,CareerHistory,fixturesMs,trainingMs,recoveryMs,injuriesMs,developmentMs,aiMs,scoutingMs,financesMs,eventsMs,newsMs
+2026-11-12,104,2026/27,15,1436.83,1737,41521,35,22,23,2,108,22,18,1,40.28,46.32,40.75,49.20,0.12,418.87,0.55,3.55,143.20,0.00
+2026-11-13,105,2026/27,15,3536.58,1737,41521,35,22,20,2,108,22,18,1,127.55,111.81,109.46,118.28,0.04,933.02,0.09,76.62,215.76,0.00
+2026-11-14,106,2026/27,16,2951.12,1737,41521,35,22,21,2,108,22,18,1,130.84,106.05,123.81,123.81,0.02,266.55,0.06,0.06,123.83,0.00
+2026-11-15,107,2026/27,16,2464.99,1737,41521,35,22,21,2,108,22,18,1,102.56,92.74,98.57,92.09,0.03,15.58,0.06,1.66,148.33,0.00
+2026-11-16,108,2026/27,16,2492.41,1737,41521,35,22,21,2,108,22,18,1,101.47,105.87,122.11,124.26,0.03,2.87,0.06,0.06,213.81,0.00
+2026-11-17,109,2026/27,16,2385.14,1737,41521,35,22,21,2,108,22,18,1,86.94,101.59,102.86,113.37,0.04,5.83,0.05,0.07,134.42,0.00
+2026-11-18,110,2026/27,16,3358.23,1737,41521,35,28,25,2,108,23,18,1,102.94,98.86,120.38,111.27,0.03,902.54,0.05,0.12,124.51,0.00
+
+
+## FRESH-30
+
+Date,Day,Season,Week,TotalMs,Clubs,Players,Transfers,Negotiations,Events,News,Fixtures,Inbox,Contracts,CareerHistory,fixturesMs,trainingMs,recoveryMs,injuriesMs,developmentMs,aiMs,scoutingMs,financesMs,eventsMs,newsMs
+2026-11-19,111,2026/27,16,3513.50,1737,41521,35,40,62,2,108,57,18,1,106.59,101.87,101.04,102.50,0.02,973.26,0.16,0.05,317.18,0.00
+2026-11-20,112,2026/27,16,3575.67,1737,41521,35,41,20,2,108,57,18,1,109.00,103.55,93.20,139.21,0.01,1067.05,0.07,72.30,126.79,0.00
+2026-11-21,113,2026/27,17,3729.52,1737,41521,36,50,34,2,108,64,18,1,551.64,113.17,114.25,105.89,0.02,931.52,0.07,0.05,106.49,0.00
+2026-11-22,114,2026/27,17,3178.87,1737,41521,36,50,34,2,108,64,18,1,115.68,126.82,104.04,105.41,0.07,672.36,0.06,0.06,204.23,0.00
+2026-11-23,115,2026/27,17,2409.52,1737,41521,36,50,34,2,108,64,18,1,122.67,137.26,106.14,129.99,0.02,4.33,0.05,0.06,116.25,0.00
+2026-11-24,116,2026/27,17,2274.07,1737,41521,36,50,34,2,108,64,18,1,101.78,111.66,119.88,147.13,0.01,2.63,0.26,0.06,115.98,0.00
+2026-11-25,117,2026/27,17,3113.55,1737,41521,36,51,44,2,108,64,18,1,76.49,73.12,103.02,107.50,0.01,875.92,0.08,0.04,172.60,0.00
+2026-11-26,118,2026/27,17,3178.95,1737,41521,36,68,49,2,108,64,18,1,101.05,89.99,92.96,70.68,0.01,995.32,0.06,0.23,222.87,0.00
+2026-11-27,119,2026/27,17,3293.55,1737,41521,36,68,20,2,108,64,18,1,108.42,101.52,105.71,99.50,0.03,974.30,0.14,68.54,102.63,0.00
+2026-11-28,120,2026/27,18,7280.76,1737,41521,36,77,4166,226,108,98,18,1,462.88,160.12,108.43,103.08,3319.94,984.01,0.07,0.05,219.12,0.00
+2026-11-29,121,2026/27,18,3199.44,1737,41521,36,83,4172,226,108,98,18,1,102.44,103.42,121.43,91.70,0.06,877.54,0.06,0.06,133.55,0.00
+2026-11-30,122,2026/27,18,2848.18,1737,41521,36,83,4172,226,108,98,18,1,90.51,94.37,104.82,96.78,0.01,527.85,0.06,0.06,116.10,0.00
+2026-12-01,123,2026/27,18,2473.12,1737,41521,36,83,4172,226,108,98,18,1,97.70,88.08,94.36,105.69,0.02,59.82,0.04,0.05,210.62,0.00
+2026-12-02,124,2026/27,18,3322.00,1737,41521,36,84,4175,226,108,99,18,1,113.29,98.94,95.66,89.90,0.02,949.25,0.05,0.09,136.54,0.00
+2026-12-03,125,2026/27,18,3399.97,1737,41521,36,96,4189,226,108,111,18,1,105.81,98.63,103.06,96.86,0.02,901.97,0.05,0.08,253.56,0.00
+2026-12-04,126,2026/27,18,3414.95,1737,41521,36,96,20,226,108,129,18,1,104.59,98.16,93.85,98.20,0.02,948.48,0.05,57.11,222.87,0.00
+2026-12-05,127,2026/27,19,3634.31,1737,41521,36,104,33,226,108,132,18,1,408.10,92.99,98.66,97.80,0.01,939.71,0.05,0.05,116.58,0.00
+2026-12-06,128,2026/27,19,3270.73,1737,41521,37,104,36,226,108,132,18,1,84.29,107.30,104.31,108.78,0.02,952.89,0.05,0.04,109.70,0.00
+2026-12-07,129,2026/27,19,2384.52,1737,41521,37,104,51,226,108,132,18,1,90.37,99.08,104.31,92.25,0.01,6.15,0.05,0.12,184.05,0.00
+2026-12-08,130,2026/27,19,3202.72,1737,41521,37,116,64,226,108,133,18,1,102.91,104.38,99.15,106.08,0.02,939.94,0.05,0.05,121.69,0.00
+2026-12-09,131,2026/27,19,3370.55,1737,41521,37,117,68,226,108,134,18,1,119.21,109.88,115.77,106.52,0.03,912.93,0.13,0.11,138.76,0.00
+2026-12-10,132,2026/27,19,3357.26,1737,41521,37,129,96,226,108,159,18,1,88.54,94.00,121.29,101.49,0.02,825.09,0.05,0.05,297.43,0.00
+2026-12-11,133,2026/27,19,3227.46,1737,41521,37,130,20,226,108,159,18,1,97.69,104.96,104.05,91.04,0.01,835.93,0.08,75.64,113.74,0.00
+
+Γ£ô Wrote outputs/baseline-fresh-7.csv
+Γ£ô Wrote outputs/baseline-fresh-30.csv

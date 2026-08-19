@@ -1,0 +1,347 @@
+
+C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\scripts\canonical-simulation-audit.ts
+   76:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   82:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   85:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   88:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   91:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   98:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  102:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  106:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  124:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  126:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  135:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  165:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  187:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  209:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  248:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  258:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  259:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  263:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  269:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  275:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  277:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  278:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  279:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  280:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  281:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  294:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  331:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  331:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  336:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  336:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  341:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  343:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\scripts\final-d2.1-regression.ts
+   1:52   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   2:47   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   3:9    error  Replace `┬╖collectCanonicalSimulationReport,┬╖type┬╖SimulationReport┬╖}┬╖from┬╖"./canonical-simulation-audit";ΓÉì` with `ΓÅÄ┬╖┬╖collectCanonicalSimulationReport,ΓÅÄ┬╖┬╖type┬╖SimulationReport,ΓÅÄ}┬╖from┬╖"./canonical-simulation-audit";`  prettier/prettier
+   4:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   5:39   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   6:35   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   7:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   8:25   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+   9:17   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  10:16   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  11:21   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  12:28   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  13:20   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  14:2    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  15:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  16:62   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  17:35   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  18:64   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  19:47   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  20:31   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  21:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  22:70   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  23:66   error  Replace `┬╖checks.push("fixtures-or-matches");ΓÉì` with `ΓÅÄ┬╖┬╖┬╖┬╖checks.push("fixtures-or-matches");`                                                                                                                         prettier/prettier
+  24:92   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  25:98   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  26:77   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  27:79   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  28:83   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  29:84   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  30:79   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  31:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  32:53   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  33:2    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  34:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  35:18   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  36:36   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  37:31   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  38:32   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  39:43   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  40:26   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  41:19   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  42:79   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  43:98   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  44:90   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  45:95   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  46:94   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  47:98   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  48:101  error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  49:9    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  50:6    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  51:4    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  52:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  53:88   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  54:41   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  55:24   error  Replace `┬╖JSON.stringify(oneYearSeed0.report)┬╖===┬╖JSON.stringify(oneYearRepeat.report);ΓÉì` with `ΓÅÄ┬╖┬╖┬╖┬╖JSON.stringify(oneYearSeed0.report)┬╖===┬╖JSON.stringify(oneYearRepeat.report);`                                     prettier/prettier
+  56:81   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  57:32   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  58:56   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  59:78   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  60:72   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  61:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  62:75   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  63:19   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  64:43   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  65:23   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  66:23   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  67:19   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  68:27   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  69:46   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  70:11   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  71:5    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  72:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  73:45   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  74:88   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  75:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  76:80   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  77:88   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  78:60   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  79:15   error  Replace `"Invariant┬╖counts┬╖are┬╖reported┬╖per┬╖run;┬╖non-zero┬╖counts┬╖require┬╖review┬╖and┬╖are┬╖not┬╖hidden.");ΓÉì` with `ΓÅÄ┬╖┬╖┬╖┬╖"Invariant┬╖counts┬╖are┬╖reported┬╖per┬╖run;┬╖non-zero┬╖counts┬╖require┬╖review┬╖and┬╖are┬╖not┬╖hidden.",ΓÅÄ┬╖┬╖);`  prettier/prettier
+  80:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  81:79   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  82:26   error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  83:4    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  84:2    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  85:1    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+  86:8    error  Delete `ΓÉì`                                                                                                                                                                                                              prettier/prettier
+
+C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\src\state\final-d2.1-regression.test.ts
+    1:47   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    2:58   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    3:44   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    4:45   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    5:77   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    6:51   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    7:53   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    8:61   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+    9:18   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   10:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   11:31   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   12:17   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   13:21   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   14:26   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   15:34   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   16:29   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   17:27   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   18:2    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   19:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   20:47   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   21:41   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   22:11   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   23:14   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   24:92   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   25:12   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   26:29   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   27:64   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   28:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   29:5    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   30:2    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   31:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   32:74   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   33:53   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   34:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   35:5    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   36:28   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   37:28   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   38:11   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   39:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   40:67   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   41:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   42:25   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   43:25   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   44:24   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   45:32   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   46:17   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   47:16   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   48:25   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   49:18   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   50:5    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   51:2    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   52:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   53:82   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   54:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   55:46   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   56:52   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   57:50   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   58:64   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   59:56   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   60:35   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   61:42   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   62:47   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   63:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   64:11   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   65:11   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   66:15   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   67:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   68:47   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   69:60   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   70:21   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   71:55   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   72:61   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   73:75   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   74:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   75:5    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   76:2    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   77:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   78:57   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   79:72   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   80:58   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   81:50   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   82:83   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   83:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   84:60   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   85:59   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   86:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   87:58   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   88:44   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   89:64   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   90:57   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   91:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   92:55   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   93:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   94:12   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   95:36   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   96:71   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   97:75   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   98:55   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+   99:18   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  100:92   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  101:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  102:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  103:126  error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  104:54   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  105:58   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  106:76   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  107:45   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  108:90   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  109:31   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  110:18   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  111:48   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  112:19   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  113:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  114:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  115:44   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  116:93   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  117:81   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  118:95   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  119:52   error  Replace `ΓÉìΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖|┬╖{┬╖lastProcessedClubIds?:┬╖string[]┬╖}ΓÉìΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖|┬╖undefined;ΓÉì` with `┬╖{┬╖lastProcessedClubIds?:┬╖string[]┬╖}┬╖|┬╖undefined;`  prettier/prettier
+  122:86   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  123:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  124:51   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  125:34   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  126:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  127:73   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  128:67   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  129:69   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  130:71   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  131:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  132:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  133:119  error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  134:82   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  135:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  136:51   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  137:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  138:90   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  139:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  140:37   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  141:77   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  142:24   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  143:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  144:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  145:34   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  146:39   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  147:74   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  148:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  149:90   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  150:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  151:48   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  152:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  153:45   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  154:80   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  155:9    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  156:27   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  157:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  158:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  159:71   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  160:36   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  161:60   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  162:58   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  163:63   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  164:73   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  165:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  166:64   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  167:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  168:79   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  169:60   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  170:20   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  171:24   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  172:29   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  173:27   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  174:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  175:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  176:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  177:98   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  178:45   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  179:40   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  180:16   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  181:56   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  182:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  183:59   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  184:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  185:43   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  186:16   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  187:56   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  188:8    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  189:98   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  190:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  191:41   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  192:41   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  193:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  194:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  195:52   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  196:77   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  197:77   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  198:86   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  199:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  200:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  201:108  error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  202:54   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  203:97   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  204:33   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  205:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  206:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  207:12   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  208:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  209:34   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  210:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  211:66   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  212:12   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  213:7    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  214:1    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  215:57   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  216:52   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  217:55   error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  218:6    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+  219:4    error  Delete `ΓÉì`                                                                                                                             prettier/prettier
+
+Γ£û 337 problems (337 errors, 0 warnings)
+  303 errors and 0 warnings potentially fixable with the `--fix` option.
+

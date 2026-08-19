@@ -1,0 +1,39 @@
+{
+  "years": 1,
+  "seasonsCompleted": 1,
+  "worldDate": "2027-08-01",
+  "worldSeason": "2027/28",
+  "fixturesScheduled": 1496,
+  "matchesPlayed": 1496,
+  "goals": 3390,
+  "completedTransfers": 0,
+  "promotions": 96,
+  "relegations": 96,
+  "retirements": 0,
+  "youthGenerated": 0,
+  "managerChanges": 0,
+  "averagePlayerAge": 25.24,
+  "averageOverall": 75.88,
+  "averagePotential": 82.56,
+  "averageClubBalance": 26272511.60240964,
+  "leagueStrength": 50.730923694779115,
+  "perSeason": [
+    {
+      "seasonIndex": 1,
+      "seasonLabel": "2026/27",
+      "worldDate": "2026-11-11",
+      "fixturesScheduled": 1496,
+      "fixturesPlayed": 1496,
+      "goals": 3390,
+      "completedTransfers": 0,
+      "transferAttempts": 0,
+      "promotions": 96,
+      "relegations": 96,
+      "managerChanges": 0,
+      "retirements": 0,
+      "youthGenerated": 0,
+      "uniquePromotedClubs": 96,
+      "uniqueRelegatedClubs": 96
+    }
+  ]
+}

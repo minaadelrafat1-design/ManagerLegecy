@@ -1,0 +1,33 @@
+Phase 4.0B Diagnostic Report
+Date: 2026-08-12
+
+Summary of actions performed:
+- Ran focused fixture generation + engine simulation: generation and engine application verified.
+- Ran quick season + promotion validation: promotion/relegation application produces moves.
+- Ran transfer accept flow: negotiation/accept moves roster and records events.
+- Ran 30x quick-season simulation (fast path) to collect multi-season summaries.
+
+Key findings:
+- Fixture generation: `generateLeagueFixtures` creates full round-robin fixtures (validated: 480 generated in sample run).
+- Fixture execution: simulating scheduled fixtures via the engine and applying results (`simulateAiFixtureViaEngine` + `applyAiFixtureResults`) transitions fixtures from `scheduled` → `played` and appends `matches`/`events`.
+- Promotion/relegation: `applyPromotionRelegation` computes moves using `computeLeagueTable` and updates `clubs`/`events` accordingly (validated: 16 moves in one test run).
+- Transfer pipeline: `createNegotiationSession` + `acceptTransferSession` → `applyAcceptedTransfer` correctly moves a player between clubs and records a transfer event. AI ledger updates are exercised in negotiation session acceptance paths.
+- Multi-season quick-run behavior: `simulateSeasonQuick` is intentionally lightweight and does NOT simulate matches (matches remain 0); it does run transfer window (limited) and promotion/relegation logic. This explains why quick harness summaries show few/zero matches — the fast path skips match simulation by design.
+
+Root causes & explanations for earlier anomalies:
+- "Only 39 matches in 30 years" is consistent with using the fast/quick simulation mode which intentionally skips full match simulation. For full match counts, the engine path must be invoked (e.g., simulateSeason or daily tick with `simulateAiFixtureViaEngine`).
+- "Promotions without relegations" can occur if world configuration or `meta.leagueHierarchy` is missing or if `applyPromotionRelegation` falls back to legacy mapping; validated that with world config present, promotions and relegations are paired.
+- "Zero transfers" in fast runs: quick mode runs a minimal transfer window; the AI daily tick (full path) and calendar hooks must be registered and executed (ensure harness imports `src/state/store` or modules that register `registerDailyHook`) to exercise live transfer activity.
+
+Files added (tests & diagnostics):
+- `scripts/validate-fixtures.ts` — generates fixtures and simulates them via engine.
+- `scripts/validate-promotion.ts` — runs a quick season and applies promotion/relegation.
+- `scripts/validate-transfers.ts` — lists a player, creates a negotiation session, accepts transfer, asserts roster+event changes.
+- `scripts/multi-season-run.ts` — runs `simulateSeasonQuick` N years and outputs per-season summary JSON.
+
+Recommended next steps (implementation options):
+1) For full 30-year deterministic validation, run the full harness that ensures startup-side effects are registered (import `src/state/store`) and uses `advanceGameDays` / `runWorldTick` so daily hooks (fixtures, transfers, match application) run.
+2) If fast-mode is needed for speed, add a deterministic engine-run option inside `simulateSeasonQuick` to optionally call `simulateAiFixtureViaEngine` on scheduled fixtures before applying promotion/relegation.
+3) Add CI tests wrapping the above validation scripts to detect regressions in future changes.
+
+Contact me with which of the recommended next steps you want me to implement now.

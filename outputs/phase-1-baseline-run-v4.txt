@@ -1,0 +1,61 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 7 DAYS
+Advancing 7 consecutive days...
+====================================================================================================
+  Day 7/7: 983.11ms | Transfers=35 Negotiations=28 Events=25
+
+  SUMMARY:
+    Total time: 6145.80ms (7 days)
+    Average per day: 877.97ms
+    Max day: 1161.16ms
+    Min day: 705.08ms
+    State size growth: 41099 bytes (0.04 MB)
+    Initial state size: 43.43 MB
+    Final state size: 43.47 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 1010.69ms total (avg 144.38ms)
+    events: 377.09ms total (avg 53.87ms)
+    injuries: 216.91ms total (avg 30.99ms)
+    training: 215.52ms total (avg 30.79ms)
+    recovery: 209.97ms total (avg 30.00ms)
+    fixtures: 206.02ms total (avg 29.43ms)
+    finances: 28.51ms total (avg 4.07ms)
+    scouting: 0.82ms total (avg 0.12ms)
+    development: 0.44ms total (avg 0.06ms)
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 30 DAYS TOTAL
+Advancing 23 consecutive days...
+====================================================================================================
+  Day 10/23: 3276.29ms | Transfers=36 Negotiations=77 Events=4166
+  Day 20/23: 930.46ms | Transfers=37 Negotiations=116 Events=64
+  Day 23/23: 974.71ms | Transfers=37 Negotiations=130 Events=20
+
+  SUMMARY:
+    Total time: 24013.54ms (23 days)
+    Average per day: 1044.07ms
+    Max day: 3276.29ms
+    Min day: 713.18ms
+    State size growth: 1091280 bytes (1.04 MB)
+    Initial state size: 43.47 MB
+    Final state size: 44.51 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 4850.11ms total (avg 210.87ms)
+    development: 2127.48ms total (avg 92.50ms)
+    events: 1219.80ms total (avg 53.03ms)
+    fixtures: 1010.92ms total (avg 43.95ms)
+    injuries: 688.35ms total (avg 29.93ms)
+    training: 678.71ms total (avg 29.51ms)
+    recovery: 648.23ms total (avg 28.18ms)
+    finances: 97.25ms total (avg 4.23ms)
+    scouting: 0.78ms total (avg 0.03ms)
+
+Building mature five-season state with simulateSeasonQuick...
+  Mature setup season 1/5: 2027/28
+  Mature setup season 2/5: 2028/29
+  Mature setup season 3/5: 2029/30

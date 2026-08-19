@@ -1,0 +1,17 @@
+
+<--- Last few GCs --->
+
+[8240:000001F25737A000]   804787 ms: Mark-Compact 4018.9 (4148.1) -> 4018.2 (4147.8) MB, pooled: 0 MB, 3770.61 / 0.00 ms  (average mu = 0.546, current mu = 0.325) allocation failure; scavenge might not succeed
+[8240:000001F25737A000]   808525 ms: Mark-Compact 4716.9 (4846.4) -> 4250.9 (4380.2) MB, pooled: 1 MB, 3264.64 / 0.00 ms  (average mu = 0.400, current mu = 0.127) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF6B9863D9F node::OnFatalError+1343
+ 2: 00007FF6B84ADCB7 v8::Function::NewInstance+423
+ 3: 00007FF6B82AE4F7 uv_udp_get_send_queue_count+54423
+ 4: 00007FF6B82AC196 uv_udp_get_send_queue_count+45366
+ 5: 00007FF6B82C681A X509_STORE_set_cleanup+5098
+ 6: 00007FF6B82D2CB6 uv_timer_set_repeat+20694
+ 7: 00007FF6B7EA3907 v8::CodeEvent::GetFunctionName+131959
+ 8: 000001F21FE775FA 

@@ -1,0 +1,8 @@
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+ Γ¥» src/state/transfer-integration.test.ts (5 tests | 2 failed) 40636ms
+     ├ù transfer window does not create synthetic players 20121ms
+     ├ù transfer window gracefully handles clubs with no players 20013ms
+ Γ¥» src/state/multi-season.test.ts (18 tests | 1 failed) 53378ms
+     ├ù advances 30 days without error 18454ms

@@ -1,0 +1,207 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  TMod,
+  ModPanel,
+  ModSectionHead,
+  ModButton,
+  ModBadge,
+  ModFixtureCard,
+  ModStatRow,
+} from "@/components/ui-modern";
+import { T, Card, SectionHeader, StatusBadge } from "@/components/ui";
+import { ScreenHeader } from "@/components/squad-bits";
+import { useGameState, useCurrentClub } from "@/state/store";
+
+export const Route = createFileRoute("/fixtures-modern")({
+  head: () => ({
+    meta: [
+      { title: "Fixtures — Manager Legacy" },
+      { name: "description", content: "Upcoming and recent matches for your club." },
+      { property: "og:title", content: "Fixtures — Manager Legacy" },
+      { property: "og:description", content: "Upcoming and recent matches for your club." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: FixturesScreen,
+});
+
+function FixturesScreen() {
+  const { state } = useGameState();
+  const currentClub = useCurrentClub();
+  const league = state.leagues[currentClub.leagueId];
+  const clubFixtures = state.fixtures.filter(
+    (f) => f.homeClubId === currentClub.id || f.awayClubId === currentClub.id,
+  );
+  const played = clubFixtures.filter((f) => f.status === "played");
+  const upcoming = clubFixtures.find((f) => f.status === "scheduled");
+  const opponent = upcoming
+    ? state.clubs[
+        upcoming.homeClubId === currentClub.id ? upcoming.awayClubId : upcoming.homeClubId
+      ]
+    : undefined;
+
+  const winCount = played.filter((f) => f.result === "W").length;
+  const drawCount = played.filter((f) => f.result === "D").length;
+  const lossCount = played.filter((f) => f.result === "L").length;
+  const goalsFor = played.reduce((sum, f) => sum + (f.homeClubId === currentClub.id ? f.scoreHome : f.scoreAway), 0);
+  const goalsAgainst = played.reduce((sum, f) => sum + (f.homeClubId === currentClub.id ? f.scoreAway : f.scoreHome), 0);
+
+  return (
+    <div style={{ minHeight: "100vh", background: TMod.bgPrimary, paddingBottom: 40 }}>
+      <ScreenHeader
+        title="Fixtures"
+        subtitle={`Matchday ${league?.matchday ?? "—"} · Season ${league?.season ?? ""}`}
+        backTo="/"
+      />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px" }}>
+        {/* Next Match Section */}
+        {upcoming && opponent ? (
+          <div style={{ marginBottom: 32 }}>
+            <ModSectionHead
+              title="Next Match"
+              subtitle={`Matchday ${upcoming.matchday}`}
+              divider
+            />
+            <ModFixtureCard
+              homeTeam={upcoming.homeClubId === currentClub.id ? currentClub.shortName || currentClub.name : opponent.shortName || opponent.name}
+              awayTeam={upcoming.homeClubId === currentClub.id ? opponent.shortName || opponent.name : currentClub.shortName || currentClub.name}
+              date={upcoming.date}
+              time="TBD"
+              competition={league?.name}
+              isManager
+            />
+          </div>
+        ) : (
+          <div style={{ marginBottom: 32 }}>
+            <ModSectionHead title="Next Match" divider />
+            <ModPanel variant="secondary" padding="24px">
+              <div style={{ textAlign: "center", color: TMod.textSecondary }}>
+                <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>
+                  Season Complete
+                </div>
+                <div style={{ fontSize: 12, color: TMod.textTertiary }}>
+                  All fixtures have been played. Season will progress when you advance the calendar.
+                </div>
+              </div>
+            </ModPanel>
+          </div>
+        )}
+
+        {/* Season Stats */}
+        {played.length > 0 && (
+          <div style={{ marginBottom: 32 }}>
+            <ModSectionHead title="Season Statistics" subtitle={`${played.length} matches played`} divider />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                gap: 12,
+                marginBottom: 24,
+              }}
+            >
+              <ModPanel variant="secondary" padding="16px">
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 11, color: TMod.textTertiary, marginBottom: 8, textTransform: "uppercase", fontWeight: 700 }}>
+                    Wins
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 900,
+                      color: TMod.success,
+                    }}
+                  >
+                    {winCount}
+                  </div>
+                </div>
+              </ModPanel>
+              <ModPanel variant="secondary" padding="16px">
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 11, color: TMod.textTertiary, marginBottom: 8, textTransform: "uppercase", fontWeight: 700 }}>
+                    Draws
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 900,
+                      color: TMod.warning,
+                    }}
+                  >
+                    {drawCount}
+                  </div>
+                </div>
+              </ModPanel>
+              <ModPanel variant="secondary" padding="16px">
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 11, color: TMod.textTertiary, marginBottom: 8, textTransform: "uppercase", fontWeight: 700 }}>
+                    Losses
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 900,
+                      color: TMod.error,
+                    }}
+                  >
+                    {lossCount}
+                  </div>
+                </div>
+              </ModPanel>
+              <ModPanel variant="secondary" padding="16px">
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 11, color: TMod.textTertiary, marginBottom: 8, textTransform: "uppercase", fontWeight: 700 }}>
+                    Goal Diff
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 900,
+                      color: goalsFor - goalsAgainst > 0 ? TMod.accentGreen : goalsFor - goalsAgainst < 0 ? TMod.accentRed : TMod.textSecondary,
+                    }}
+                  >
+                    {goalsFor - goalsAgainst > 0 ? "+" : ""}{goalsFor - goalsAgainst}
+                  </div>
+                  <div style={{ fontSize: 11, color: TMod.textTertiary, marginTop: 4 }}>
+                    {goalsFor}:{goalsAgainst}
+                  </div>
+                </div>
+              </ModPanel>
+            </div>
+          </div>
+        )}
+
+        {/* Recent Matches */}
+        {played.length > 0 && (
+          <div>
+            <ModSectionHead
+              title="Recent Matches"
+              subtitle={`Showing ${played.length} ${played.length === 1 ? "match" : "matches"}`}
+              divider
+            />
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[...played].reverse().slice(0, 10).map((match) => {
+                const isHome = match.homeClubId === currentClub.id;
+                const homeClub = state.clubs[match.homeClubId];
+                const awayClub = state.clubs[match.awayClubId];
+                return (
+                  <ModFixtureCard
+                    key={match.id}
+                    homeTeam={homeClub?.shortName || homeClub?.name || "—"}
+                    awayTeam={awayClub?.shortName || awayClub?.name || "—"}
+                    homeScore={match.scoreHome}
+                    awayScore={match.scoreAway}
+                    date={match.date}
+                    competition={league?.name}
+                    isManager={isHome}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

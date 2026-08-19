@@ -1,0 +1,794 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #040a1e;
+    color: #eaf3ff;
+    font-family: "Chakra Petch", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  ::selection {
+    background: rgba(58, 160, 255, 0.35);
+    color: #eaf3ff;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* ─── Matchday visual foundation ───────────────────────────────────────────
+ * Console-game HUD: deep midnight-blue base, floodlight bloom, faint tech grid.
+ */
+
+html,
+body {
+  background-color: #040a1e;
+}
+
+body {
+  background-image:
+    radial-gradient(120% 75% at 50% -12%, rgba(58, 160, 255, 0.12) 0%, rgba(4, 10, 30, 0) 62%),
+    radial-gradient(90% 60% at 4% 6%, rgba(28, 74, 168, 0.18) 0%, rgba(4, 10, 30, 0) 58%),
+    radial-gradient(80% 55% at 98% 14%, rgba(79, 219, 255, 0.07) 0%, rgba(4, 10, 30, 0) 60%),
+    repeating-linear-gradient(90deg, rgba(120, 190, 255, 0.02) 0 1px, rgba(0, 0, 0, 0) 1px 64px),
+    repeating-linear-gradient(180deg, rgba(120, 190, 255, 0.02) 0 1px, rgba(0, 0, 0, 0) 1px 64px),
+    linear-gradient(180deg, #061029 0%, #040c22 45%, #020610 100%);
+  background-attachment: fixed;
+  letter-spacing: 0.005em;
+}
+
+/* Layered panel surface — used by shared Card/Panel primitives. */
+.ml-panel {
+  position: relative;
+  background-image:
+    linear-gradient(180deg, rgba(120, 190, 255, 0.1) 0%, rgba(120, 190, 255, 0) 46%),
+    linear-gradient(180deg, rgba(12, 33, 74, 0.94) 0%, rgba(6, 16, 40, 0.96) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(150, 210, 255, 0.14),
+    inset 0 0 30px -12px rgba(58, 160, 255, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 16px 38px -24px rgba(0, 0, 0, 0.95);
+  transition:
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    transform 0.24s ease,
+    background-color 0.24s ease;
+}
+
+.ml-panel-raised {
+  background-image:
+    linear-gradient(180deg, rgba(140, 205, 255, 0.14) 0%, rgba(120, 190, 255, 0) 42%),
+    linear-gradient(180deg, rgba(18, 46, 100, 0.96) 0%, rgba(8, 21, 52, 0.97) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(160, 220, 255, 0.2),
+    inset 0 0 40px -14px rgba(79, 219, 255, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 22px 48px -26px rgba(0, 0, 0, 1);
+}
+
+.ml-panel-interactive {
+  cursor: pointer;
+}
+
+.ml-panel-interactive:hover {
+  border-color: rgba(79, 219, 255, 0.55) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(170, 225, 255, 0.22),
+    inset 0 0 40px -12px rgba(79, 219, 255, 0.55),
+    0 0 0 1px rgba(79, 219, 255, 0.12),
+    0 24px 50px -26px rgba(0, 0, 0, 1);
+  transform: translateY(-1px);
+}
+
+.ml-panel-interactive:active {
+  transform: translateY(0);
+}
+
+/* Glass chrome for sticky headers / navigation bars. */
+.ml-glass {
+  background-color: rgba(6, 16, 42, 0.86);
+  background-image: linear-gradient(
+    180deg,
+    rgba(120, 190, 255, 0.1) 0%,
+    rgba(120, 190, 255, 0) 100%
+  );
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow:
+    0 1px 0 rgba(79, 219, 255, 0.18),
+    0 14px 34px -26px rgba(0, 0, 0, 1);
+}
+
+/* Broadcast-style eyebrow label. */
+.ml-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6e8fc0;
+}
+
+.ml-nav-link {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ml-nav-link:hover {
+  color: #eaf3ff !important;
+  border-color: rgba(79, 219, 255, 0.45) !important;
+}
+
+.ml-row {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ml-row:hover {
+  background-color: rgba(58, 160, 255, 0.1);
+}
+
+/* Slim, unobtrusive scrollbars instead of hidden ones. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(88, 164, 255, 0.28);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 219, 255, 0.55);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(79, 219, 255, 0.7);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ml-panel,
+  .ml-panel-interactive,
+  .ml-nav-link,
+  .ml-row {
+    transition: none;
+  }
+}
+
+/* FIFA-style hub tile grid */
+.ml-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+@media (min-width: 700px) {
+  .ml-hub-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.ml-hub-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  max-height: 168px;
+  padding: 14px;
+  border: 1px solid rgba(88, 164, 255, 0.2);
+  background: linear-gradient(160deg, rgba(16, 38, 80, 0.94), rgba(10, 26, 58, 0.9));
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.ml-hub-tile:hover {
+  transform: translateY(-3px);
+  border-color: rgba(79, 219, 255, 0.6);
+  box-shadow: 0 18px 34px -22px rgba(79, 219, 255, 0.9);
+}
+
+/* ─── Realism layer ──────────────────────────────────────────────────────── */
+
+@keyframes ml-ball-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fine broadcast grain + scanline over the whole interface. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0 1px, rgba(0, 0, 0, 0) 1px 3px);
+  background-size:
+    160px 160px,
+    auto;
+  mix-blend-mode: overlay;
+}
+
+/* Panels get a physical bevel: top light catch, bottom shade, inner grain. */
+.ml-panel::after,
+.ml-hub-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 30%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 26%);
+  opacity: 0.9;
+}
+
+.ml-hub-tile {
+  overflow: hidden;
+}
+
+/* Angled floodlight sweep across hub tiles on hover. */
+.ml-hub-tile::before {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 42%,
+    rgba(160, 220, 255, 0.16) 50%,
+    rgba(255, 255, 255, 0) 58%
+  );
+  transform: translateX(-40%);
+  transition: transform 550ms ease;
+}
+
+.ml-hub-tile:hover::before {
+  transform: translateX(40%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ml-hub-tile::before {
+    transition: none;
+  }
+}
+
+/* ─── Mobile polish ─────────────────────────────────────────────────────── */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Safe-area breathing room for gesture bars / notched phones. */
+.ml-screen-pad-bottom {
+  padding-bottom: calc(44px + env(safe-area-inset-bottom));
+}
+
+/* Tiles: shorter and denser on phones, square on larger screens. */
+@media (max-width: 699px) {
+  .ml-hub-tile {
+    aspect-ratio: auto;
+    min-height: 96px;
+    max-height: none;
+    padding: 11px 12px 12px;
+  }
+}
+
+/* Touch devices get press feedback instead of hover lift. */
+@media (hover: none) {
+  .ml-hub-tile:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(88, 164, 255, 0.2);
+  }
+  .ml-hub-tile:active {
+    transform: scale(0.975);
+    border-color: rgba(79, 219, 255, 0.55);
+  }
+}
+
+/* Pitch name pills shrink on narrow screens so neighbours never overlap. */
+@media (max-width: 479px) {
+  .ml-pitch-name {
+    max-width: 70px !important;
+    padding: 1px 5px !important;
+    gap: 3px !important;
+  }
+  /* Hide the shirt number + form arrow so the surname stays readable. */
+  .ml-pitch-name > span:first-child,
+  .ml-pitch-name > span:last-child {
+    display: none !important;
+  }
+  .ml-pitch-name > span {
+    font-size: 9.5px !important;
+  }
+}
+
+/* Reduce the broadcast grain on small screens (keeps text crisp). */
+@media (max-width: 479px) {
+  body::after {
+    opacity: 0.3;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+ * AAA PRESENTATION LAYER
+ * Cinematic atmosphere, broadcast chrome, staged entrances and physical
+ * material on every panel. Purely presentational — no layout/logic changes.
+ * ════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Ambient stadium atmosphere ─────────────────────────────────────────
+ * Two slow-drifting floodlight cones plus a deep vignette give every screen
+ * depth instead of a flat dark background.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10% -10% -10% -10%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(46% 34% at 18% 0%, rgba(120, 205, 255, 0.13) 0%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(52% 40% at 86% 4%, rgba(47, 224, 138, 0.09) 0%, rgba(0, 0, 0, 0) 72%),
+    radial-gradient(120% 100% at 50% 120%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 60%);
+  animation: ml-ambient 22s ease-in-out infinite alternate;
+}
+
+@keyframes ml-ambient {
+  0% {
+    transform: translate3d(-1.2%, -0.6%, 0) scale(1.02);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(1.4%, 0.8%, 0) scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* Corner vignette so content reads as a lit stage. */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(130% 95% at 50% 42%, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ─── Broadcast typography ──────────────────────────────────────────────── */
+
+body {
+  font-feature-settings:
+    "tnum" 1,
+    "ss01" 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Rajdhani", "Chakra Petch", system-ui, sans-serif;
+}
+
+/* Every number in the HUD aligns on the same grid, like a real scoreboard. */
+.ml-panel,
+.ml-hub-tile,
+.ml-glass {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Staged entrance ────────────────────────────────────────────────────
+ * Panels and tiles rise into place in sequence on route change, the way
+ * console menus assemble themselves.
+ */
+@keyframes ml-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ml-sweep-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    letter-spacing: 0.18em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ml-panel,
+.ml-hub-tile {
+  animation: ml-rise 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ml-hub-tile:nth-child(1) {
+  animation-delay: 20ms;
+}
+.ml-hub-tile:nth-child(2) {
+  animation-delay: 55ms;
+}
+.ml-hub-tile:nth-child(3) {
+  animation-delay: 90ms;
+}
+.ml-hub-tile:nth-child(4) {
+  animation-delay: 125ms;
+}
+.ml-hub-tile:nth-child(5) {
+  animation-delay: 160ms;
+}
+.ml-hub-tile:nth-child(6) {
+  animation-delay: 195ms;
+}
+.ml-hub-tile:nth-child(7) {
+  animation-delay: 230ms;
+}
+.ml-hub-tile:nth-child(8) {
+  animation-delay: 265ms;
+}
+
+header {
+  animation: ml-sweep-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Screen headers get a live floodlight rule ─────────────────────────── */
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(79, 219, 255, 0) 0%,
+    rgba(79, 219, 255, 0.75) 22%,
+    rgba(47, 224, 138, 0.65) 52%,
+    rgba(79, 219, 255, 0) 100%
+  );
+  background-size: 220% 100%;
+  animation: ml-rule-drift 7s ease-in-out infinite alternate;
+}
+
+@keyframes ml-rule-drift {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/* ─── Panel material: bevel, edge light, hairline top highlight ─────────── */
+.ml-panel {
+  border-radius: 12px;
+  isolation: isolate;
+}
+
+.ml-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(150, 215, 255, 0.1) 0%, rgba(150, 215, 255, 0) 34%);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+/* ─── Hub tiles: hardware-panel geometry ────────────────────────────────
+ * Clipped corner, engraved corner bracket, deeper inner light, and a
+ * crisper press response.
+ */
+.ml-hub-tile {
+  border-radius: 12px;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+  background-image:
+    radial-gradient(120% 80% at 50% -20%, rgba(120, 205, 255, 0.16) 0%, rgba(0, 0, 0, 0) 62%),
+    linear-gradient(160deg, rgba(16, 38, 80, 0.96), rgba(8, 20, 46, 0.94));
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease,
+    box-shadow 240ms ease,
+    filter 180ms ease;
+}
+
+.ml-hub-tile:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow:
+    0 0 0 1px rgba(79, 219, 255, 0.22),
+    0 26px 46px -26px rgba(79, 219, 255, 0.85),
+    inset 0 0 44px -16px rgba(79, 219, 255, 0.5);
+  filter: saturate(1.08);
+}
+
+.ml-hub-tile:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* ─── Row hover reads as a highlighted scoreboard line ──────────────────── */
+.ml-row {
+  position: relative;
+}
+
+.ml-row:hover {
+  background-image: linear-gradient(90deg, rgba(79, 219, 255, 0.14) 0%, rgba(79, 219, 255, 0) 70%);
+}
+
+/* ─── Sticky chrome sits above the atmosphere ───────────────────────────── */
+.ml-glass {
+  position: relative;
+  z-index: 30;
+}
+
+.ml-glass::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(47, 224, 138, 0) 0%,
+    rgba(47, 224, 138, 0.55) 30%,
+    rgba(79, 219, 255, 0.75) 60%,
+    rgba(79, 219, 255, 0) 100%
+  );
+  opacity: 0.8;
+}
+
+/* Content layers stay above the ambient wash. */
+#root,
+body > div {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  header,
+  header::after,
+  .ml-panel,
+  .ml-hub-tile {
+    animation: none !important;
+  }
+}
+
+/* Accessibility & UI primitives: focus rings, buttons, skeletons, empty states */
+.ml-accessible-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 190, 255, 0.12);
+  background: linear-gradient(180deg, rgba(24, 50, 90, 0.9), rgba(8, 18, 40, 0.8));
+  color: var(--color-foreground, #eaf3ff);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.ml-accessible-btn:active { transform: translateY(0); }
+.ml-accessible-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(79,219,255,0.16), 0 0 0 1px rgba(79,219,255,0.6); }
+.ml-btn-primary { background: linear-gradient(180deg, rgba(79,219,255,0.14), rgba(12,34,68,0.95)); border-color: rgba(79,219,255,0.3); }
+.ml-btn-secondary { background: linear-gradient(180deg, rgba(120,190,255,0.06), rgba(8,16,36,0.9)); border-color: rgba(120,190,255,0.12); }
+
+.ml-skeleton {
+  display: inline-block;
+  background: linear-gradient(90deg, rgba(20,36,60,0.9), rgba(36,66,110,0.85), rgba(20,36,60,0.9));
+  border-radius: 6px;
+  opacity: 0.9;
+  animation: pulse 1200ms ease-in-out infinite;
+}
+
+.ml-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  color: var(--muted-foreground, #9fb8db);
+  border: 1px dashed rgba(120,190,255,0.06);
+}
+
+.ml-empty-state h3 { color: var(--color-foreground); font-size: 16px; margin-bottom: 6px; }
+.ml-empty-action { margin-top: 8px; }
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+No test files found, exiting with code 1
+
+filter: fixture-maintenance.ts
+include: src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}
+exclude:  **/node_modules/**, **/.git/**
+

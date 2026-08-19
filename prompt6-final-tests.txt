@@ -1,0 +1,100 @@
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖stdout | src/state/final-d2.1-regression.test.ts > Prompt 6 final D2.1 regression suite > runs the canonical end-to-end day pipeline through fixture, consequence, scheduler, action, event, and memory
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":12,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":10,"events":12,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+
+┬╖stdout | src/state/final-d2.1-regression.test.ts > Prompt 6 final D2.1 regression suite > collects observable performance metrics for normal, heavy, transfer-window, and season-transition days
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":8,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":8,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2027-01-11 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":12,"events":14,"date":"2027-01-11","day":164,"windowIsOpen":true,"windowName":"Winter","mod":0}
+[ADVANCE_DAY] [DATE] 2027-08-01 [START] ai-transfers-event {"clubs":1737,"players":42385,"transfers":35,"negotiations":12,"events":5580,"date":"2027-08-01","day":366,"windowIsOpen":true,"windowName":"Summer","mod":0}
+
+stdout | src/state/final-d2.1-regression.test.ts > Prompt 6 final D2.1 regression suite > keeps scheduler work cadence-limited and metadata bounded at representative scale
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":17,"events":18,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":29,"events":31,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":29,"events":31,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":29,"events":32,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":29,"events":32,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":59,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":59,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":21,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":21,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":21,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":43,"events":21,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":48,"events":31,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":48,"events":31,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":35,"negotiations":48,"events":31,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":35,"negotiations":48,"events":31,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":60,"events":40,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":60,"events":40,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":60,"events":40,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":60,"events":40,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":72,"events":40,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":72,"events":40,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":72,"events":4136,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":72,"events":4136,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4156,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4156,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4157,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4157,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4157,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":36,"negotiations":77,"events":4157,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":89,"events":4176,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":89,"events":4176,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":89,"events":4177,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":89,"events":4177,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":4194,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":104,"events":4194,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":110,"events":26,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":115,"events":37,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":115,"events":37,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":127,"events":51,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":127,"events":51,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":127,"events":52,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":127,"events":52,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] ai-transfers-event {"clubs":1737,"players":41521,"transfers":37,"negotiations":151,"events":101,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":1737,"players":41521,"transfers":37,"negotiations":151,"events":101,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+
+x┬╖┬╖
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 1 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/state/final-d2.1-regression.test.ts > Prompt 6 final D2.1 regression suite > collects observable performance metrics for normal, heavy, transfer-window, and season-transition days
+Error: Test timed out in 60000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/state/final-d2.1-regression.test.ts:131:3
+    129|   });
+    130|
+    131|   it("collects observable performance metrics for normal, heavy, transΓÇª
+       |   ^
+    132|     const normal = measureAdvanceDay(quietState("prompt6-normal"), "noΓÇª
+    133|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/1]ΓÄ»
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 11 passed (12)
+   Start at  17:12:37
+   Duration  130.04s (transform 2.09s, setup 0ms, import 6.13s, tests 124.53s, environment 2.57s)
+

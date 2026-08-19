@@ -1,0 +1,363 @@
+
+====================================================================================================
+ADVANCE DAY PERFORMANCE PROFILE - 30 Day Test
+====================================================================================================
+
+Initial state:
+  Date: 2026-11-11
+  Clubs: 6
+  Players: 18
+
+[ADVANCE_DAY] [DATE] 2026-11-11 [START] advanceGameStateOneDay day=103 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-12","day":104,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] hook:events[0] elapsedMs=1.22 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] hook-group:events elapsedMs=1.49 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [END] advanceGameStateOneDay elapsedMs=2.23 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-12 [START] advanceGameStateOneDay day=104 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-13","day":105,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] hook:events[0] elapsedMs=0.13 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] hook-group:events elapsedMs=0.18 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [END] advanceGameStateOneDay elapsedMs=0.37 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-13 [START] advanceGameStateOneDay day=105 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-14","day":106,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] hook:events[0] elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] hook-group:events elapsedMs=0.12 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] weekly-finance day=106 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] weekly-finance elapsedMs=1.73 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-14 [END] advanceGameStateOneDay elapsedMs=2.06 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day  3: ΓÜá    2.11ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-14 [START] advanceGameStateOneDay day=106 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-15","day":107,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] hook:events[0] elapsedMs=0.15 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] hook-group:events elapsedMs=0.19 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [END] advanceGameStateOneDay elapsedMs=0.27 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-15 [START] advanceGameStateOneDay day=107 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-16","day":108,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] hook:events[0] elapsedMs=0.33 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] hook-group:events elapsedMs=0.39 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-16 [END] advanceGameStateOneDay elapsedMs=0.49 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day  5: ΓÜá    0.54ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-16 [START] advanceGameStateOneDay day=108 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-17","day":109,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] hook:events[0] elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] hook-group:events elapsedMs=0.13 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [END] advanceGameStateOneDay elapsedMs=0.23 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-17 [START] advanceGameStateOneDay day=109 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-18","day":110,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] hook-group:events elapsedMs=0.12 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-18 [END] advanceGameStateOneDay elapsedMs=0.23 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day  7: ΓÜá    0.36ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-18 [START] advanceGameStateOneDay day=110 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-19","day":111,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] hook-group:events elapsedMs=0.11 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [END] advanceGameStateOneDay elapsedMs=0.21 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-19 [START] advanceGameStateOneDay day=111 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-20","day":112,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] hook-group:events elapsedMs=0.11 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [END] advanceGameStateOneDay elapsedMs=0.19 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-20 [START] advanceGameStateOneDay day=112 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-21","day":113,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] hook:events[0] elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] hook-group:events elapsedMs=0.13 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] weekly-finance day=113 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] weekly-finance elapsedMs=0.17 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-21 [END] advanceGameStateOneDay elapsedMs=0.43 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 10: ΓÜá    0.48ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-21 [START] advanceGameStateOneDay day=113 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-22","day":114,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] hook-group:events elapsedMs=0.11 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [END] advanceGameStateOneDay elapsedMs=0.20 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-22 [START] advanceGameStateOneDay day=114 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-23","day":115,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [END] advanceGameStateOneDay elapsedMs=0.17 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-23 [START] advanceGameStateOneDay day=115 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-24","day":116,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] hook:events[0] elapsedMs=0.06 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] hook-group:events elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [END] advanceGameStateOneDay elapsedMs=0.16 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-24 [START] advanceGameStateOneDay day=116 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-25","day":117,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-25 [END] advanceGameStateOneDay elapsedMs=0.17 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 14: ΓÜá    0.31ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-25 [START] advanceGameStateOneDay day=117 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-26","day":118,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] hook:events[0] elapsedMs=0.13 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] hook-group:events elapsedMs=0.18 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-26 [END] advanceGameStateOneDay elapsedMs=0.63 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 15: ΓÜá    0.67ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-26 [START] advanceGameStateOneDay day=118 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-27","day":119,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [END] advanceGameStateOneDay elapsedMs=0.18 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-27 [START] advanceGameStateOneDay day=119 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-28","day":120,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] weekly-finance day=120 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] weekly-finance elapsedMs=0.15 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-28 [END] advanceGameStateOneDay elapsedMs=0.37 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 17: ΓÜá    0.40ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-11-28 [START] advanceGameStateOneDay day=120 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-29","day":121,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [END] advanceGameStateOneDay elapsedMs=0.17 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-29 [START] advanceGameStateOneDay day=121 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-11-30","day":122,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] hook:events[0] elapsedMs=0.08 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] hook-group:events elapsedMs=0.11 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [END] advanceGameStateOneDay elapsedMs=0.18 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-11-30 [START] advanceGameStateOneDay day=122 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-01","day":123,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] hook:events[0] elapsedMs=0.06 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] hook-group:events elapsedMs=0.14 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-01 [END] advanceGameStateOneDay elapsedMs=0.22 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 20: ΓÜá    0.25ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-12-01 [START] advanceGameStateOneDay day=123 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-02","day":124,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] hook:events[0] elapsedMs=0.06 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] hook-group:events elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [END] advanceGameStateOneDay elapsedMs=0.17 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-02 [START] advanceGameStateOneDay day=124 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-03","day":125,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] hook:events[0] elapsedMs=0.24 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] hook-group:events elapsedMs=0.28 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-03 [END] advanceGameStateOneDay elapsedMs=0.35 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 22: ΓÜá    0.69ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-12-03 [START] advanceGameStateOneDay day=125 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-04","day":126,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] hook:events[0] elapsedMs=0.21 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] hook-group:events elapsedMs=0.25 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [END] advanceGameStateOneDay elapsedMs=0.36 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-04 [START] advanceGameStateOneDay day=126 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-05","day":127,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] hook:events[0] elapsedMs=0.36 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] hook-group:events elapsedMs=0.42 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] weekly-finance day=127 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] weekly-finance elapsedMs=0.35 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-05 [END] advanceGameStateOneDay elapsedMs=1.29 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 24: ΓÜá    1.36ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-12-05 [START] advanceGameStateOneDay day=127 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-06","day":128,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] hook:events[0] elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] hook-group:events elapsedMs=0.14 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-06 [END] advanceGameStateOneDay elapsedMs=0.26 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 25:     0.31ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-12-06 [START] advanceGameStateOneDay day=128 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-07","day":129,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] hook:events[0] elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] hook-group:events elapsedMs=0.13 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [END] advanceGameStateOneDay elapsedMs=0.25 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-07 [START] advanceGameStateOneDay day=129 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-08","day":130,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] hook:events[0] elapsedMs=0.11 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] hook-group:events elapsedMs=0.14 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-08 [END] advanceGameStateOneDay elapsedMs=7.25 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 27: ΓÜá    7.30ms | Transfers:  0 | Negotiations:  0 | Events:   0
+[ADVANCE_DAY] [DATE] 2026-12-08 [START] advanceGameStateOneDay day=130 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-09","day":131,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [END] advanceGameStateOneDay elapsedMs=0.19 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-09 [START] advanceGameStateOneDay day=131 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-10","day":132,"windowIsOpen":false,"windowName":null,"mod":0}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] hook:events[0] elapsedMs=0.06 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] hook-group:events elapsedMs=0.09 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [END] advanceGameStateOneDay elapsedMs=0.16 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-10 [START] advanceGameStateOneDay day=132 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] runDailyTick count=10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] hook-group:events hooks=1 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] hook:events[0] metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [START] ai-transfers-event {"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] ai-transfers-event skipped transfer-window-closed metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"date":"2026-12-11","day":133,"windowIsOpen":false,"windowName":null,"mod":1}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] hook:events[0] elapsedMs=0.07 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] hook-group:events elapsedMs=0.10 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] runDailyTick elapsedMs=... metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+[ADVANCE_DAY] [DATE] 2026-12-11 [END] advanceGameStateOneDay elapsedMs=0.22 metrics={"clubs":6,"players":18,"transfers":0,"negotiations":0,"events":0,"news":1,"fixtures":15}
+Day 30: ΓÜá    0.24ms | Transfers:  0 | Negotiations:  0 | Events:   0
+
+----------------------------------------------------------------------------------------------------
+SUMMARY - 30 DAY RUN
+----------------------------------------------------------------------------------------------------
+  Total Time: 23.54ms
+  Average:    0.78ms per day
+  Max:        7.30ms
+  Min:        0.18ms
+  Max Slowdown: 2540.5%
+  Consecutive Slowdowns: 1
+
+----------------------------------------------------------------------------------------------------
+TREND ANALYSIS
+----------------------------------------------------------------------------------------------------
+  Days 1-7:   1.21ms avg
+  Days 8-14:  0.27ms avg (-77.8%)
+  Days 15-21: 0.31ms avg (-74.6%)
+  Days 22-28: 1.52ms avg (26.4%)
+
+----------------------------------------------------------------------------------------------------
+FINAL STATE
+----------------------------------------------------------------------------------------------------
+  Date: 2026-12-11
+  Transfers: 0
+  Negotiations: 0
+  Events: 0
+  News: 1
+
+----------------------------------------------------------------------------------------------------
+PERFORMANCE RATING: Γ£ô EXCELLENT (< 5ms avg)
+====================================================================================================
+

@@ -1,0 +1,8 @@
+10 seasons seed 0: 87451.1ms | fixtures=0 matches=0 goals=0 transfers=356 promotions=1920 relegations=1920 retirements=1543 youth=3066 managers=2327 players=18474 aiMemory=0 invariants=0
+10 seasons seed 1: 90038.1ms | fixtures=0 matches=0 goals=0 transfers=383 promotions=1920 relegations=1920 retirements=1543 youth=3066 managers=2327 players=18474 aiMemory=0 invariants=0
+Same-seed reproducibility: NOT RUN
+Different-seed divergence: PASS
+Malformed cases: 0
+Report: outputs/final-d2.1-regression-10-seed-0-1.json
+World scope: representative
+Invariant counts are reported per run; non-zero counts require review and are not hidden.

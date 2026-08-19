@@ -1,0 +1,1172 @@
+src/components/app-navigation.tsx(214,16): error TS2375: Type '{ children: Element[]; key: NavigationSection; to: string | undefined; style: { display: "flex"; alignItems: "center"; gap: "8px"; padding: string; fontSize: string; ... 9 more ...; flexShrink: number; }; onMouseEnter: (e: MouseEvent<...>) => void; onMouseLeave: (e: MouseEvent<...>) => void; }' is not assignable to type 'OptionalToOptions<RouterCore<Route<Register, any, "/", "/", string, "__root__", undefined, {}, { queryClient: QueryClient; }, AnyContext, AnyContext, ... 6 more ..., undefined>, "never", false, RouterHistory, Record<...>>, string, string | undefined>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'to' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/components/AudioSettingsPanel.tsx(27,48): error TS2339: Property 'bgMid' does not exist on type '{ bg: string; bgSolid: string; ink: string; card: string; cardRaised: string; border: string; borderMid: string; green: string; greenDeep: string; greenDim: string; blue: string; cyan: string; blueDim: string; ... 8 more ...; textMuted: string; }'.
+src/components/AudioSettingsPanel.tsx(65,9): error TS2322: Type '(e: any) => any' is not assignable to type '() => void'.
+  Target signature provides too few arguments. Expected 1 or more, but got 0.
+src/components/AudioSettingsPanel.tsx(65,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/AudioSettingsPanel.tsx(122,31): error TS2339: Property 'bgMid' does not exist on type '{ bg: string; bgSolid: string; ink: string; card: string; cardRaised: string; border: string; borderMid: string; green: string; greenDeep: string; greenDim: string; blue: string; cyan: string; blueDim: string; ... 8 more ...; textMuted: string; }'.
+src/components/design-system.ts(77,3): error TS1117: An object literal cannot have multiple properties with the same name.
+src/components/design-system.ts(106,3): error TS1117: An object literal cannot have multiple properties with the same name.
+src/components/player-profile-modal.tsx(40,36): error TS2339: Property 'pace' does not exist on type 'Player'.
+src/components/player-profile-modal.tsx(41,40): error TS2339: Property 'shooting' does not exist on type 'Player'.
+src/components/player-profile-modal.tsx(42,39): error TS2339: Property 'passing' does not exist on type 'Player'.
+src/components/player-profile-modal.tsx(43,41): error TS2339: Property 'dribbling' does not exist on type 'Player'.
+src/components/player-profile-modal.tsx(44,39): error TS2339: Property 'defence' does not exist on type 'Player'.
+src/components/player-profile-modal.tsx(45,40): error TS2339: Property 'physical' does not exist on type 'Player'.
+src/components/ui-modern.tsx(321,6): error TS2375: Type '{ children: Element; variant: "secondary" | "primary" | "elevated"; padding: string; onClick: (() => void) | undefined; interactive: boolean; style: { cursor: "default" | "pointer"; }; }' is not assignable to type 'PanelProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'onClick' are incompatible.
+    Type '(() => void) | undefined' is not assignable to type '() => void'.
+      Type 'undefined' is not assignable to type '() => void'.
+src/components/ui-modern.tsx(570,20): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/ui-modern.tsx(570,45): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/ui-modern.tsx(570,70): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/ui-modern.tsx(696,6): error TS2375: Type '{ children: Element[]; variant: "secondary" | "elevated"; padding: string; onClick: (() => void) | undefined; interactive: boolean; style: { borderLeft: string; }; }' is not assignable to type 'PanelProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'onClick' are incompatible.
+    Type '(() => void) | undefined' is not assignable to type '() => void'.
+      Type 'undefined' is not assignable to type '() => void'.
+src/lib/ai-match-adapter.ts(600,5): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+src/lib/ai-match-adapter.ts(612,5): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+src/lib/ai-tactics.ts(18,28): error TS2305: Module '"@/data/squad"' has no exported member 'Club'.
+src/lib/ai-tactics.ts(49,47): error TS7006: Parameter 'h' implicitly has an 'any' type.
+src/lib/ai-tactics.ts(49,50): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/lib/ai-tactics.ts(96,52): error TS2339: Property 'reflexes' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/ai-tactics.ts(145,10): error TS2532: Object is possibly 'undefined'.
+src/lib/calendar-utils.ts(128,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/lib/calendar-utils.ts(201,3): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/lib/dynamic-movement.ts(787,15): error TS2484: Export declaration conflicts with exported declaration of 'MovementState'.
+src/lib/dynamic-movement.ts(787,30): error TS2484: Export declaration conflicts with exported declaration of 'MovementActivity'.
+src/lib/dynamic-movement.ts(787,48): error TS2484: Export declaration conflicts with exported declaration of 'MovementConfig'.
+src/lib/dynamic-movement.ts(787,64): error TS2484: Export declaration conflicts with exported declaration of 'MovementResult'.
+src/lib/match-engine.test.ts(99,40): error TS2554: Expected 1 arguments, but got 2.
+src/lib/match-engine.ts(1,42): error TS2305: Module '"@/data/squad"' has no exported member 'Club'.
+src/lib/match-movement-integration.ts(120,5): error TS2322: Type '{ playerId: string; name: string; position: { x: number; y: number; }; movement: MovementState | undefined; lastMovementResult: MovementResult | undefined; activityHistory: { ...; }[]; }[]' is not assignable to type 'MatchMovementState[]'.
+  Type '{ playerId: string; name: string; position: { x: number; y: number; }; movement: MovementState | undefined; lastMovementResult: MovementResult | undefined; activityHistory: { ...; }[]; }' is not assignable to type 'MatchMovementState'.
+    Types of property 'movement' are incompatible.
+      Type 'MovementState | undefined' is not assignable to type 'MovementState'.
+        Type 'undefined' is not assignable to type 'MovementState'.
+src/lib/match-movement-integration.ts(129,54): error TS18048: 'result' is possibly 'undefined'.
+src/lib/match-movement-integration.ts(134,23): error TS18048: 'result' is possibly 'undefined'.
+src/lib/match-movement-integration.ts(151,24): error TS18048: 'updatedPlayer' is possibly 'undefined'.
+src/lib/match-movement-integration.ts(151,44): error TS18048: 'updatedPlayer' is possibly 'undefined'.
+src/lib/match-movement-integration.ts(324,15): error TS2484: Export declaration conflicts with exported declaration of 'MatchMovementState'.
+src/lib/match-movement-integration.ts(324,35): error TS2484: Export declaration conflicts with exported declaration of 'SquadMovementState'.
+src/lib/player-suitability.ts(17,35): error TS2307: Cannot find module './player-tactics' or its corresponding type declarations.
+src/lib/player-suitability.ts(46,22): error TS2339: Property 'reflexes' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(47,21): error TS2339: Property 'handling' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(49,12): error TS2339: Property 'distribution' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(53,20): error TS2339: Property 'distribution' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(53,51): error TS2339: Property 'handling' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(54,12): error TS2339: Property 'reflexes' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(64,11): error TS2339: Property 'heading' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(73,56): error TS2339: Property 'stamina' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(76,23): error TS2339: Property 'crossing' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(90,39): error TS2339: Property 'stamina' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(94,59): error TS2339: Property 'vision' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(102,60): error TS2339: Property 'stamina' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(106,60): error TS2339: Property 'vision' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(110,60): error TS2339: Property 'stamina' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(135,16): error TS2339: Property 'crossing' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(136,16): error TS2339: Property 'crossing' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(147,39): error TS2339: Property 'positioning' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(151,38): error TS2339: Property 'heading' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/player-suitability.ts(151,56): error TS2339: Property 'strength' does not exist on type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/lib/positional-targeting.ts(152,10): error TS18048: 'template' is possibly 'undefined'.
+src/lib/positional-targeting.ts(428,35): error TS2367: This comparison appears to be unintentional because the types '"GK" | "CAM" | "RW" | "LW" | "ST"' and '"CDM"' have no overlap.
+src/lib/tactical-influence.ts(258,38): error TS18048: 'multiplier' is possibly 'undefined'.
+src/lib/transfer-market-filter.ts(98,9): error TS2375: Type 'TransferListing | { id: string; playerId: string; sellerClubId: string | undefined; name: string; position: Pos; rating: number; nationality: string; age: number; value: string; status: "new"; }' is not assignable to type 'TransferListing' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ id: string; playerId: string; sellerClubId: string | undefined; name: string; position: Pos; rating: number; nationality: string; age: number; value: string; status: "new"; }' is not assignable to type 'TransferListing' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'sellerClubId' are incompatible.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+src/lib/transfer-market-filter.ts(127,9): error TS1360: Type '{ id: string; playerId: string | undefined; name: string; position: string; age: number; overall: number; marketValue: number; valueFormatted: string; personality: string | undefined; club: Club | undefined; clubName: string; listing: TransferListing; player: Player | undefined; status: "new" | ... 3 more ... | "rej...' does not satisfy the expected type 'TransferMarketRow'.
+  Types of property 'playerId' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/lib/transfer-market-filter.ts(134,43): error TS2379: Argument of type '{ id: string; playerId: string; name: string; position: Pos; age: number; overall: number; marketValue: number; valueFormatted: string; personality: string; club: Club | undefined; clubName: string; listing: TransferListing | { ...; }; player: Player; status: "new" | ... 3 more ... | "rejected"; } | { ...; }' is not assignable to parameter of type 'TransferMarketRow' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ id: string; playerId: string; name: string; position: Pos; age: number; overall: number; marketValue: number; valueFormatted: string; personality: string; club: Club | undefined; clubName: string; listing: TransferListing | { ...; }; player: Player; status: "new" | ... 3 more ... | "rejected"; }' is not assignable to type 'TransferMarketRow' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'club' are incompatible.
+      Type 'Club | undefined' is not assignable to type 'Club'.
+        Type 'undefined' is not assignable to type 'Club'.
+src/routes/board.tsx(146,28): error TS2339: Property 'description' does not exist on type 'BoardExpectation'.
+src/routes/board.tsx(149,28): error TS2339: Property 'met' does not exist on type 'BoardExpectation'.
+src/routes/board.tsx(149,62): error TS2339: Property 'tier' does not exist on type 'BoardExpectation'.
+src/routes/calendar.tsx(152,13): error TS2322: Type '{ label: string; variant: "secondary" | "primary"; onClick: () => void; size: "sm"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(158,13): error TS2322: Type '{ label: string; variant: "secondary" | "primary"; onClick: () => void; size: "sm"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(251,9): error TS2322: Type '{ label: string; onClick: () => void; size: "sm"; variant: "secondary"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(289,13): error TS2322: Type '{ label: string; onClick: () => void; size: "sm"; variant: "secondary"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(296,11): error TS2322: Type '{ label: string; onClick: () => void; size: "sm"; variant: "secondary"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(566,13): error TS2322: Type '{ key: "upcoming" | "all" | "completed"; label: string; variant: "secondary" | "primary"; onClick: () => void; size: "sm"; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/calendar.tsx(694,13): error TS2322: Type '"success"' is not assignable to type '"solid" | "outline" | "subtle"'.
+src/routes/calendar.tsx(699,13): error TS2322: Type '"warning"' is not assignable to type '"solid" | "outline" | "subtle"'.
+src/routes/calendar.tsx(704,13): error TS2322: Type '"error"' is not assignable to type '"solid" | "outline" | "subtle"'.
+src/routes/calendar.tsx(709,13): error TS2322: Type '"warning"' is not assignable to type '"solid" | "outline" | "subtle"'.
+src/routes/calendar.tsx(714,13): error TS2322: Type '"info"' is not assignable to type '"solid" | "outline" | "subtle"'.
+src/routes/calendar.tsx(725,32): error TS2552: Cannot find name 'currentClub'. Did you mean 'useCurrentClub'?
+src/routes/calendar.tsx(765,9): error TS2322: Type '(e: any) => any' is not assignable to type '() => void'.
+  Target signature provides too few arguments. Expected 1 or more, but got 0.
+src/routes/calendar.tsx(765,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/routes/calendar.tsx(889,11): error TS2322: Type '{ label: string; onClick: () => void; variant: "secondary"; fullWidth: true; }' is not assignable to type 'IntrinsicAttributes & ModButtonProps'.
+  Property 'label' does not exist on type 'IntrinsicAttributes & ModButtonProps'.
+src/routes/fans.tsx(23,23): error TS2339: Property 'morale' does not exist on type 'Fans'.
+src/routes/fans.tsx(26,20): error TS2367: This comparison appears to be unintentional because the types 'EventLogType' and '"fans"' have no overlap.
+src/routes/fixtures-modern.tsx(47,52): error TS2532: Object is possibly 'undefined'.
+src/routes/fixtures-modern.tsx(48,56): error TS2532: Object is possibly 'undefined'.
+src/routes/fixtures-modern.tsx(67,14): error TS2375: Type '{ homeTeam: string; awayTeam: string; date: string; time: string; competition: string | undefined; isManager: true; }' is not assignable to type 'ModFixtureCardProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'competition' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/routes/fixtures-modern.tsx(189,20): error TS2375: Type '{ key: string; homeTeam: string; awayTeam: string; homeScore: number | undefined; awayScore: number | undefined; date: string; competition: string | undefined; isManager: boolean; }' is not assignable to type 'ModFixtureCardProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'homeScore' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+src/routes/fixtures.tsx(36,52): error TS2532: Object is possibly 'undefined'.
+src/routes/fixtures.tsx(37,56): error TS2532: Object is possibly 'undefined'.
+src/routes/inbox.tsx(65,7): error TS2322: Type '"MARK_INBOX_MESSAGE_READ"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/routes/inbox.tsx(73,7): error TS2322: Type '"DELETE_INBOX_MESSAGE"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/routes/index.tsx(133,56): error TS2339: Property 'country' does not exist on type 'Club'.
+src/routes/index.tsx(250,28): error TS2322: Type '"SET_PENDING_MATCH"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/routes/league-pyramid.tsx(57,18): error TS2322: Type '"SAVE_GAME"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/routes/manager-profile.tsx(35,54): error TS2339: Property 'type' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(36,51): error TS2339: Property 'type' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(36,73): error TS2339: Property 'description' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(39,63): error TS2339: Property 'date' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(39,72): error TS2339: Property 'date' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(189,40): error TS2339: Property 'date' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(196,31): error TS2339: Property 'description' does not exist on type 'CareerEvent'.
+src/routes/manager-profile.tsx(198,43): error TS2339: Property 'summary' does not exist on type '{ tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }'.
+src/routes/manager-profile.tsx(200,47): error TS2339: Property 'summary' does not exist on type '{ tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }'.
+src/routes/manager-profile.tsx(231,30): error TS2304: Cannot find name 'T'.
+src/routes/manager-profile.tsx(236,63): error TS2304: Cannot find name 'T'.
+src/routes/manager-profile.tsx(237,46): error TS2304: Cannot find name 'T'.
+src/routes/match.tsx(403,16): error TS18048: 'managerAbilities.playerDevelopment' is possibly 'undefined'.
+src/routes/match.tsx(404,16): error TS18048: 'managerAbilities.tactics' is possibly 'undefined'.
+src/routes/match.tsx(421,63): error TS2552: Cannot find name 'SimPlayer'. Did you mean 'Player'?
+src/routes/match.tsx(424,21): error TS2552: Cannot find name 'SimPlayer'. Did you mean 'Player'?
+src/routes/office.tsx(70,32): error TS2339: Property 'fontFamily' does not exist on type '{ readonly small: "12px"; readonly base: "14px"; readonly body: "14px"; readonly large: "16px"; readonly family: { readonly display: "'Rajdhani', 'Chakra Petch', monospace"; readonly ui: "'Chakra Petch', 'Inter', sans-serif"; readonly body: "'Inter', 'Segoe UI', sans-serif"; }; readonly scale: { ...; }; }'.
+src/routes/office.tsx(87,36): error TS2339: Property 'heading1' does not exist on type '{ readonly small: "12px"; readonly base: "14px"; readonly body: "14px"; readonly large: "16px"; readonly family: { readonly display: "'Rajdhani', 'Chakra Petch', monospace"; readonly ui: "'Chakra Petch', 'Inter', sans-serif"; readonly body: "'Inter', 'Segoe UI', sans-serif"; }; readonly scale: { ...; }; }'.
+src/routes/office.tsx(88,15): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(122,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(161,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(200,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(244,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(283,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(322,26): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(372,17): error TS2322: Type 'string | { readonly 50: "#FAFAFA"; readonly 100: "#F5F5F5"; readonly 200: "#E5E5E5"; readonly 300: "#D4D4D4"; readonly 400: "#A3A3A3"; readonly 500: "#737373"; readonly 600: "#525252"; readonly 700: "#404040"; readonly 800: "#262626"; readonly 900: "#171717"; }' is not assignable to type 'Background<string | number> | undefined'.
+  Type '{ readonly 50: "#FAFAFA"; readonly 100: "#F5F5F5"; readonly 200: "#E5E5E5"; readonly 300: "#D4D4D4"; readonly 400: "#A3A3A3"; readonly 500: "#737373"; readonly 600: "#525252"; readonly 700: "#404040"; readonly 800: "#262626"; readonly 900: "#171717"; }' is not assignable to type 'Background<string | number> | undefined'.
+    Type '{ readonly 50: "#FAFAFA"; readonly 100: "#F5F5F5"; readonly 200: "#E5E5E5"; readonly 300: "#D4D4D4"; readonly 400: "#A3A3A3"; readonly 500: "#737373"; readonly 600: "#525252"; readonly 700: "#404040"; readonly 800: "#262626"; readonly 900: "#171717"; }' is not assignable to type 'string & {}'.
+      Type '{ readonly 50: "#FAFAFA"; readonly 100: "#F5F5F5"; readonly 200: "#E5E5E5"; readonly 300: "#D4D4D4"; readonly 400: "#A3A3A3"; readonly 500: "#737373"; readonly 600: "#525252"; readonly 700: "#404040"; readonly 800: "#262626"; readonly 900: "#171717"; }' is not assignable to type 'string'.
+src/routes/office.tsx(373,17): error TS2322: Type '"#020617" | { readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+  Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(379,41): error TS2339: Property 'default' does not exist on type '{ readonly fast: "150ms ease-in-out"; readonly base: "200ms ease-in-out"; readonly slow: "300ms ease-in-out"; readonly verySlow: "500ms ease-in-out"; }'.
+src/routes/office.tsx(403,24): error TS2339: Property 'card' does not exist on type '{ readonly none: "none"; readonly xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"; readonly sm: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"; readonly md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"; readonly lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, ...'.
+src/routes/office.tsx(439,22): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(455,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(459,30): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(476,22): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(492,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(496,30): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(520,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(536,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(594,11): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(605,53): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(628,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(644,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(702,11): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(713,53): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(747,22): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(772,19): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(791,23): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(828,22): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(851,19): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(859,21): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(900,34): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(942,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(957,15): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(965,17): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1073,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1078,11): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1117,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1124,13): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1139,29): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1151,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1195,22): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1215,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1220,11): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1256,13): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1261,25): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1326,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1333,11): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1374,24): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1381,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1386,29): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1409,24): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1416,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1421,29): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1448,24): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1455,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1469,33): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1512,20): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1520,13): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1536,24): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1543,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1557,33): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1581,24): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1588,17): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/office.tsx(1603,33): error TS2322: Type '{ readonly primary: "#F8FAFC"; readonly secondary: "#CBD5E1"; readonly tertiary: "#94A3B8"; readonly muted: "#64748B"; readonly inverse: "#020617"; }' is not assignable to type 'Color | undefined'.
+src/routes/office.tsx(1615,21): error TS2322: Type '{ readonly none: "0"; readonly sm: "4px"; readonly md: "8px"; readonly lg: "12px"; readonly xl: "16px"; readonly full: "9999px"; }' is not assignable to type 'BorderRadius<string | number> | undefined'.
+src/routes/scouting.tsx(36,37): error TS2339: Property 'balance' does not exist on type 'Club'.
+src/routes/scouting.tsx(55,7): error TS2322: Type '"HIRE_SCOUT"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/routes/scouting.tsx(387,48): error TS2339: Property 'pos' does not exist on type '{ name: string; age: number; position: string; nationality: string; currentClubId: string | null; personality?: string; }'.
+src/routes/squad.tsx(179,65): error TS2339: Property 'pace' does not exist on type 'Player'.
+src/routes/squad.tsx(180,65): error TS2339: Property 'shooting' does not exist on type 'Player'.
+src/routes/squad.tsx(181,65): error TS2339: Property 'passing' does not exist on type 'Player'.
+src/routes/squad.tsx(182,65): error TS2339: Property 'physical' does not exist on type 'Player'.
+src/routes/squad.tsx(183,65): error TS2339: Property 'dribbling' does not exist on type 'Player'.
+src/routes/squad.tsx(184,65): error TS2339: Property 'defense' does not exist on type 'Player'.
+src/routes/squad.tsx(195,25): error TS2339: Property 'table' does not exist on type 'League'.
+src/routes/squad.tsx(195,55): error TS7006: Parameter 'row' implicitly has an 'any' type.
+src/routes/squad.tsx(195,60): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/routes/squad.tsx(223,41): error TS2339: Property 'pace' does not exist on type 'Player'.
+src/routes/squad.tsx(224,41): error TS2339: Property 'physical' does not exist on type 'Player'.
+src/routes/squad.tsx(274,55): error TS2339: Property 'lastTrainingDate' does not exist on type 'Player'.
+src/routes/tactics.tsx(318,13): error TS2322: Type 'Player | null | undefined' is not assignable to type 'Player | null'.
+  Type 'undefined' is not assignable to type 'Player | null'.
+src/routes/tactics.tsx(460,37): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/routes/training-presets.tsx(129,45): error TS2345: Argument of type 'Player | undefined' is not assignable to parameter of type 'Player'.
+  Type 'undefined' is not assignable to type 'Player'.
+src/routes/training-presets.tsx(135,24): error TS4111: Property 'container' comes from an index signature, so it must be accessed with ['container'].
+src/routes/training-presets.tsx(139,26): error TS4111: Property 'tabBar' comes from an index signature, so it must be accessed with ['tabBar'].
+src/routes/training-presets.tsx(144,25): error TS4111: Property 'tab' comes from an index signature, so it must be accessed with ['tab'].
+src/routes/training-presets.tsx(145,59): error TS4111: Property 'tabActive' comes from an index signature, so it must be accessed with ['tabActive'].
+src/routes/training-presets.tsx(151,35): error TS4111: Property 'badge' comes from an index signature, so it must be accessed with ['badge'].
+src/routes/training-presets.tsx(157,26): error TS4111: Property 'content' comes from an index signature, so it must be accessed with ['content'].
+src/routes/training-presets.tsx(159,28): error TS4111: Property 'presetHeader' comes from an index signature, so it must be accessed with ['presetHeader'].
+src/routes/training-presets.tsx(177,31): error TS4111: Property 'input' comes from an index signature, so it must be accessed with ['input'].
+src/routes/training-presets.tsx(182,31): error TS4111: Property 'editableTitle' comes from an index signature, so it must be accessed with ['editableTitle'].
+src/routes/training-presets.tsx(192,25): error TS4111: Property 'applyButton' comes from an index signature, so it must be accessed with ['applyButton'].
+src/routes/training-presets.tsx(194,26): error TS4111: Property 'applyButtonDisabled' comes from an index signature, so it must be accessed with ['applyButtonDisabled'].
+src/routes/training-presets.tsx(203,28): error TS4111: Property 'section' comes from an index signature, so it must be accessed with ['section'].
+src/routes/training-presets.tsx(205,30): error TS4111: Property 'settingRow' comes from an index signature, so it must be accessed with ['settingRow'].
+src/routes/training-presets.tsx(210,29): error TS4111: Property 'select' comes from an index signature, so it must be accessed with ['select'].
+src/routes/training-presets.tsx(216,33): error TS4111: Property 'help' comes from an index signature, so it must be accessed with ['help'].
+src/routes/training-presets.tsx(220,30): error TS4111: Property 'settingRow' comes from an index signature, so it must be accessed with ['settingRow'].
+src/routes/training-presets.tsx(227,29): error TS4111: Property 'input' comes from an index signature, so it must be accessed with ['input'].
+src/routes/training-presets.tsx(233,28): error TS4111: Property 'section' comes from an index signature, so it must be accessed with ['section'].
+src/routes/training-presets.tsx(235,30): error TS4111: Property 'workloadGrid' comes from an index signature, so it must be accessed with ['workloadGrid'].
+src/routes/training-presets.tsx(236,32): error TS4111: Property 'workloadItem' comes from an index signature, so it must be accessed with ['workloadItem'].
+src/routes/training-presets.tsx(237,35): error TS4111: Property 'workloadLabel' comes from an index signature, so it must be accessed with ['workloadLabel'].
+src/routes/training-presets.tsx(238,35): error TS4111: Property 'workloadValue' comes from an index signature, so it must be accessed with ['workloadValue'].
+src/routes/training-presets.tsx(240,32): error TS4111: Property 'workloadItem' comes from an index signature, so it must be accessed with ['workloadItem'].
+src/routes/training-presets.tsx(241,35): error TS4111: Property 'workloadLabel' comes from an index signature, so it must be accessed with ['workloadLabel'].
+src/routes/training-presets.tsx(242,35): error TS4111: Property 'workloadValue' comes from an index signature, so it must be accessed with ['workloadValue'].
+src/routes/training-presets.tsx(244,32): error TS4111: Property 'workloadItem' comes from an index signature, so it must be accessed with ['workloadItem'].
+src/routes/training-presets.tsx(245,35): error TS4111: Property 'workloadLabel' comes from an index signature, so it must be accessed with ['workloadLabel'].
+src/routes/training-presets.tsx(246,35): error TS4111: Property 'workloadValue' comes from an index signature, so it must be accessed with ['workloadValue'].
+src/routes/training-presets.tsx(248,32): error TS4111: Property 'workloadItem' comes from an index signature, so it must be accessed with ['workloadItem'].
+src/routes/training-presets.tsx(249,35): error TS4111: Property 'workloadLabel' comes from an index signature, so it must be accessed with ['workloadLabel'].
+src/routes/training-presets.tsx(250,35): error TS4111: Property 'workloadValue' comes from an index signature, so it must be accessed with ['workloadValue'].
+src/routes/training-presets.tsx(256,35): error TS4111: Property 'workloadLabel' comes from an index signature, so it must be accessed with ['workloadLabel'].
+src/routes/training-presets.tsx(257,34): error TS4111: Property 'attributeList' comes from an index signature, so it must be accessed with ['attributeList'].
+src/routes/training-presets.tsx(259,50): error TS4111: Property 'attributeBadge' comes from an index signature, so it must be accessed with ['attributeBadge'].
+src/routes/training-presets.tsx(268,32): error TS4111: Property 'warning' comes from an index signature, so it must be accessed with ['warning'].
+src/routes/training-presets.tsx(279,28): error TS4111: Property 'twoColumn' comes from an index signature, so it must be accessed with ['twoColumn'].
+src/routes/training-presets.tsx(281,30): error TS4111: Property 'section' comes from an index signature, so it must be accessed with ['section'].
+src/routes/training-presets.tsx(286,51): error TS4111: Property 'drillCategory' comes from an index signature, so it must be accessed with ['drillCategory'].
+src/routes/training-presets.tsx(289,33): error TS4111: Property 'categoryHeader' comes from an index signature, so it must be accessed with ['categoryHeader'].
+src/routes/training-presets.tsx(295,38): error TS4111: Property 'drillList' comes from an index signature, so it must be accessed with ['drillList'].
+src/routes/training-presets.tsx(297,59): error TS4111: Property 'drillCheckbox' comes from an index signature, so it must be accessed with ['drillCheckbox'].
+src/routes/training-presets.tsx(304,45): error TS4111: Property 'drillMetadata' comes from an index signature, so it must be accessed with ['drillMetadata'].
+src/routes/training-presets.tsx(316,30): error TS4111: Property 'section' comes from an index signature, so it must be accessed with ['section'].
+src/routes/training-presets.tsx(318,32): error TS4111: Property 'playerList' comes from an index signature, so it must be accessed with ['playerList'].
+src/routes/training-presets.tsx(327,33): error TS4111: Property 'playerCheckbox' comes from an index signature, so it must be accessed with ['playerCheckbox'].
+src/routes/training-presets.tsx(328,48): error TS4111: Property 'playerCheckboxError' comes from an index signature, so it must be accessed with ['playerCheckboxError'].
+src/routes/training-presets.tsx(339,43): error TS4111: Property 'playerPosition' comes from an index signature, so it must be accessed with ['playerPosition'].
+src/routes/training-presets.tsx(339,67): error TS2339: Property 'position' does not exist on type 'Player'.
+src/routes/training.tsx(153,268): error TS2353: Object literal may only specify known properties, and '_hover' does not exist in type 'Properties<string | number, string & {}>'.
+src/routes/transfers.tsx(82,31): error TS2677: A type predicate's type must be assignable to its parameter's type.
+  Type 'string' is not assignable to type 'Pos'.
+src/routes/transfers.tsx(166,52): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/routes/transfers.tsx(477,9): error TS2322: Type 'Club | null | undefined' is not assignable to type 'Club | null'.
+  Type 'undefined' is not assignable to type 'Club | null'.
+src/state/academy.ts(324,52): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/ai-actions.ts(179,97): error TS4111: Property 'transferAudit' comes from an index signature, so it must be accessed with ['transferAudit'].
+src/state/ai-actions.ts(230,64): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/ai-contracts.ts(14,76): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/ai-contracts.ts(87,33): error TS4111: Property 'lastAiContractReviewDate' comes from an index signature, so it must be accessed with ['lastAiContractReviewDate'].
+src/state/ai-decisions.ts(430,5): error TS2345: Argument of type '{ transferBudget: string; balance: string | number; } | undefined' is not assignable to parameter of type '{ transferBudget: string; balance: string; } | undefined'.
+  Type '{ transferBudget: string; balance: string | number; }' is not assignable to type '{ transferBudget: string; balance: string; }'.
+    Types of property 'balance' are incompatible.
+      Type 'string | number' is not assignable to type 'string'.
+        Type 'number' is not assignable to type 'string'.
+src/state/ai-evolution.ts(45,15): error TS2375: Type 'EventLogEntry | { id: string; date: string; type: "tactical"; description: string; meta: { clubId: string; formation: string; previousFormation: string; }; }' is not assignable to type 'EventLogEntry' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ id: string; date: string; type: "tactical"; description: string; meta: { clubId: string; formation: string; previousFormation: string; }; }' is not assignable to type 'EventLogEntry'.
+    Types of property 'type' are incompatible.
+      Type '"tactical"' is not assignable to type 'EventLogType'.
+src/state/ai-evolution.ts(49,17): error TS2322: Type '"tactical"' is not assignable to type 'EventLogType'.
+src/state/ai-evolution.ts(84,39): error TS2339: Property 'boardConfidence' does not exist on type 'AIManagerProfile'.
+src/state/ai-transfers.ts(56,32): error TS4111: Property 'eventKey' comes from an index signature, so it must be accessed with ['eventKey'].
+src/state/ai-transfers.ts(59,28): error TS4111: Property 'eventKey' comes from an index signature, so it must be accessed with ['eventKey'].
+src/state/ai-transfers.ts(518,48): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/ai-transfers.ts(559,11): error TS2322: Type '{ [x: string]: Player | { clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 40 more ...; y?: number; }; }' is not assignable to type 'Record<string, Player>'.
+  'string' index signatures are incompatible.
+    Type 'Player | { clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; ... 39 more ...; y?: number; }' is not assignable to type 'Player' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type '{ clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; ... 39 more ...; y?: number; }' is not assignable to type 'Player' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Property 'consistency' is optional in type '{ clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; development?: PlayerDevelopment; ... 38 more ...; y?: number; }' but required in type 'Player'.
+src/state/ai-transfers.ts(727,104): error TS2304: Cannot find name 'hookStart'.
+src/state/ai-transfers.ts(752,67): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/ai-transfers.ts(827,11): error TS2322: Type '{ [x: string]: Player | { clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 40 more ...; y?: number; }; }' is not assignable to type 'Record<string, Player>'.
+  'string' index signatures are incompatible.
+    Type 'Player | { clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; ... 39 more ...; y?: number; }' is not assignable to type 'Player' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type '{ clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; ... 39 more ...; y?: number; }' is not assignable to type 'Player' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Property 'consistency' is optional in type '{ clubId: string; dateOfBirth?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; marketValue?: number; development?: PlayerDevelopment; ... 38 more ...; y?: number; }' but required in type 'Player'.
+src/state/board.ts(65,30): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+src/state/calendar.ts(576,14): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/state/cups.ts(228,31): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/cups.ts(230,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/cups.ts(244,31): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/cups.ts(246,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/cups.ts(262,31): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/cups.ts(264,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/enhanced-revenue.test.ts(46,7): error TS2412: Type 'undefined' is not assignable to type 'ClubMerchandise' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(107,7): error TS2412: Type 'undefined' is not assignable to type 'BroadcastingRights[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(181,7): error TS2412: Type 'undefined' is not assignable to type 'TrainingPartnership[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(255,7): error TS2412: Type 'undefined' is not assignable to type 'TicketPackage[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(317,7): error TS2412: Type 'undefined' is not assignable to type 'CommercialPartnership[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(440,7): error TS2412: Type 'undefined' is not assignable to type 'YouthProspect[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.test.ts(443,35): error TS2339: Property 'length' does not exist on type 'never'.
+src/state/enhanced-revenue.test.ts(508,7): error TS2412: Type 'undefined' is not assignable to type 'LoanOutPlayer[]' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/state/enhanced-revenue.ts(103,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(177,35): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(193,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(267,31): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(275,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(382,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(463,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(511,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(558,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(630,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/enhanced-revenue.ts(631,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/enhanced-revenue.ts(640,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/enhanced-revenue.ts(671,27): error TS2339: Property 'date' does not exist on type 'CalendarEntry[]'.
+src/state/error-handling.test.ts(27,9): error TS2322: Type 'undefined' is not assignable to type 'string | null'.
+src/state/error-handling.test.ts(29,33): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/error-handling.test.ts(46,9): error TS2322: Type 'undefined' is not assignable to type 'string | null'.
+src/state/error-handling.test.ts(47,33): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/error-handling.test.ts(63,33): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/error-handling.test.ts(64,33): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/error-handling.test.ts(81,9): error TS2353: Object literal may only specify known properties, and 'changes' does not exist in type '{ type: "UPDATE_PLAYER"; id: string; patch: Partial<Player>; }'.
+src/state/error-handling.test.ts(88,39): error TS2339: Property 'playerId' does not exist on type 'Manager'.
+src/state/error-handling.test.ts(97,9): error TS2353: Object literal may only specify known properties, and 'changes' does not exist in type '{ type: "UPDATE_PLAYER"; id: string; patch: Partial<Player>; }'.
+src/state/european.ts(66,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/european.ts(84,11): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/european.ts(141,7): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/european.ts(160,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/european.ts(307,30): error TS18048: 'thisRound' is possibly 'undefined'.
+src/state/european.ts(308,30): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(313,36): error TS18048: 'thisRound' is possibly 'undefined'.
+src/state/european.ts(313,120): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(353,13): error TS18048: 'fixture.scoreHome' is possibly 'undefined'.
+src/state/european.ts(353,33): error TS18048: 'fixture.scoreAway' is possibly 'undefined'.
+src/state/european.ts(355,20): error TS18048: 'fixture.scoreAway' is possibly 'undefined'.
+src/state/european.ts(355,40): error TS18048: 'fixture.scoreHome' is possibly 'undefined'.
+src/state/european.ts(361,31): error TS18048: 'fixture.scoreHome' is possibly 'undefined'.
+src/state/european.ts(361,51): error TS18048: 'nextLegFixture.scoreAway' is possibly 'undefined'.
+src/state/european.ts(362,31): error TS18048: 'fixture.scoreAway' is possibly 'undefined'.
+src/state/european.ts(362,51): error TS18048: 'nextLegFixture.scoreHome' is possibly 'undefined'.
+src/state/european.ts(369,24): error TS18048: 'nextLegFixture.penaltyHome' is possibly 'undefined'.
+src/state/european.ts(369,53): error TS18048: 'nextLegFixture.penaltyAway' is possibly 'undefined'.
+src/state/european.ts(572,68): error TS18048: 'thisRound' is possibly 'undefined'.
+src/state/european.ts(581,68): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(586,75): error TS18048: 'thisRound' is possibly 'undefined'.
+src/state/european.ts(588,38): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(589,42): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(592,65): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(600,15): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/european.ts(601,15): error TS18048: 'nextRound' is possibly 'undefined'.
+src/state/event-invariants.ts(99,47): error TS4111: Property 'season' comes from an index signature, so it must be accessed with ['season'].
+src/state/event-invariants.ts(130,48): error TS4111: Property 'season' comes from an index signature, so it must be accessed with ['season'].
+src/state/event-invariants.ts(255,54): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/event-invariants.ts(313,54): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/event-invariants.ts(496,54): error TS4111: Property 'action' comes from an index signature, so it must be accessed with ['action'].
+src/state/event-invariants.ts(599,26): error TS2339: Property 'finance' does not exist on type 'Club'.
+src/state/events-engine.ts(130,28): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/events-engine.ts(131,29): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/events-engine.ts(132,27): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/events-engine.ts(148,18): error TS2532: Object is possibly 'undefined'.
+src/state/fans.ts(61,20): error TS18048: 'next.manager.tactics' is possibly 'undefined'.
+src/state/fans.ts(61,49): error TS18048: 'next.manager.playerDevelopment' is possibly 'undefined'.
+src/state/financial-integrity.test.ts(18,31): error TS18048: 'club' is possibly 'undefined'.
+src/state/fixture-maintenance.ts(36,45): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+src/state/form-tracking.ts(30,25): error TS2532: Object is possibly 'undefined'.
+src/state/form-tracking.ts(35,25): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(30,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(31,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(32,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(33,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(38,36): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/inbox.test.ts(53,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(70,21): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/inbox.test.ts(73,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(74,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(91,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(92,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(119,22): error TS18048: 'managerFixture' is possibly 'undefined'.
+src/state/inbox.test.ts(128,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(145,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(146,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(244,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/inbox.test.ts(362,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(375,14): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(382,36): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/inbox.test.ts(385,35): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/inbox.test.ts(391,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/inbox.test.ts(407,35): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/inbox.test.ts(413,63): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/inbox.test.ts(426,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/inbox.test.ts(453,30): error TS18048: 'fixture' is possibly 'undefined'.
+src/state/inbox.test.ts(488,7): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.test.ts(492,7): error TS2532: Object is possibly 'undefined'.
+src/state/inbox.ts(26,23): error TS2379: Argument of type '{ id: string; date: string; category: "transfers"; title: string; body: string; priority: "normal" | "high"; isRead: false; relatedEntityId: any; action: "view_player" | undefined; sourceEventId: string; }' is not assignable to parameter of type 'InboxMessage' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'action' are incompatible.
+    Type '"view_player" | undefined' is not assignable to type 'InboxMessageAction'.
+      Type 'undefined' is not assignable to type 'InboxMessageAction'.
+src/state/inbox.ts(34,75): error TS2339: Property 'position' does not exist on type 'Player'.
+src/state/inbox.ts(39,11): error TS1117: An object literal cannot have multiple properties with the same name.
+src/state/inbox.ts(92,10): error TS2678: Type '"negotiation_started"' is not comparable to type 'EventLogType'.
+src/state/inbox.ts(114,10): error TS2678: Type '"negotiation_rejected"' is not comparable to type 'EventLogType'.
+src/state/inbox.ts(149,23): error TS2379: Argument of type '{ id: string; date: string; category: "matches"; title: string; body: string; priority: "normal" | "high"; isRead: false; relatedEntityId: any; action: "view_fixture" | undefined; sourceEventId: string; }' is not assignable to parameter of type 'InboxMessage' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'action' are incompatible.
+    Type '"view_fixture" | undefined' is not assignable to type 'InboxMessageAction'.
+      Type 'undefined' is not assignable to type 'InboxMessageAction'.
+src/state/inbox.ts(184,67): error TS2339: Property 'position' does not exist on type 'Player'.
+src/state/inbox.ts(320,10): error TS2678: Type '"MANAGER_OBJECTIVE"' is not comparable to type 'EventLogType'.
+src/state/inbox.ts(346,10): error TS2678: Type '"MANAGER_APPOINTED"' is not comparable to type 'EventLogType'.
+src/state/inbox.ts(347,10): error TS2678: Type '"MANAGER_SACKED"' is not comparable to type 'EventLogType'.
+src/state/integration-and-stability.test.ts(74,26): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/integration-and-stability.test.ts(84,11): error TS2532: Object is possibly 'undefined'.
+src/state/integration-and-stability.test.ts(163,36): error TS4111: Property 'season' comes from an index signature, so it must be accessed with ['season'].
+src/state/integration-and-stability.test.ts(180,11): error TS2532: Object is possibly 'undefined'.
+src/state/integration-season-flow.test.ts(188,22): error TS18048: 'managedClub' is possibly 'undefined'.
+src/state/integration-season-flow.test.ts(373,22): error TS18048: 'managedClub' is possibly 'undefined'.
+src/state/integration-season-flow.test.ts(406,16): error TS2532: Object is possibly 'undefined'.
+src/state/integration-season-flow.test.ts(422,9): error TS2304: Cannot find name 'fail'.
+src/state/jobs.ts(25,37): error TS18048: 'mgr.reputation' is possibly 'undefined'.
+src/state/jobs.ts(26,28): error TS18048: 'mgr.reputation' is possibly 'undefined'.
+src/state/jobs.ts(91,32): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/jobs.ts(112,57): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/jobs.ts(135,5): error TS2375: Type '{ clubId: string; credit: number; boardConfidence: number; fanConfidence: number; squadConfidence: number; contract: { clubId: string; salary: string; until: string; }; reputation: number | undefined; ... 12 more ...; philosophy?: string; }' is not assignable to type 'Manager' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'reputation' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+src/state/jobs.ts(162,28): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/manager-progression.ts(116,56): error TS18048: 'manager.credit' is possibly 'undefined'.
+src/state/manager-progression.ts(118,29): error TS18048: 'manager.credit' is possibly 'undefined'.
+src/state/manager-progression.ts(121,33): error TS18048: 'manager.reputation' is possibly 'undefined'.
+src/state/manager-progression.ts(134,5): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+src/state/manager-progression.ts(137,5): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+src/state/manager-reputation-tracking.ts(34,15): error TS4111: Property 'reputationApplied' comes from an index signature, so it must be accessed with ['reputationApplied'].
+src/state/manager-reputation-tracking.ts(41,7): error TS2367: This comparison appears to be unintentional because the types 'EventLogType' and '"competition"' have no overlap.
+src/state/manager-reputation-tracking.ts(54,7): error TS2367: This comparison appears to be unintentional because the types 'EventLogType' and '"competition"' have no overlap.
+src/state/manager-reputation-tracking.ts(64,7): error TS2367: This comparison appears to be unintentional because the types 'EventLogType' and '"competition"' have no overlap.
+src/state/manager-reputation-tracking.ts(77,41): error TS18048: 'manager.reputation' is possibly 'undefined'.
+src/state/manager-reputation-tracking.ts(132,35): error TS18048: 'manager.reputation' is possibly 'undefined'.
+src/state/match-integration.test.ts(384,67): error TS2532: Object is possibly 'undefined'.
+src/state/match-integration.test.ts(472,5): error TS2375: Type 'GameState' is not assignable to type '{ pendingManagerFixtureId: string; manager: Manager; time: GameCalendarState; currentClub: Club; clubs: Record<string, Club>; ... 29 more ...; gameSeed?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'pendingManagerFixtureId' is optional in type 'GameState' but required in type '{ pendingManagerFixtureId: string; manager: Manager; time: GameCalendarState; currentClub: Club; clubs: Record<string, Club>; players: Record<...>; ... 28 more ...; gameSeed?: string; }'.
+src/state/match-integration.test.ts(622,31): error TS2532: Object is possibly 'undefined'.
+src/state/match-integration.test.ts(622,51): error TS2532: Object is possibly 'undefined'.
+src/state/match-integration.test.ts(667,32): error TS18048: 'testState.manager.reputation' is possibly 'undefined'.
+src/state/match-integration.test.ts(667,63): error TS18048: 'initialReputation' is possibly 'undefined'.
+src/state/match-integration.test.ts(668,35): error TS18048: 'testState.manager.credit' is possibly 'undefined'.
+src/state/match-integration.test.ts(668,62): error TS18048: 'initialCredit' is possibly 'undefined'.
+src/state/negotiation-sessions.ts(38,35): error TS4111: Property 'eventKey' comes from an index signature, so it must be accessed with ['eventKey'].
+src/state/negotiation-sessions.ts(41,45): error TS4111: Property 'eventKey' comes from an index signature, so it must be accessed with ['eventKey'].
+src/state/negotiation-sessions.ts(249,7): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/negotiation-sessions.ts(251,13): error TS2339: Property 'fee' does not exist on type 'ContractOffer'.
+src/state/negotiation-sessions.ts(269,57): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/negotiation.ts(92,44): error TS2345: Argument of type 'Club' is not assignable to parameter of type 'undefined'.
+src/state/negotiation.ts(98,36): error TS2551: Property 'contractExpires' does not exist on type 'Player'. Did you mean 'contractYears'?
+src/state/negotiation.ts(100,26): error TS2551: Property 'contractExpires' does not exist on type 'Player'. Did you mean 'contractYears'?
+src/state/negotiation.ts(111,7): error TS2367: This comparison appears to be unintentional because the types 'EventLogType' and '"transfer-offer"' have no overlap.
+src/state/negotiation.ts(112,10): error TS2339: Property 'data' does not exist on type 'EventLogEntry'.
+src/state/negotiation.ts(113,10): error TS2339: Property 'data' does not exist on type 'EventLogEntry'.
+src/state/negotiation.ts(114,9): error TS2339: Property 'timestamp' does not exist on type 'EventLogEntry'.
+src/state/negotiation.ts(115,25): error TS2339: Property 'timestamp' does not exist on type 'EventLogEntry'.
+src/state/negotiation.ts(285,54): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/new-career.ts(41,10): error TS2440: Import declaration conflicts with local declaration of 'seededUnit'.
+src/state/new-career.ts(818,86): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/new-career.ts(819,77): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/new-career.ts(848,77): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/office-finance.test.ts(138,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(139,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(153,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(154,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(175,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(265,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(266,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.test.ts(289,12): error TS2532: Object is possibly 'undefined'.
+src/state/office-finance.ts(53,9): error TS2375: Type '{ id: string; date: string; type: FinancialTransactionType; description: string; amount: number; category: "revenue" | "expense" | "debt"; relatedEntityId: string | undefined; }' is not assignable to type 'FinancialTransaction' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'relatedEntityId' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/state/office-finance.ts(194,5): error TS2740: Type '{}' is missing the following properties from type 'Record<FinancialTransactionType, number>': facilities, medical, scouting, match_revenue, and 19 more.
+src/state/office-finance.ts(195,5): error TS2740: Type '{}' is missing the following properties from type 'Record<FinancialTransactionType, number>': facilities, medical, scouting, match_revenue, and 19 more.
+src/state/office-finance.ts(196,5): error TS2740: Type '{}' is missing the following properties from type 'Record<FinancialTransactionType, number>': facilities, medical, scouting, match_revenue, and 19 more.
+src/state/office-finance.ts(251,21): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/office-finance.ts(251,42): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/office-finance.ts(252,16): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/office-finance.ts(279,3): error TS2322: Type '{ startDate: string; endDate: string | undefined; revenue: number; expenses: number; netResult: number; }[]' is not assignable to type 'FinancialPeriod[]'.
+  Type '{ startDate: string; endDate: string | undefined; revenue: number; expenses: number; netResult: number; }' is not assignable to type 'FinancialPeriod'.
+    Types of property 'endDate' are incompatible.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(95,42): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(119,37): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(128,49): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(144,36): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(146,11): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(157,49): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/performance-monitor.ts(287,9): error TS2532: Object is possibly 'undefined'.
+src/state/performance-monitor.ts(288,9): error TS2532: Object is possibly 'undefined'.
+src/state/performance-monitor.ts(289,9): error TS2532: Object is possibly 'undefined'.
+src/state/performance-monitor.ts(289,47): error TS2532: Object is possibly 'undefined'.
+src/state/player-lifecycle.invariants.test.ts(18,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/player-lifecycle.invariants.test.ts(24,9): error TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+src/state/player-lifecycle.invariants.test.ts(38,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/player-lifecycle.invariants.test.ts(44,9): error TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+src/state/player-lifecycle.invariants.test.ts(45,28): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/player-lifecycle.invariants.test.ts(53,26): error TS2532: Object is possibly 'undefined'.
+src/state/player-lifecycle.invariants.test.ts(84,56): error TS2379: Argument of type '{ events: (EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; })[]; manager: Manager; time: GameCalendarState; ... 31 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'events' are incompatible.
+    Type '(EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; })[]' is not assignable to type 'EventLogEntry[]'.
+      Type 'EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; }' is not assignable to type 'EventLogEntry' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Property 'description' is missing in type '{ id: string; date: string; type: string; meta: { playerId: string | undefined; }; }' but required in type 'EventLogEntry'.
+src/state/player-lifecycle.invariants.test.ts(115,53): error TS2379: Argument of type '{ players: { "youth-fake": { id: string; name: string; age: number; dateOfBirth: string; status: string; clubId?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 36 more ...; y?: number; }; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'players' are incompatible.
+    Type '{ "youth-fake": { id: string; name: string; age: number; dateOfBirth: string; status: string; clubId?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 36 more ...; y?: number; }; }' is not assignable to type 'Record<string, Player>'.
+      Property '"youth-fake"' is incompatible with index signature.
+        Type '{ id: string; name: string; age: number; dateOfBirth: string; status: string; clubId?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 36 more ...; y?: number; }' is not assignable to type 'Player' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+          Property 'consistency' is optional in type '{ id: string; name: string; age: number; dateOfBirth: string; status: string; clubId?: string; consistency?: number; injuryProneness?: number; fatigue?: number; injury?: PlayerInjury | null; ... 36 more ...; y?: number; }' but required in type 'Player'.
+src/state/player-lifecycle.invariants.test.ts(136,36): error TS2379: Argument of type '{ events: (EventLogEntry | { id: string; date: string; type: string; description: string; meta: { action: string; }; })[]; manager: Manager; time: GameCalendarState; ... 31 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'events' are incompatible.
+    Type '(EventLogEntry | { id: string; date: string; type: string; description: string; meta: { action: string; }; })[]' is not assignable to type 'EventLogEntry[]'.
+      Type 'EventLogEntry | { id: string; date: string; type: string; description: string; meta: { action: string; }; }' is not assignable to type 'EventLogEntry' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Type '{ id: string; date: string; type: string; description: string; meta: { action: string; }; }' is not assignable to type 'EventLogEntry'.
+          Types of property 'type' are incompatible.
+            Type 'string' is not assignable to type 'EventLogType'.
+src/state/player-lifecycle.invariants.test.ts(156,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/player-lifecycle.invariants.test.ts(162,9): error TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+src/state/player-lifecycle.invariants.test.ts(163,28): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/player-lifecycle.invariants.test.ts(172,26): error TS2532: Object is possibly 'undefined'.
+src/state/player-lifecycle.invariants.test.ts(198,43): error TS2379: Argument of type '{ players: {}; clubs: {}; events: (EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; })[]; manager: Manager; time: GameCalendarState; ... 29 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'events' are incompatible.
+    Type '(EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; })[]' is not assignable to type 'EventLogEntry[]'.
+      Type 'EventLogEntry | { id: string; date: string; type: string; meta: { playerId: string | undefined; }; }' is not assignable to type 'EventLogEntry' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Property 'description' is missing in type '{ id: string; date: string; type: string; meta: { playerId: string | undefined; }; }' but required in type 'EventLogEntry'.
+src/state/player-tactics.ts(249,29): error TS2322: Type '"LWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(249,36): error TS2322: Type '"RWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(486,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(504,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(522,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(540,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(565,35): error TS2322: Type '"LWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(565,42): error TS2322: Type '"RWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(587,35): error TS2322: Type '"LWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(587,42): error TS2322: Type '"RWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(610,29): error TS2322: Type '"LWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(610,36): error TS2322: Type '"RWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(652,29): error TS2322: Type '"LWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(652,36): error TS2322: Type '"RWB"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(795,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(805,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(816,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(826,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(837,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/player-tactics.ts(848,23): error TS2322: Type '"CF"' is not assignable to type 'Pos'.
+src/state/promotion.ts(42,51): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/qualification.ts(178,58): error TS4111: Property 'season' comes from an index signature, so it must be accessed with ['season'].
+src/state/realism-metrics.test.ts(9,59): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/realism-metrics.test.ts(36,42): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/realistic-season-calendar.test.ts(18,9): error TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+src/state/realistic-season-calendar.test.ts(18,39): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/reducer.ts(491,9): error TS2322: Type '(FinancialTransaction | { id: string; date: string; type: string; description: string; amount: number; category: "expense"; relatedEntityId: undefined; })[]' is not assignable to type 'FinancialTransaction[]'.
+  Type 'FinancialTransaction | { id: string; date: string; type: string; description: string; amount: number; category: "expense"; relatedEntityId: undefined; }' is not assignable to type 'FinancialTransaction' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ id: string; date: string; type: string; description: string; amount: number; category: "expense"; relatedEntityId: undefined; }' is not assignable to type 'FinancialTransaction' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'type' are incompatible.
+        Type 'string' is not assignable to type 'FinancialTransactionType'.
+src/state/reducer.ts(546,23): error TS18048: 'state.manager.experience' is possibly 'undefined'.
+src/state/reducer.ts(549,11): error TS2375: Type 'CareerEvent | { id: string; season: string | number; clubId: string; summary: string; seasonReview: { tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }; }' is not assignable to type 'CareerEvent' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ id: string; season: string | number; clubId: string; summary: string; seasonReview: { tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }; }' is not assignable to type 'CareerEvent'.
+    Types of property 'season' are incompatible.
+      Type 'string | number' is not assignable to type 'string'.
+        Type 'number' is not assignable to type 'string'.
+src/state/reducer.ts(552,13): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/reducer.ts(691,7): error TS2375: Type '{ id?: string; name?: string; drills?: string[]; intensity?: "low" | "medium" | "high"; frequencyDays?: number; lastAppliedDate?: string; selectedPlayerIds?: string[]; }' is not assignable to type 'TrainingPreset' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'id' is optional in type '{ id?: string; name?: string; drills?: string[]; intensity?: "medium" | "low" | "high"; frequencyDays?: number; lastAppliedDate?: string; selectedPlayerIds?: string[]; }' but required in type 'TrainingPreset'.
+src/state/reducer.ts(720,11): error TS2375: Type 'GameState | { scoutingNetwork: { shortlistedPlayerIds: (string | null)[]; reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ scoutingNetwork: { shortlistedPlayerIds: (string | null)[]; reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'scoutingNetwork' are incompatible.
+      Type '{ shortlistedPlayerIds: (string | null)[]; reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Property 'scouts' is optional in type '{ shortlistedPlayerIds: (string | null)[]; reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/reducer.ts(722,90): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/state/reducer.ts(732,9): error TS2375: Type '{ reports: ScoutReport[]; dismissedPlayerIds: string[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'scouts' is optional in type '{ reports: ScoutReport[]; dismissedPlayerIds: string[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/reducer.ts(769,9): error TS2375: Type '{ reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'scouts' is optional in type '{ reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(30,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(30,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(40,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(46,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(60,22): error TS18048: 'hired1.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(63,22): error TS18048: 'hired2.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(66,18): error TS18048: 'scout1' is possibly 'undefined'.
+src/state/scout-reports.test.ts(72,18): error TS18048: 'scout2' is possibly 'undefined'.
+src/state/scout-reports.test.ts(82,24): error TS18048: 'deployed1.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(83,27): error TS18048: 'scout1' is possibly 'undefined'.
+src/state/scout-reports.test.ts(94,24): error TS18048: 'deployed2.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(95,27): error TS18048: 'scout2' is possibly 'undefined'.
+src/state/scout-reports.test.ts(102,64): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(103,64): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(115,22): error TS18048: 'hired1.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(118,18): error TS18048: 'scout1' is possibly 'undefined'.
+src/state/scout-reports.test.ts(124,22): error TS18048: 'hired2.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(127,18): error TS18048: 'scout2' is possibly 'undefined'.
+src/state/scout-reports.test.ts(137,24): error TS18048: 'deployed2.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(143,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(145,87): error TS18048: 'scout1' is possibly 'undefined'.
+src/state/scout-reports.test.ts(146,87): error TS18048: 'scout2' is possibly 'undefined'.
+src/state/scout-reports.test.ts(165,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(165,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(174,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(180,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(186,14): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(196,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(196,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(205,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(211,61): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(218,72): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(220,81): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(221,62): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(223,82): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(229,63): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(231,77): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(233,80): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(239,46): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(239,46): error TS2538: Type 'null' cannot be used as an index type.
+src/state/scout-reports.test.ts(246,70): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(248,69): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(250,82): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(256,46): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(256,46): error TS2538: Type 'null' cannot be used as an index type.
+src/state/scout-reports.test.ts(263,11): error TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+src/state/scout-reports.test.ts(263,12): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(270,64): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(273,73): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(278,46): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(278,46): error TS2538: Type 'null' cannot be used as an index type.
+src/state/scout-reports.test.ts(282,65): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(283,56): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(285,82): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(292,65): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(298,80): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(313,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(313,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(322,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(328,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(330,68): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(333,63): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(334,56): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(342,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(342,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(351,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(357,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(359,68): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(366,27): error TS2339: Property 'data' does not exist on type 'LoadResult<GameState>'.
+  Property 'data' does not exist on type '{ status: "missing"; }'.
+src/state/scout-reports.test.ts(367,27): error TS2339: Property 'data' does not exist on type 'LoadResult<GameState>'.
+  Property 'data' does not exist on type '{ status: "missing"; }'.
+src/state/scout-reports.test.ts(375,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(375,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(384,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(390,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(395,19): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(398,70): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(404,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(404,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(413,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(419,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(424,19): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(427,68): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(433,18): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(433,18): error TS2532: Object is possibly 'undefined'.
+src/state/scout-reports.test.ts(442,24): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scout-reports.test.ts(448,63): error TS2379: Argument of type '{ scoutingNetwork: { assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }; ... 33 more ...; gameSeed?: string; }' is not assignable to parameter of type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.test.ts(453,19): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(456,52): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.test.ts(456,52): error TS2538: Type 'null' cannot be used as an index type.
+src/state/scout-reports.test.ts(457,66): error TS18048: 'report' is possibly 'undefined'.
+src/state/scout-reports.ts(45,23): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(52,23): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(52,51): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(66,28): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(67,32): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(68,31): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(69,33): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(70,33): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(71,32): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(85,57): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(86,59): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(99,15): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(105,13): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(106,12): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(107,17): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(108,20): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(109,22): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(110,20): error TS18048: 'selectedPlayer' is possibly 'undefined'.
+src/state/scout-reports.ts(115,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/scout-reports.ts(166,5): error TS2375: Type '{ reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'scouts' is optional in type '{ reports: ScoutReport[]; scouts?: Scout[]; assignments?: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scout-reports.ts(239,3): error TS2375: Type '{ clubs: { [x: string]: Club | { academy: { prospectIds: string[]; rating: number; }; id: string; name: string; shortName: string; abbr: string; ground: string; primaryColor: string; secondaryColor: string; ... 19 more ...; loanOutPlayers?: LoanOutPlayer[]; }; }; ... 33 more ...; gameSeed?: string; }' is not assignable to type 'GameState' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'scoutingNetwork' are incompatible.
+    Type '{ reports: ScoutReport[]; scouts: Scout[]; assignments: ScoutingAssignment[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; } | undefined' is not assignable to type 'ScoutingNetwork'.
+      Type 'undefined' is not assignable to type 'ScoutingNetwork'.
+src/state/scouting-network.test.ts(18,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(19,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(27,16): error TS18048: 'scout.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(27,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(35,12): error TS18048: 'deployed.financialTransactions' is possibly 'undefined'.
+src/state/scouting-network.test.ts(36,12): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(43,16): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(43,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(49,12): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(49,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(50,12): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(50,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(51,12): error TS18048: 'deployed.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(51,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(67,16): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(67,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(76,12): error TS18048: 'progressedAgain.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(76,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(76,78): error TS18048: 'advanced.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(76,78): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(77,12): error TS18048: 'progressedAgain.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(77,12): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(77,83): error TS18048: 'advanced.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(77,83): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(84,16): error TS18048: 'hired.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(84,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(95,25): error TS2339: Property 'data' does not exist on type 'LoadResult<GameState>'.
+  Property 'data' does not exist on type '{ status: "missing"; }'.
+src/state/scouting-network.test.ts(96,25): error TS2339: Property 'data' does not exist on type 'LoadResult<GameState>'.
+  Property 'data' does not exist on type '{ status: "missing"; }'.
+src/state/scouting-network.test.ts(103,16): error TS18048: 'scout.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(103,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(110,16): error TS18048: 'first.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(110,16): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(116,12): error TS18048: 'duped.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(120,9): error TS2322: Type '"DEPLOY_SCOUTING_ASSIGNMENT"' is not assignable to type '"RECORD_MATCH_RESULT" | "UPDATE_PLAYER" | "ADVANCE_DAY" | "UPDATE_TRANSFER_STATUS" | "ADD_TRANSFER_TARGET" | "RECORD_TRANSFER" | "UPGRADE_FACILITY" | "HIRE_STAFF" | "FIRE_STAFF" | ... 22 more ... | "CLEAR_SHORTLIST"'.
+src/state/scouting-network.test.ts(120,54): error TS18048: 'first.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.test.ts(120,54): error TS2532: Object is possibly 'undefined'.
+src/state/scouting-network.test.ts(123,12): error TS18048: 'unaffordable.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(69,3): error TS2322: Type 'ScoutingNetwork | undefined' is not assignable to type 'ScoutingNetwork'.
+  Type 'undefined' is not assignable to type 'ScoutingNetwork'.
+src/state/scouting-network.ts(135,5): error TS2375: Type '{ scouts: Scout[]; assignments?: ScoutingAssignment[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'assignments' is optional in type '{ scouts: Scout[]; assignments?: ScoutingAssignment[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scouting-network.ts(137,19): error TS18048: 'next.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(155,17): error TS18048: 'next.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(159,26): error TS18048: 'next.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(175,9): error TS2375: Type '{ id: string; scoutId: string; targetCountryId: string; assignmentLabel: string; durationDays: number; startedOnDate: string; status: "active"; progressDays: number; lastProcessedDate: undefined; ... 4 more ...; assignedCost: number; }' is not assignable to type 'ScoutingAssignment' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'lastProcessedDate' are incompatible.
+    Type 'undefined' is not assignable to type 'string'.
+src/state/scouting-network.ts(194,5): error TS2375: Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/scouting-network.ts(196,24): error TS18048: 'next.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(207,23): error TS18048: 'next.scoutingNetwork' is possibly 'undefined'.
+src/state/scouting-network.ts(227,5): error TS2375: Type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' is not assignable to type 'ScoutingNetwork' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'scouts' is optional in type '{ assignments: ScoutingAssignment[]; scouts?: Scout[]; reports?: ScoutReport[]; shortlistedPlayerIds?: string[]; dismissedPlayerIds?: string[]; }' but required in type 'ScoutingNetwork'.
+src/state/season.ts(75,21): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(80,18): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(83,23): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(117,43): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(173,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(186,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/season.ts(289,54): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/season.ts(351,7): error TS2375: Type 'CareerEvent | { id: string; season: string | number; clubId: string; summary: string; seasonReview: { tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }; }' is not assignable to type 'CareerEvent' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ id: string; season: string | number; clubId: string; summary: string; seasonReview: { tier: SeasonPerformanceTier; creditDelta: number; creditAfter: number; reputationDelta: number; reputationAfter: number; }; }' is not assignable to type 'CareerEvent'.
+    Types of property 'season' are incompatible.
+      Type 'string | number' is not assignable to type 'string'.
+        Type 'number' is not assignable to type 'string'.
+src/state/season.ts(354,9): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/season.ts(369,5): error TS2322: Type '{ [k: string]: { season: string | number; id: string; name: string; competitionId: string; matchday: number; }; }' is not assignable to type 'Record<string, League>'.
+  'string' index signatures are incompatible.
+    Type '{ season: string | number; id: string; name: string; competitionId: string; matchday: number; }' is not assignable to type 'League'.
+      Types of property 'season' are incompatible.
+        Type 'string | number' is not assignable to type 'string'.
+          Type 'number' is not assignable to type 'string'.
+src/state/season.ts(377,7): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+src/state/season.ts(386,37): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/season.ts(564,83): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/season.ts(579,5): error TS2322: Type '{ [k: string]: { season: string | number; id: string; name: string; competitionId: string; matchday: number; }; }' is not assignable to type 'Record<string, League>'.
+  'string' index signatures are incompatible.
+    Type '{ season: string | number; id: string; name: string; competitionId: string; matchday: number; }' is not assignable to type 'League'.
+      Types of property 'season' are incompatible.
+        Type 'string | number' is not assignable to type 'string'.
+          Type 'number' is not assignable to type 'string'.
+src/state/seed.ts(301,7): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/seed.ts(304,7): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/seed.ts(305,7): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/seed.ts(1679,39): error TS2304: Cannot find name 'gameState'.
+src/state/seed.ts(1679,62): error TS2304: Cannot find name 'gameState'.
+src/state/seed.ts(1681,10): error TS2304: Cannot find name 'gameState'.
+src/state/store.tsx(309,31): error TS2339: Property 'aiDecisions' does not exist on type 'GameState'.
+src/state/store.tsx(448,52): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/test-fixture-calendar-validation.test.ts(26,40): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/test-fixture-calendar-validation.test.ts(85,40): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/test-season-calendar-separation.test.ts(14,35): error TS2307: Cannot find module './build' or its corresponding type declarations.
+src/state/test-season-calendar-separation.test.ts(96,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/test-season-calendar-separation.test.ts(153,26): error TS4111: Property 'lastFinalizedDate' comes from an index signature, so it must be accessed with ['lastFinalizedDate'].
+src/state/test-season-calendar-separation.test.ts(153,64): error TS4111: Property 'lastFinalizedDate' comes from an index signature, so it must be accessed with ['lastFinalizedDate'].
+src/state/test-season-calendar-separation.test.ts(154,26): error TS4111: Property 'lastFinalizedDate' comes from an index signature, so it must be accessed with ['lastFinalizedDate'].
+src/state/test-season-calendar-separation.test.ts(154,64): error TS4111: Property 'lastFinalizedDate' comes from an index signature, so it must be accessed with ['lastFinalizedDate'].
+src/state/training-presets.test.ts(126,36): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/training-presets.test.ts(134,26): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/training-presets.test.ts(144,26): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/training-presets.test.ts(154,26): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/training-presets.test.ts(188,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(195,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(199,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(206,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(210,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(217,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(221,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(229,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(233,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(240,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(244,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(245,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(253,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(254,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(270,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(292,14): error TS18048: 'newPlan' is possibly 'undefined'.
+src/state/training-presets.test.ts(293,14): error TS18048: 'newPlan' is possibly 'undefined'.
+src/state/training-presets.test.ts(297,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(320,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(342,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(365,24): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(382,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(388,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(389,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(401,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(402,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(403,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(404,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(408,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(409,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(419,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(420,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(424,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(425,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(468,14): error TS18048: 'plan1' is possibly 'undefined'.
+src/state/training-presets.test.ts(469,14): error TS18048: 'plan1' is possibly 'undefined'.
+src/state/training-presets.test.ts(470,14): error TS18048: 'plan2' is possibly 'undefined'.
+src/state/training-presets.test.ts(471,14): error TS18048: 'plan2' is possibly 'undefined'.
+src/state/training-presets.test.ts(477,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(499,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(500,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(501,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(510,14): error TS18048: 'newPlan' is possibly 'undefined'.
+src/state/training-presets.test.ts(511,14): error TS18048: 'newPlan' is possibly 'undefined'.
+src/state/training-presets.test.ts(523,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(524,14): error TS18048: 'newPlan' is possibly 'undefined'.
+src/state/training-presets.test.ts(528,25): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(538,43): error TS2532: Object is possibly 'undefined'.
+src/state/training-presets.test.ts(551,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/training-presets.test.ts(561,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/training-presets.test.ts(568,14): error TS18048: 'modifiedPreset' is possibly 'undefined'.
+src/state/training-presets.test.ts(569,14): error TS18048: 'modifiedPreset' is possibly 'undefined'.
+src/state/training-presets.test.ts(570,14): error TS18048: 'modifiedPreset' is possibly 'undefined'.
+src/state/training-presets.test.ts(578,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/training-presets.test.ts(584,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/training-presets.ts(252,14): error TS2339: Property 'injured' does not exist on type 'Player'.
+src/state/training-trade-offs-simple.test.ts(116,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-trade-offs-simple.test.ts(119,14): error TS2532: Object is possibly 'undefined'.
+src/state/training-trade-offs-simple.test.ts(157,10): error TS18048: 'plan' is possibly 'undefined'.
+src/state/training-trade-offs-simple.test.ts(159,22): error TS18048: 'plan' is possibly 'undefined'.
+src/state/training-trade-offs-simple.test.ts(167,18): error TS18048: 'plan' is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(33,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(51,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(54,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(55,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(58,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(59,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(70,57): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-ecosystem.test.ts(85,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(94,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(95,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(104,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(136,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(144,57): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-ecosystem.test.ts(159,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(168,25): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(169,24): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(187,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(197,57): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-ecosystem.test.ts(200,25): error TS4111: Property 'fee' comes from an index signature, so it must be accessed with ['fee'].
+src/state/transfer-ecosystem.test.ts(201,25): error TS4111: Property 'salaryWeekly' comes from an index signature, so it must be accessed with ['salaryWeekly'].
+src/state/transfer-ecosystem.test.ts(210,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(231,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(245,30): error TS18048: 'updated' is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(262,10): error TS18048: 'seller1' is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(264,34): error TS18048: 'seller1' is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(264,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-ecosystem.test.ts(267,61): error TS18048: 'seller1' is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(268,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(271,57): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-ecosystem.test.ts(277,12): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-ecosystem.test.ts(280,57): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-ecosystem.test.ts(302,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-hardening.ts(99,5): error TS2375: Type '{ success: false; reason: string | undefined; state: GameState; }' is not assignable to type '{ success: boolean; reason?: string; state: GameState; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'reason' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-hardening.ts(215,5): error TS2375: Type '{ success: false; reason: string | undefined; state: GameState; }' is not assignable to type 'TransferCompletion' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'reason' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-hardening.ts(269,15): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-hardening.ts(270,15): error TS4111: Property 'fromClubId' comes from an index signature, so it must be accessed with ['fromClubId'].
+src/state/transfer-hardening.ts(271,15): error TS4111: Property 'toClubId' comes from an index signature, so it must be accessed with ['toClubId'].
+src/state/transfer-integration.test.ts(111,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-integration.test.ts(112,44): error TS2339: Property 'ledger' does not exist on type 'AIManagerProfile'.
+src/state/transfer-integration.test.ts(128,14): error TS18048: 'updatedBuyer' is possibly 'undefined'.
+src/state/transfer-integration.test.ts(129,14): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-integration.test.ts(153,38): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-integration.test.ts(165,16): error TS2532: Object is possibly 'undefined'.
+src/state/transfer-integration.test.ts(188,34): error TS2538: Type 'undefined' cannot be used as an index type.
+src/state/transfer-integration.test.ts(200,15): error TS18048: 'updatedSeller' is possibly 'undefined'.
+src/state/transfer-integration.test.ts(203,15): error TS18048: 'updatedBuyer' is possibly 'undefined'.
+src/state/transfer-integration.test.ts(206,24): error TS18048: 'updatedSeller' is possibly 'undefined'.
+src/state/transfer-integration.test.ts(207,23): error TS18048: 'updatedBuyer' is possibly 'undefined'.
+src/state/transfer-month-simulation.test.ts(169,7): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-month-simulation.test.ts(179,7): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-month-simulation.test.ts(187,56): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-month-simulation.test.ts(188,59): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/state/transfer-rules.ts(24,48): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/transfer-rules.ts(32,48): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/transfer-visibility.ts(37,27): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfer-visibility.ts(38,29): error TS4111: Property 'fromClubId' comes from an index signature, so it must be accessed with ['fromClubId'].
+src/state/transfer-visibility.ts(39,27): error TS4111: Property 'toClubId' comes from an index signature, so it must be accessed with ['toClubId'].
+src/state/transfers-negotiations-integration.test.ts(197,25): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfers-negotiations-integration.test.ts(198,43): error TS4111: Property 'playerId' comes from an index signature, so it must be accessed with ['playerId'].
+src/state/transfers-negotiations-integration.test.ts(202,25): error TS4111: Property 'homeClubId' comes from an index signature, so it must be accessed with ['homeClubId'].
+src/state/transfers-negotiations-integration.test.ts(203,41): error TS4111: Property 'homeClubId' comes from an index signature, so it must be accessed with ['homeClubId'].
+src/state/transfers-negotiations-integration.test.ts(205,25): error TS4111: Property 'awayClubId' comes from an index signature, so it must be accessed with ['awayClubId'].
+src/state/transfers-negotiations-integration.test.ts(206,41): error TS4111: Property 'awayClubId' comes from an index signature, so it must be accessed with ['awayClubId'].
+src/state/transfers-negotiations-integration.test.ts(208,25): error TS4111: Property 'fixtureId' comes from an index signature, so it must be accessed with ['fixtureId'].
+src/state/transfers-negotiations-integration.test.ts(209,66): error TS4111: Property 'fixtureId' comes from an index signature, so it must be accessed with ['fixtureId'].
+src/state/transfers-negotiations-integration.test.ts(217,39): error TS4111: Property 'fixtureId' comes from an index signature, so it must be accessed with ['fixtureId'].
+src/state/world-history.ts(119,9): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+src/state/world-history.ts(228,5): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/state/world-history.ts(239,5): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+src/state/world.ts(103,80): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/world.ts(104,71): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/world.ts(133,71): error TS2353: Object literal may only specify known properties, and 'isFinal' does not exist in type 'CupRoundConfig'.
+src/state/world.ts(167,85): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/state/world.ts(217,85): error TS2339: Property 'split' does not exist on type 'string | number'.
+  Property 'split' does not exist on type 'number'.
+src/test/ai-tactics.test.ts(8,23): error TS2305: Module '"@/data/squad"' has no exported member 'Club'.
+src/test/ai-tactics.test.ts(31,10): error TS2352: Conversion of type '{ id: string; firstName: string; lastName: string; pos: any; club: string; age: number; overall: number; potential: number; pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; attrs: { ...; }; contract: number; wage: number; }' to type 'Player' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '{ id: string; firstName: string; lastName: string; pos: any; club: string; age: number; overall: number; potential: number; pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; attrs: { ...; }; contract: number; wage: number; }' is missing the following properties from type 'Player': name, shortName, number, role, and 14 more.
+src/test/ai-tactics.test.ts(306,36): error TS2345: Argument of type 'Player | undefined' is not assignable to parameter of type 'Player'.
+  Type 'undefined' is not assignable to type 'Player'.
+src/test/ai-tactics.test.ts(307,36): error TS2345: Argument of type 'Player | undefined' is not assignable to parameter of type 'Player'.
+  Type 'undefined' is not assignable to type 'Player'.
+src/test/dynamic-movement.test.ts(401,12): error TS18048: 'gkResult' is possibly 'undefined'.
+src/test/dynamic-movement.test.ts(401,39): error TS2872: This kind of expression is always truthy.
+src/test/dynamic-movement.test.ts(523,13): error TS2488: Type '[number, number] | undefined' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/test/dynamic-movement.test.ts(646,18): error TS2532: Object is possibly 'undefined'.
+src/test/dynamic-movement.test.ts(647,18): error TS2532: Object is possibly 'undefined'.
+src/test/match-engine-tactical-integration.test.ts(20,18): error TS2379: Argument of type '{ id: string; shortName: string; number: number; pos: "ST"; role: string; x: number; y: number; baseFitness: number; overall: number; attack: number; defend: number; playmaking: number; discipline: number; isGK: false; tacticalConfig: { ...; } | undefined; }' is not assignable to parameter of type 'SimPlayer' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'tacticalConfig' are incompatible.
+    Type '{ roleId: string; instructions: string[]; roleFamiliarity: number; } | undefined' is not assignable to type '{ roleId?: string; instructions?: string[]; roleFamiliarity?: number; }'.
+      Type 'undefined' is not assignable to type '{ roleId?: string; instructions?: string[]; roleFamiliarity?: number; }'.
+src/test/match-engine-tactical-integration.test.ts(50,18): error TS2379: Argument of type '{ id: string; shortName: string; number: number; pos: "CM"; role: string; x: number; y: number; baseFitness: number; overall: number; attack: number; defend: number; playmaking: number; discipline: number; isGK: false; tacticalConfig: { ...; } | undefined; }' is not assignable to parameter of type 'SimPlayer' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'tacticalConfig' are incompatible.
+    Type '{ roleId: string; instructions: string[]; roleFamiliarity: number; } | undefined' is not assignable to type '{ roleId?: string; instructions?: string[]; roleFamiliarity?: number; }'.
+      Type 'undefined' is not assignable to type '{ roleId?: string; instructions?: string[]; roleFamiliarity?: number; }'.
+src/test/match-engine-tactical-integration.test.ts(81,7): error TS2322: Type '"CB" | "FB"' is not assignable to type 'Pos'.
+  Type '"FB"' is not assignable to type 'Pos'.
+src/test/match-engine-tactical-integration.test.ts(304,14): error TS2532: Object is possibly 'undefined'.
+src/test/match-engine-tactical-integration.test.ts(305,14): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(80,14): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(80,53): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(81,14): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(81,53): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(122,10): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(122,30): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(123,10): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(123,30): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(249,5): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(251,46): error TS2345: Argument of type 'MatchMovementState | undefined' is not assignable to parameter of type 'MatchMovementState'.
+  Type 'undefined' is not assignable to type 'MatchMovementState'.
+src/test/match-movement-integration.test.ts(255,5): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(256,49): error TS2345: Argument of type 'MatchMovementState | undefined' is not assignable to parameter of type 'MatchMovementState'.
+  Type 'undefined' is not assignable to type 'MatchMovementState'.
+src/test/match-movement-integration.test.ts(309,30): error TS2532: Object is possibly 'undefined'.
+src/test/match-movement-integration.test.ts(311,7): error TS2532: Object is possibly 'undefined'.
+src/test/player-tactics.test.ts(16,15): error TS2305: Module '"@/data/squad"' has no exported member 'Club'.
+src/test/player-tactics.test.ts(144,9): error TS2353: Object literal may only specify known properties, and 'defense' does not exist in type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/test/player-tactics.test.ts(195,16): error TS2532: Object is possibly 'undefined'.
+src/test/player-tactics.test.ts(195,59): error TS2532: Object is possibly 'undefined'.
+src/test/player-tactics.test.ts(246,11): error TS2353: Object literal may only specify known properties, and 'defense' does not exist in type '{ pace: number; shooting: number; passing: number; dribbling: number; defending: number; physical: number; }'.
+src/test/player-tactics.test.ts(277,9): error TS2739: Type '{ date: string; season: number; }' is missing the following properties from type 'GameCalendarState': day, week, seasonStartDate
+src/test/player-tactics.test.ts(283,11): error TS2739: Type '{ matchRevenue: number; sponsorship: number; television: number; other: number; }' is missing the following properties from type '{ matchRevenue: number; sponsorship: number; prizeMoney: number; playerSales: number; competitionRevenue: number; television?: number; other?: number; total: number; }': prizeMoney, playerSales, competitionRevenue, total
+src/test/player-tactics.test.ts(309,40): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(310,14): error TS18048: 'player' is possibly 'undefined'.
+src/test/player-tactics.test.ts(321,40): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(322,14): error TS18048: 'player' is possibly 'undefined'.
+src/test/player-tactics.test.ts(329,40): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(330,14): error TS18048: 'player' is possibly 'undefined'.
+src/test/player-tactics.test.ts(336,14): error TS18048: 'nextState.players.p1' is possibly 'undefined'.
+src/test/player-tactics.test.ts(336,32): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(340,14): error TS18048: 'nextState.players.p1' is possibly 'undefined'.
+src/test/player-tactics.test.ts(340,32): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(356,40): error TS4111: Property 'p1' comes from an index signature, so it must be accessed with ['p1'].
+src/test/player-tactics.test.ts(357,14): error TS18048: 'player' is possibly 'undefined'.
+src/test/player-tactics.test.ts(358,14): error TS18048: 'player' is possibly 'undefined'.
+src/test/positional-targeting.test.ts(81,28): error TS2339: Property 'toBeBetween' does not exist on type 'Assertion<number>'.
+src/test/positional-targeting.test.ts(267,28): error TS2339: Property 'toBeBetween' does not exist on type 'Assertion<number>'.
+src/test/positional-targeting.test.ts(289,28): error TS2339: Property 'toBeBetween' does not exist on type 'Assertion<number>'.
+src/test/positional-targeting.test.ts(523,12): error TS2532: Object is possibly 'undefined'.
+src/test/positional-targeting.test.ts(524,12): error TS2532: Object is possibly 'undefined'.
+src/test/transfers-market.test.ts(47,49): error TS2345: Argument of type 'GameState' is not assignable to parameter of type 'Player'.
+  Type 'GameState' is missing the following properties from type 'Player': consistency, injuryProneness, fatigue, injury, and 31 more.

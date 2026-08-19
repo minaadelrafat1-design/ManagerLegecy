@@ -1,0 +1,20 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error: Transform failed with 1 error:
+C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\scripts\audit-transfer-integrity.ts:595:38: ERROR: "await" can only be used inside an "async" function
+    at failureErrorWithLog (C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\node_modules\esbuild\lib\main.js:1752:15)
+    at C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\node_modules\esbuild\lib\main.js:1019:50
+    at responseCallbacks.<computed> (C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\node_modules\esbuild\lib\main.js:886:9)
+    at handleIncomingPacket (C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\node_modules\esbuild\lib\main.js:941:12)
+    at Socket.readFromStdout (C:\Users\adelr\Downloads\squad-hub-phase-d2.1-ai-decisions\node_modules\esbuild\lib\main.js:864:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:514:3)
+    at Readable.push (node:internal/streams/readable:394:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {
+  name: 'TransformError'
+}
+
+Node.js v24.18.0

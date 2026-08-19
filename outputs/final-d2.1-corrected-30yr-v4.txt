@@ -1,0 +1,9 @@
+30 seasons seed 0: 54164.7ms | fixtures=0 matches=0 goals=0 transfers=493 promotions=2480 relegations=2320 retirements=4580 youth=2590 managers=1485 players=6473 aiMemory=0 invariants=0
+30 seasons seed 1: 21071.5ms | fixtures=0 matches=0 goals=0 transfers=483 promotions=2480 relegations=2320 retirements=4578 youth=2584 managers=1485 players=6467 aiMemory=0 invariants=0
+Same-seed reproducibility: NOT RUN
+Different-seed divergence: PASS
+Malformed cases: 0
+Report: outputs/final-d2.1-regression-30-seed-0-1.json
+World scope: representative
+Representative density: 2 clubs per league
+Invariant counts are reported per run; non-zero counts require review and are not hidden.

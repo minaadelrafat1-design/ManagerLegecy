@@ -1,0 +1,7 @@
+5 seasons seed 0: 540957.3ms | fixtures=0 matches=0 goals=0 transfers=498 promotions=960 relegations=960 retirements=642 youth=3458 managers=3358 players=44979 aiMemory=0 invariants=4289
+5 seasons seed 1: 295799.1ms | fixtures=0 matches=0 goals=0 transfers=520 promotions=960 relegations=960 retirements=642 youth=3458 managers=3358 players=44979 aiMemory=0 invariants=4339
+Same-seed reproducibility: FAIL
+Different-seed divergence: FAIL
+Malformed cases: 0
+Report: outputs/final-d2.1-regression-5-seed-0-1.json
+Invariant counts are reported per run; non-zero counts require review and are not hidden.

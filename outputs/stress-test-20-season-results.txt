@@ -1,0 +1,6 @@
+
+≡ƒôè STRESS TEST SEED 0: 20 SEASONS
+======================================================================
+  Season undefined | 5809 players |   0 transfers | 124 over-35 | 3005 under-23
+  Season undefined | 5930 players |   0 transfers | 124 over-35 | 3126 under-23
+  Season undefined | 6041 players |   0 transfers | 137 over-35 | 2772 under-23

@@ -1,0 +1,63 @@
+{
+  "years": 10,
+  "report": [
+    {
+      "seasonIndex": 1,
+      "summary": {
+        "season": "2026/27",
+        "date": "2026-11-30",
+        "events": 661,
+        "fixtures": 624,
+        "playedMatches": 624,
+        "transfers": 17
+      },
+      "moves": [
+        { "clubId": "england-div1-club-2", "from": "england-div1", "to": "england-div2" },
+        { "clubId": "england-div2-club-5", "from": "england-div2", "to": "england-div1" },
+        { "clubId": "rivendell-div1-club-6", "from": "rivendell-div1", "to": "rivendell-div2" },
+        { "clubId": "rivendell-div2-club-5", "from": "rivendell-div2", "to": "rivendell-div1" },
+        { "clubId": "norland-div1-club-1", "from": "norland-div1", "to": "norland-div2" },
+        { "clubId": "norland-div2-club-2", "from": "norland-div2", "to": "norland-div1" },
+        { "clubId": "country-4-div1-club-6", "from": "country-4-div1", "to": "country-4-div2" },
+        { "clubId": "country-4-div2-club-2", "from": "country-4-div2", "to": "country-4-div1" },
+        { "clubId": "country-5-div1-club-2", "from": "country-5-div1", "to": "country-5-div2" },
+        { "clubId": "country-5-div2-club-4", "from": "country-5-div2", "to": "country-5-div1" },
+        { "clubId": "country-6-div1-club-2", "from": "country-6-div1", "to": "country-6-div2" },
+        { "clubId": "country-6-div2-club-6", "from": "country-6-div2", "to": "country-6-div1" },
+        { "clubId": "country-7-div1-club-2", "from": "country-7-div1", "to": "country-7-div2" },
+        { "clubId": "country-7-div2-club-2", "from": "country-7-div2", "to": "country-7-div1" },
+        { "clubId": "country-8-div1-club-2", "from": "country-8-div1", "to": "country-8-div2" },
+        { "clubId": "country-8-div2-club-3", "from": "country-8-div2", "to": "country-8-div1" }
+      ]
+    },
+    {
+      "seasonIndex": 2,
+      "summary": {
+        "season": "2026/27",
+        "date": "2026-11-30",
+        "events": 733,
+        "fixtures": 624,
+        "playedMatches": 624,
+        "transfers": 34
+      },
+      "moves": [
+        { "clubId": "england-div2-club-1", "from": "england-div2", "to": "england-div1" },
+        { "clubId": "england-div2-club-5", "from": "england-div1", "to": "england-div2" },
+        { "clubId": "rivendell-div2-club-1", "from": "rivendell-div2", "to": "rivendell-div1" },
+        { "clubId": "rivendell-div2-club-5", "from": "rivendell-div1", "to": "rivendell-div2" },
+        { "clubId": "norland-div2-club-2", "from": "norland-div1", "to": "norland-div2" },
+        { "clubId": "norland-div2-club-6", "from": "norland-div2", "to": "norland-div1" },
+        { "clubId": "country-4-div2-club-2", "from": "country-4-div1", "to": "country-4-div2" },
+        { "clubId": "country-4-div2-club-6", "from": "country-4-div2", "to": "country-4-div1" },
+        { "clubId": "country-5-div2-club-3", "from": "country-5-div2", "to": "country-5-div1" },
+        { "clubId": "country-5-div2-club-4", "from": "country-5-div1", "to": "country-5-div2" },
+        { "clubId": "country-6-div2-club-5", "from": "country-6-div2", "to": "country-6-div1" },
+        { "clubId": "country-6-div2-club-6", "from": "country-6-div1", "to": "country-6-div2" },
+        { "clubId": "country-7-div2-club-2", "from": "country-7-div1", "to": "country-7-div2" },
+        { "clubId": "country-7-div2-club-3", "from": "country-7-div2", "to": "country-7-div1" },
+        { "clubId": "country-8-div2-club-3", "from": "country-8-div1", "to": "country-8-div2" },
+        { "clubId": "country-8-div2-club-5", "from": "country-8-div2", "to": "country-8-div1" }
+      ]
+    }
+  ]
+}

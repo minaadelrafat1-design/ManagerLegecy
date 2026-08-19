@@ -1,0 +1,55 @@
+Running ultrafast 5yr sim (60 months)...
+{
+  "years": 5,
+  "months": 60,
+  "report": {
+    "player-club": {
+      "clubs": 1,
+      "avgAge": 25,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "balanced": {
+      "clubs": 126,
+      "avgAge": 0,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "selling-development": {
+      "clubs": 55,
+      "avgAge": 1,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "youth-focused": {
+      "clubs": 20,
+      "avgAge": 0,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "conservative": {
+      "clubs": 31,
+      "avgAge": 1,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "rebuilding": {
+      "clubs": 13,
+      "avgAge": 2,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "promotion-focused": {
+      "clubs": 2,
+      "avgAge": 0,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    },
+    "prestige-focused": {
+      "clubs": 1,
+      "avgAge": 0,
+      "avgYouthUsage": 0,
+      "avgTransferBudget": 0
+    }
+  }
+}

@@ -1,0 +1,68 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vitest.config.ts:15:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+ Γ¥» src/state/training-trade-offs.test.ts (7 tests | 4 failed) 17ms
+     ├ù should increase fatigue with high-intensity training 4ms
+     ├ù should recover faster on rest days (no training plan assigned) 2ms
+     ├ù should apply age-based recovery penalty for older players (age > 30) 2ms
+     ├ù should create meaningful trade-off between training intensity and recovery 1ms
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 4 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/state/training-trade-offs.test.ts > Training Trade-offs System > should increase fatigue with high-intensity training
+AssertionError: expected 4 to be greater than 4
+ Γ¥» src/state/training-trade-offs.test.ts:65:26
+     63|     const finalFatigue = currentState.players[playerId]?.fatigue ?? 0;
+     64|     // High intensity should accumulate fatigue
+     65|     expect(finalFatigue).toBeGreaterThan(baseFatigue);
+       |                          ^
+     66|   });
+     67|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/4]ΓÄ»
+
+ FAIL  src/state/training-trade-offs.test.ts > Training Trade-offs System > should recover faster on rest days (no training plan assigned)
+ReferenceError: reducer is not defined
+ Γ¥» src/state/training-trade-offs.test.ts:97:7
+     95|     let afterRest = restState;
+     96|     for (let i = 0; i < 5; i++) {
+     97|       afterRest = reducer(afterRest, {
+       |       ^
+     98|         type: "advance-calendar",
+     99|         dayCount: 1,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/4]ΓÄ»
+
+ FAIL  src/state/training-trade-offs.test.ts > Training Trade-offs System > should apply age-based recovery penalty for older players (age > 30)
+AssertionError: expected 60 to be less than 60
+ Γ¥» src/state/training-trade-offs.test.ts:148:26
+    146|     // Older player (>30) should recover slower: -1 penalty applied
+    147|     // With low intensity (0.8x multiplier) + age penalty (-1), recoveΓÇª
+    148|     expect(finalFatigue).toBeLessThan(60); // still recovers, just sloΓÇª
+       |                          ^
+    149|   });
+    150|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/4]ΓÄ»
+
+ FAIL  src/state/training-trade-offs.test.ts > Training Trade-offs System > should create meaningful trade-off between training intensity and recovery
+AssertionError: expected 34 to be greater than 41
+ Γ¥» src/state/training-trade-offs.test.ts:198:32
+    196|
+    197|     // High-intensity player should have more training progress but moΓÇª
+    198|     expect(p1TrainingProgress).toBeGreaterThan(p2TrainingProgress);
+       |                                ^
+    199|     expect(p1Fatigue).toBeGreaterThan(p2Fatigue);
+    200|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/4]ΓÄ»
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 3 passed (7)
+   Start at  18:34:45
+   Duration  2.67s (transform 645ms, setup 0ms, import 1.58s, tests 17ms, environment 713ms)
+

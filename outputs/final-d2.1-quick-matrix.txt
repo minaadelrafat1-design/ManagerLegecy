@@ -1,0 +1,2 @@
+1 seasons seed 0: 83548.9ms | fixtures=0 matches=0 goals=0 transfers=101 promotions=192 relegations=192 retirements=0 youth=0 managers=658 players=41521 aiMemory=0 invariants=0
+1 seasons seed 1: 88547.1ms | fixtures=0 matches=0 goals=0 transfers=106 promotions=192 relegations=192 retirements=0 youth=0 managers=658 players=41521 aiMemory=0 invariants=0

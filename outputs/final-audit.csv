@@ -1,0 +1,159 @@
+PHASE 4.0B — COMPETITION, TRANSFER AND PROMOTION/RELEGATION VALIDATION
+
+The previous world-tick fix successfully connected several lifecycle systems.
+
+The latest 30-year seed=1 result is:
+
+- Players: 901
+- Avg age: 27.22
+- Retired: 163
+- Youth generated: 138
+- Avg OVR: 72.15
+- Avg potential: 76.64
+- League strength: 73.92
+- Transfers: 0
+- Promotions: 1,635
+- Relegations: 0
+- Avg club balance: 336
+- Matches: 39
+- Goals: 116
+- Goals/match: 2.97
+- Manager changes: 198
+- Issues: []
+
+Do NOT move to the next master phase yet.
+
+The player lifecycle now appears to work, but the competition and transfer ecosystem still appears disconnected or incorrectly measured.
+
+Investigate the production systems responsible for:
+
+1. fixture scheduling
+2. fixture execution
+3. match simulation
+4. league standings
+5. season completion
+6. promotion
+7. relegation
+8. transfer windows
+9. AI transfer execution
+10. completed-transfer accounting
+
+Do not fake results to make the metrics change.
+
+### MATCHES
+
+Determine why the 30-year simulation still reports only 39 matches.
+
+Trace:
+
+calendar
+→ fixture generation
+→ scheduled fixture
+→ match execution
+→ result
+→ standings
+→ season completion
+
+Confirm whether 39 is:
+- the total fixture count,
+- only one competition,
+- only one season,
+- a reporting bug,
+- or a failure to advance fixtures.
+
+The production simulation must execute the appropriate fixtures for every simulated season.
+
+### PROMOTION / RELEGATION
+
+The simulation reports:
+
+1,635 promotions
+0 relegations
+
+This is not believable.
+
+Trace exactly where promotion/relegation counters are incremented.
+
+Determine whether the counter represents:
+- clubs promoted,
+- clubs relegated,
+- division movements,
+- repeated processing,
+- or another event.
+
+Promotion and relegation must be paired correctly according to the competition structure.
+
+Do not simply change the counter.
+
+Fix the underlying competition-state transition.
+
+Add invariants such as:
+
+- no impossible division movement
+- no club simultaneously promoted and relegated
+- promotion/relegation occurs only at season completion
+- each affected club changes division at most once per season
+- promotion and relegation counts are compatible with league rules
+
+### TRANSFERS
+
+The previous simulation reported extremely high transfer numbers, while the latest reports zero.
+
+Investigate the transfer pipeline:
+
+AI decision
+→ transfer target
+→ offer
+→ negotiation
+→ acceptance
+→ completed transfer
+→ roster update
+→ financial update
+→ transfer history
+
+Define "completed transfer" clearly.
+
+The simulation statistic should count actual completed transfers only.
+
+Verify that completed transfers:
+- move the player
+- update both clubs
+- update finances
+- update squad registration
+- update contracts where appropriate
+- appear in transfer history/statistics
+
+Do not count evaluations or rejected offers as completed transfers.
+
+### TESTING
+
+Create focused tests for:
+
+1. multiple seasons of fixtures
+2. match execution
+3. standings
+4. promotion
+5. relegation
+6. completed transfer
+7. rejected transfer
+8. transfer finances
+9. roster movement
+10. transfer counting
+
+Then run a small multi-season simulation before running the full 30-year simulation.
+
+After the focused tests pass, run the 30-year simulation again with at least one deterministic seed.
+
+Report:
+
+- root cause of the 39-match problem
+- root cause of the 1,635/0 promotion-relegation problem
+- root cause of the zero-transfer problem
+- files changed
+- tests added
+- focused simulation results
+- updated 30-year results
+- remaining problems
+
+Do not proceed to the next master phase until this validation is complete.
+STOP.

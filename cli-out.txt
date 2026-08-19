@@ -1,0 +1,5 @@
+INITIAL 2026/27 fixtures 40
+SEASON 2026/27 elapsed_s 1470.7 total_after_prune 37432 season_scheduled 0 played 37432 scheduled_remaining 0 goals 88706 dupIds 0 iteration_warning 0
+  -> progressed 2027/28 total_now 37432
+SEASON 2027/28 elapsed_s 3835.1 total_after_prune 35728 season_scheduled 0 played 35728 scheduled_remaining 0 goals 118384 dupIds 0 iteration_warning 0
+  -> progressed 2028/29 total_now 35728

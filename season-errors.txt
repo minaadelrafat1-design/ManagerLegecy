@@ -1,0 +1,12 @@
+
+src/state/season.ts(75,21): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(80,18): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(83,23): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(117,43): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(173,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(186,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+src/state/season.ts(377,7): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.
+src/state/season.ts(386,37): error TS2339: Property 'split' does not exist on type 'string | number'.
+src/state/season.ts(564,83): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+src/state/season.ts(579,5): error TS2322: Type '{ [k: string]: { season: string | number; id: string; name: string; competitionId: string; matchday: number; }; }' is not assignable to type 'Record<string, League>'.
+

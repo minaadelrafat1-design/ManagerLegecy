@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-08-12T22:59:53.616Z",
+  "seasons": 30,
+  "summary": {
+    "totalPlayers": 25,
+    "averageCareerLength": 8,
+    "developmentPatterns": {
+      "veteran-longevity": 1,
+      "elite-development": 10,
+      "steady-development": 12,
+      "early-breakthrough": 2
+    }
+  },
+  "developmentDistribution": {
+    "veteran-longevity": 1,
+    "elite-development": 10,
+    "steady-development": 12,
+    "early-breakthrough": 2
+  },
+  "retirementDistribution": {
+    "active": 25,
+    "retired": 0
+  },
+  "samplePlayers": [
+    {
+      "id": "vidal",
+      "name": "Marco Vidal",
+      "age": 31,
+      "overall": 82,
+      "potential": 83
+    },
+    {
+      "id": "okafor",
+      "name": "Daniel Okafor",
+      "age": 24,
+      "overall": 78,
+      "potential": 85
+    },
+    {
+      "id": "brennan",
+      "name": "Callum Brennan",
+      "age": 27,
+      "overall": 84,
+      "potential": 86
+    },
+    {
+      "id": "halvorsen",
+      "name": "Emil Halvorsen",
+      "age": 33,
+      "overall": 79,
+      "potential": 79
+    },
+    {
+      "id": "ferreira",
+      "name": "Tomás Ferreira",
+      "age": 22,
+      "overall": 74,
+      "potential": 87
+    },
+    {
+      "id": "sarr",
+      "name": "Ibrahim Sarr",
+      "age": 28,
+      "overall": 83,
+      "potential": 84
+    },
+    {
+      "id": "lindqvist",
+      "name": "Anton Lindqvist",
+      "age": 26,
+      "overall": 80,
+      "potential": 83
+    },
+    {
+      "id": "mensah",
+      "name": "Kofi Mensah",
+      "age": 19,
+      "overall": 73,
+      "potential": 91
+    },
+    {
+      "id": "duarte",
+      "name": "Rafael Duarte",
+      "age": 25,
+      "overall": 81,
+      "potential": 85
+    },
+    {
+      "id": "kovacs",
+      "name": "Nikola Kovacs",
+      "age": 29,
+      "overall": 86,
+      "potential": 86
+    },
+    {
+      "id": "arnaud",
+      "name": "Luc Arnaud",
+      "age": 23,
+      "overall": 76,
+      "potential": 84
+    },
+    {
+      "id": "novak",
+      "name": "Petr Novak",
+      "age": 26,
+      "overall": 74,
+      "potential": 79
+    }
+  ]
+}

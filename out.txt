@@ -1,0 +1,31 @@
+PASS ΓÇö condition: exactly-baseline morale/form (65/65) is a no-op multiplier
+PASS ΓÇö condition: high morale+form gives a boost > 1
+PASS ΓÇö condition: low morale+form gives a penalty < 1
+PASS ΓÇö condition: form and morale both matter independently
+PASS ΓÇö condition: never swings far enough to invert a matchup on its own (bounded ratio)
+PASS ΓÇö condition: applying it to a SimPlayer raises attack/defend/playmaking together when morale+form are high
+PASS ΓÇö condition: applying it lowers ratings when morale+form are low
+PASS ΓÇö condition: ratings stay in 0-100
+PASS ΓÇö condition: id/pos/overall untouched ΓÇö only the three live ratings move
+PASS ΓÇö condition: same base player, different real morale/form GameState values -> different sim ratings
+PASS ΓÇö tactics: a 3-4-3, higher-reputation club reads as more front-footed than a 5-3-2, lower-reputation club
+PASS ΓÇö tactics: every dial stays in 0-100
+PASS ΓÇö tactics: deterministic for the same club (not per-fixture random)
+PASS ΓÇö tactics: home vs away centres differ for the same club (home keeps its usual small edge)
+PASS ΓÇö tactics: two different real seeded AI clubs no longer share literally the same tactics object/values
+PASS ΓÇö strong vs weak (60 seeds): the strong side wins clearly more often than it loses (H=60, D=0, A=0)
+PASS ΓÇö strong vs weak (60 seeds): the strong side wins a clear majority
+FAIL ΓÇö strong vs weak (60 seeds): the weak side still wins or draws sometimes ΓÇö never a 100% whitewash
+PASS ΓÇö strong vs weak: average goal difference favours the strong side
+PASS ΓÇö similar strength (120 matches, both home/away directions): both sides win a real share, no one-sided domination (A wins=50, draws=50, B wins=20)
+PASS ΓÇö similar strength: outcome varies with the seed (not the same scoreline every time)
+PASS ΓÇö formations (240 seeds each, same seeds/roster/opponent): the more attacking 3-4-3 generates more shots on average than 5-3-2 (4.33 vs 3.73)
+PASS ΓÇö formations: goal output trends the same direction over a larger sample (0.38 vs 0.30)
+PASS ΓÇö tactics (60 seeds each, same seeds/roster/opponent): an attacking approach scores more on average than a cautious one (0.30 vs 0.07)
+PASS ΓÇö tactics: an attacking approach also generates more shots on average
+FAIL ΓÇö home advantage (60 seeds, identical clubs, roles swapped, same seeds): Club P wins more often at home (17%) than away (65%)
+FAIL ΓÇö home advantage: Club P scores more on average at home than away, same opponent/roster/seeds
+PASS ΓÇö condition-only change (60 seeds, same roster/opponent/seeds, only morale+form differ): a confident, in-form squad (80% win rate) outperforms a dejected, out-of-form one (3%)
+PASS ΓÇö condition-only change: average goals scored also favours the confident/in-form squad
+
+3 check(s) FAILED.
