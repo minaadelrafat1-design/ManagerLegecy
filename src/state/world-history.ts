@@ -494,12 +494,12 @@ export function archiveOldWorldHistory(state: GameState): GameState {
   const fiveYearsInDays = 1825;
   const archiveDate = new Date(state.time.date);
   archiveDate.setDate(archiveDate.getDate() - fiveYearsInDays);
-  const archiveDateStr = archiveDate.toISOString().split("T")[0];
+  const archiveDateStr = archiveDate.toISOString().slice(0, 10);
 
   // Keep only recent records
   const playerRecords = history.playerRecords.filter((r) => (r.date ?? r.season) >= archiveDateStr);
   const clubRecords = history.clubRecords.filter((r) => (r.date ?? r.season) >= archiveDateStr);
-  const managerRecords = history.managerRecords.filter((r) => (r.date ?? r.season) >= archiveDateStr);
+  const managerRecords = history.managerRecords.filter((r) => r.fromDate >= archiveDateStr);
 
   const archivedHistory: WorldHistory = {
     ...history,

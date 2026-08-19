@@ -334,7 +334,7 @@ export function applyWeeklyFinanceTick(state: GameState): GameState {
   const twoDaysInSeasons = 730; // ~2 seasons worth of days
   const archiveDate = new Date(state.time.date);
   archiveDate.setDate(archiveDate.getDate() - twoDaysInSeasons);
-  const archiveDateStr = archiveDate.toISOString().split("T")[0];
+  const archiveDateStr = archiveDate.toISOString().slice(0, 10);
 
   if (nextState.financialTransactions && nextState.financialTransactions.length > 100) {
     nextState.financialTransactions = nextState.financialTransactions.filter((trans) => {

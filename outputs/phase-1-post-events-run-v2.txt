@@ -1,0 +1,58 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 7 DAYS
+Advancing 7 consecutive days...
+====================================================================================================
+  Day 7/7: 1292.87ms | Transfers=35 Negotiations=28 Events=25
+
+  SUMMARY:
+    Total time: 8133.28ms (7 days)
+    Average per day: 1161.90ms
+    Max day: 1461.98ms
+    Min day: 903.40ms
+    State size growth: 41099 bytes (0.04 MB)
+    Initial state size: 43.43 MB
+    Final state size: 43.47 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 1337.42ms total (avg 191.06ms)
+    events: 502.12ms total (avg 71.73ms)
+    training: 310.68ms total (avg 44.38ms)
+    fixtures: 307.20ms total (avg 43.89ms)
+    recovery: 280.76ms total (avg 40.11ms)
+    injuries: 266.16ms total (avg 38.02ms)
+    finances: 43.98ms total (avg 6.28ms)
+    scouting: 0.85ms total (avg 0.12ms)
+    development: 0.26ms total (avg 0.04ms)
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 30 DAYS TOTAL
+Advancing 23 consecutive days...
+====================================================================================================
+  Day 10/23: 5732.78ms | Transfers=36 Negotiations=77 Events=4166
+  Day 20/23: 1181.42ms | Transfers=37 Negotiations=116 Events=64
+  Day 23/23: 1508.33ms | Transfers=37 Negotiations=130 Events=20
+
+  SUMMARY:
+    Total time: 41275.98ms (23 days)
+    Average per day: 1794.61ms
+    Max day: 5732.78ms
+    Min day: 835.46ms
+    State size growth: 1091280 bytes (1.04 MB)
+    Initial state size: 43.47 MB
+    Final state size: 44.51 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai: 9049.79ms total (avg 393.47ms)
+    development: 3858.55ms total (avg 167.76ms)
+    events: 2069.75ms total (avg 89.99ms)
+    fixtures: 1989.68ms total (avg 86.51ms)
+    recovery: 1424.32ms total (avg 61.93ms)
+    training: 1242.50ms total (avg 54.02ms)
+    injuries: 1229.75ms total (avg 53.47ms)
+    finances: 137.74ms total (avg 5.99ms)
+    scouting: 0.94ms total (avg 0.04ms)
+
+Fresh-career measurements complete (--fresh-only).

@@ -416,11 +416,16 @@ export function generateInboxMessagesFromEvents(
   const cutoffDate = new Date(state.time.date);
   cutoffDate.setDate(cutoffDate.getDate() - lookbackDays);
 
-  const existingSourceIds = new Set(
-    (state.inbox ?? [])
-      .filter((message) => typeof message.sourceEventId === "string")
-      .map((message) => message.sourceEventId as string),
-  );
+  const existingSourceIds = new Set<string>();
+  const dedupeKeys = new Set<string>();
+  const dedupeCutoff = new Date(state.time.date);
+  dedupeCutoff.setDate(dedupeCutoff.getDate() - lookbackDays - state.inboxSettings.dedupeWindowDays);
+
+  for (const message of state.inbox ?? []) {
+    if (typeof message.sourceEventId === "string") existingSourceIds.add(message.sourceEventId);
+    if (message.archivedAt || new Date(message.date) < dedupeCutoff) continue;
+    dedupeKeys.add(`${message.title}\u0000${message.category}\u0000${message.relatedEntityId ?? ""}`);
+  }
 
   const newEvents = (state.events ?? []).filter(
     (event) => new Date(event.date) >= cutoffDate && !existingSourceIds.has(event.id),
@@ -431,9 +436,10 @@ export function generateInboxMessagesFromEvents(
   for (const event of newEvents) {
     const messages = eventToMessages(event, state);
     for (const msg of messages) {
-      if (!isDuplicateMessage(msg, state.inbox, state.inboxSettings.dedupeWindowDays)) {
-        newMessages.push(msg);
-      }
+      const key = `${msg.title}\u0000${msg.category}\u0000${msg.relatedEntityId ?? ""}`;
+      if (dedupeKeys.has(key)) continue;
+      dedupeKeys.add(key);
+      newMessages.push(msg);
     }
   }
 

@@ -344,16 +344,18 @@ class TimingCollector {
     this.hookTimings = {};
   }
 
-  recordHookStart(hookName: string) {
+  recordHookStart(hookName: string, hookIndex = 0) {
     if (!this.enabled) return;
-    this.hookTimings[hookName] = performance.now();
+    this.hookTimings[`${hookName}[${hookIndex}]`] = performance.now();
   }
 
-  recordHookEnd(hookName: string) {
+  recordHookEnd(hookName: string, hookIndex = 0) {
     if (!this.enabled || !this.currentDay) return;
-    const startTime = this.hookTimings[hookName];
+    const individualName = `${hookName}[${hookIndex}]`;
+    const startTime = this.hookTimings[individualName];
     if (startTime !== undefined) {
       const elapsed = performance.now() - startTime;
+      this.currentDay.hooks[individualName] = (this.currentDay.hooks[individualName] ?? 0) + elapsed;
       if (!this.currentDay.hooks[hookName]) {
         this.currentDay.hooks[hookName] = 0;
       }
@@ -621,9 +623,9 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
       debugAdvanceDay(
         `[ADVANCE_DAY] [DATE] ${time.date} [START] hook:${name}[${i}] metrics=${JSON.stringify(countStateMetrics(next))}`,
       );
-      timingCollector.recordHookStart(name);
+      timingCollector.recordHookStart(name, i);
       next = hook(next, time);
-      timingCollector.recordHookEnd(name);
+      timingCollector.recordHookEnd(name, i);
       debugAdvanceDay(
         `[ADVANCE_DAY] [DATE] ${time.date} [END] hook:${name}[${i}] elapsedMs=${(performance.now() - subHookStart).toFixed(2)} metrics=${JSON.stringify(countStateMetrics(next))}`,
       );

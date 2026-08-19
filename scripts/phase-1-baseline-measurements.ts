@@ -214,19 +214,26 @@ async function main() {
     let freshState = buildInitialState();
     const csvResults: Record<string, string> = {};
 
-    // Fresh career: 7 days
-    csvResults['fresh-7'] = await measureScenario('FRESH CAREER - 7 DAYS', freshState, 7);
+    if (!process.argv.includes('--mature-only')) {
+      // Fresh career: 7 days
+      csvResults['fresh-7'] = await measureScenario('FRESH CAREER - 7 DAYS', freshState, 7);
 
-    // Fresh career: 30 days (continuing from previous)
-    const freshAfter7 = (() => {
-      let s = freshState;
-      for (let i = 0; i < 7; i++) {
-        s = advanceGameDays(s, 1);
-      }
-      return s;
-    })();
-    
-    csvResults['fresh-30'] = await measureScenario('FRESH CAREER - 30 DAYS TOTAL', freshAfter7, 23);
+      // Fresh career: 30 days (continuing from previous)
+      const freshAfter7 = (() => {
+        let s = freshState;
+        for (let i = 0; i < 7; i++) {
+          s = advanceGameDays(s, 1);
+        }
+        return s;
+      })();
+
+      csvResults['fresh-30'] = await measureScenario('FRESH CAREER - 30 DAYS TOTAL', freshAfter7, 23);
+    }
+
+    if (process.argv.includes('--fresh-only')) {
+      console.log('\nFresh-career measurements complete (--fresh-only).');
+      return;
+    }
 
     // Mature career: use the existing season progression path to create a
     // populated five-season state, then exercise the real daily path.
@@ -236,12 +243,16 @@ async function main() {
       matureState = simulateSeasonQuick(matureState);
       console.log(`  Mature setup season ${season + 1}/5: ${matureState.time.season}`);
     }
-    csvResults['mature-30'] = await measureScenario('MATURE CAREER - 5 SEASONS + 30 DAYS', matureState, 30);
-
-    if (process.argv.includes('--fresh-only')) {
-      console.log('\nFresh-career measurements complete (--fresh-only).');
-      return;
-    }
+    const matureDaysArgument = Number.parseInt(
+      process.argv.find((argument) => argument.startsWith('--days='))?.slice('--days='.length) ?? '30',
+      10,
+    );
+    const matureDays = Number.isFinite(matureDaysArgument) && matureDaysArgument > 0 ? matureDaysArgument : 30;
+    csvResults[`mature-${matureDays}`] = await measureScenario(
+      `MATURE CAREER - 5 SEASONS + ${matureDays} DAYS`,
+      matureState,
+      matureDays,
+    );
 
     // Try to load a realistic career if it exists
     try {

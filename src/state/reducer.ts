@@ -19,7 +19,7 @@ import {
 } from "./negotiation-sessions";
 import { addClubMemory } from "./ai-memory";
 import consequences from "./ai-consequences";
-import { advanceGameDays } from "./calendar";
+import { advanceGameDays, canAdvanceGameDay } from "./calendar";
 import {
   applySeasonPerformance,
   describeSeasonReview,
@@ -158,6 +158,8 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
     }
 
     case "ADVANCE_DAY": {
+      if (!canAdvanceGameDay(state)) return state;
+
       const advanced = advanceGameDays(state, action.days ?? 1);
       
       // Set pending manager fixture if the manager's club has a fixture on the new current date

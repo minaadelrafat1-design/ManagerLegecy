@@ -63,6 +63,9 @@ class PerformanceMonitor {
 
   private interceptConsole() {
     console.log = (...args: unknown[]) => {
+      this.originalConsoleLog(...args);
+      if (!this.isRecording) return;
+
       const message = args
         .map((arg) => {
           if (typeof arg === "string") return arg;
@@ -71,7 +74,6 @@ class PerformanceMonitor {
         .join(" ");
 
       this.consoleLogs.push(message);
-      this.originalConsoleLog(...args);
 
       // Parse ADVANCE_DAY debug messages
       if (message.includes("[ADVANCE_DAY]")) {

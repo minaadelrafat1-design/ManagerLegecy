@@ -90,10 +90,13 @@ function aiDailyContracts(state: GameState): GameState {
 registerDailyHook("events", (state, time) => {
   const dayOfCycle = state.time.day % 7;
   const dueForWeeklyReview = dayOfCycle === 0;
-  const playersByClub = buildClubPlayerIndex(state);
-  const dueForExpiryReview = hasExpiringAIContracts(state, playersByClub);
+  if (!dueForWeeklyReview) {
+    const reviewKey = state.meta?.["lastAiContractReviewDate"];
+    if (reviewKey && daysBetweenISO(reviewKey, state.time.date) < 7) return state;
+  }
 
-  if (!dueForWeeklyReview && !dueForExpiryReview) return state;
+  const playersByClub = buildClubPlayerIndex(state);
+  if (!dueForWeeklyReview && !hasExpiringAIContracts(state, playersByClub)) return state;
 
   const reviewKey = state.meta?.["lastAiContractReviewDate"];
   if (reviewKey && daysBetweenISO(reviewKey, state.time.date) < 7) return state;

@@ -1,0 +1,70 @@
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+ Γ¥» src/state/office-finance.test.ts (35 tests | 4 failed) 807ms
+     ├ù should initialize with empty financial transactions 54ms
+     ├ù should record transfer fee as expense 32ms
+     ├ù should record wage increase from transfer 20ms
+     ├ù should track complex financial workflow 22ms
+ Γ¥» src/state/test-season-calendar-separation.test.ts (0 test)
+stdout | src/state/transfer-month-simulation.test.ts > Transfer Month Simulation ΓÇö AI Activity & Performance > simulates 30 days of transfer activity without lag or corruption
+
+=== Transfer Month Simulation (30 days) ===
+
+Day Offset	Transfers	Negotiations	Events		Time(ms)	Status
+----------------------------------------------------------------------------------------------------
++1		35		0		0		314.2	Γ£ô 
++2		35		0		0		318.8	blocked (EVAL)
++3		35		0		0		296.3	blocked 
++4		35		0		0		297.4	blocked 
++5		35		0		0		300.4	blocked (EVAL)
++6		35		0		0		326.3	blocked 
++7		35		0		0		311.5	blocked 
++8		35		0		0		322.9	blocked (EVAL)
++9		35		0		0		336.5	blocked 
++10		35		0		0		289.1	blocked 
++11		35		0		0		343.5	blocked (EVAL)
++12		35		0		0		370.1	blocked 
++13		35		0		0		355.6	blocked 
++14		35		0		0		337.7	blocked (EVAL)
++15		35		0		0		378.3	blocked 
++16		35		0		0		314.2	blocked 
++17		35		0		0		344.9	blocked (EVAL)
++18		35		0		0		317.9	blocked 
++19		35		0		0		402.7	blocked 
++20		35		0		0		309.3	blocked (EVAL)
++21		35		0		0		307.4	blocked 
++22		35		0		0		308.0	blocked 
++23		35		0		0		315.5	blocked (EVAL)
++24		35		0		0		301.2	blocked 
++25		35		0		0		352.0	blocked 
++26		35		0		0		316.6	blocked (EVAL)
++27		35		0		0		345.4	blocked 
++28		35		0		0		292.2	blocked 
++29		35		0		0		296.2	blocked (EVAL)
++30		35		0		0		301.6	blocked 
+----------------------------------------------------------------------------------------------------
+
+Performance Summary:
+  Avg per day: 324.12ms
+  Max per day: 402.72ms
+  Min per day: 289.12ms
+  Days blocked by match: 29
+
+Transfer Activity Summary:
+  Transfers at start: 35
+  Transfers at day 30: 35
+  Negotiations at day 30: 0
+
+ Γ¥» src/lib/ai-match-adapter.test.ts (5 tests | 1 failed) 556ms
+     ├ù is deterministic for identical seeds and permits underdogs to win 176ms
+ Γ¥» src/state/transfer-month-simulation.test.ts (4 tests | 1 failed) 21881ms
+     ├ù simulates 30 days of transfer activity without lag or corruption 9785ms
+stdout | src/state/match-integration.test.ts > Performance Profiling ΓÇö ADVANCE_DAY Execution Time > ADVANCE_DAY executes within reasonable time bounds (< 500ms per day)
+ADVANCE_DAY Performance:
+  Avg: 308.90ms
+  Max: 333.96ms
+  Times: [334.0, 305.1, 294.0, 318.4, 297.5, 324.3, 287.4, 306.5, 301.0, 320.6]
+
+ Γ¥» src/state/match-integration.test.ts (27 tests | 1 failed) 100905ms
+     ├ù ADVANCE_DAY executes within reasonable time bounds (< 500ms per day) 3123ms
