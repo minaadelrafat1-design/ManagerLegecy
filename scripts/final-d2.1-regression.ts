@@ -16,6 +16,13 @@ const representative = !process.argv.includes("--full-world");
 const YEARS = (requestedYears?.length ? requestedYears : [1, 5, 10, 30]) as Array<1 | 5 | 10 | 30>;
 const SEEDS = (requestedSeeds?.length ? requestedSeeds : ["0", "1"]) as string[];
 
+if (mode === "quick") {
+  console.error(
+    "CANONICAL TRUTH GATE FAILED: --quick intentionally skips match execution and cannot prove football occurred.",
+  );
+  process.exit(1);
+}
+
 interface LongTermCase {
   years: number;
   seed: string;
@@ -31,9 +38,16 @@ function runCase(years: number, seed: string): LongTermCase {
   const checks: string[] = [];
 
   if (report.seasonsCompleted !== years) checks.push("season-count");
-  if (mode === "full" && (report.fixturesScheduled <= 0 || report.matchesPlayed <= 0))
-    checks.push("fixtures-or-matches");
-  if (report.goals < 0 || report.playerPopulation <= 0) checks.push("population-or-goals");
+  if (report.daysAdvanced <= 0) checks.push("days-advanced");
+  if (report.fixturesScheduled <= 0) checks.push("fixtures-generated");
+  if (report.matchesPlayed <= 0) checks.push("matches-completed");
+  if (report.goals < 0) checks.push("negative-goals");
+  for (const season of report.perSeason) {
+    if (season.daysAdvanced <= 0) checks.push(`season-${season.seasonIndex}-days-advanced`);
+    if (season.fixturesGenerated <= 0) checks.push(`season-${season.seasonIndex}-fixtures-generated`);
+    if (season.matchesCompleted <= 0) checks.push(`season-${season.seasonIndex}-matches-completed`);
+  }
+  if (report.playerPopulation <= 0) checks.push("population");
   if (report.activePlayers + report.retiredPlayers !== report.playerPopulation)
     checks.push("player-status-counts");
   if (!Number.isFinite(report.averagePlayerAge)) checks.push("average-age");
@@ -75,7 +89,8 @@ function main() {
       console.log(
         `${years} seasons seed ${seed}: ${result.elapsedMs.toFixed(1)}ms | ` +
           `fixtures=${result.report.fixturesScheduled} matches=${result.report.matchesPlayed} ` +
-          `goals=${result.report.goals} transfers=${result.report.completedTransfers} ` +
+          `goals=${result.report.goals} transferAttempts=${result.report.transferAttempts} ` +
+          `transfers=${result.report.completedTransfers} ` +
           `promotions=${result.report.promotions} relegations=${result.report.relegations} ` +
           `retirements=${result.report.retirements} youth=${result.report.youthGenerated} ` +
           `managers=${result.report.managerChanges} players=${result.report.playerPopulation} ` +

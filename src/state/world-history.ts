@@ -207,9 +207,11 @@ export function recordSeasonChampion(
   clubId: string,
   leagueName: string,
   season: string,
+  competitionId?: string,
 ): GameState {
   const record = {
     clubId,
+    ...(competitionId ? { competitionId } : {}),
     season,
     date: state.time.date,
     kind: "league" as const,
@@ -225,9 +227,11 @@ export function recordCupWinner(
   clubId: string,
   competitionName: string,
   season: string,
+  competitionId?: string,
 ): GameState {
   const record = {
     clubId,
+    ...(competitionId ? { competitionId } : {}),
     season,
     date: state.time.date,
     kind: "cup" as const,
@@ -243,9 +247,11 @@ export function recordEuropeanWinner(
   clubId: string,
   competitionName: string,
   season: string,
+  competitionId?: string,
 ): GameState {
   const record = {
     clubId,
+    ...(competitionId ? { competitionId } : {}),
     season,
     date: state.time.date,
     kind: "european" as const,

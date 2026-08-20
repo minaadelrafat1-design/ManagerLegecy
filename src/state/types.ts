@@ -1380,6 +1380,7 @@ export interface WorldConfig {
 }
 
 export interface EuropeanQualificationRegistration {
+  season: string;
   competitionId: string;
   clubId: string;
   reason: string;

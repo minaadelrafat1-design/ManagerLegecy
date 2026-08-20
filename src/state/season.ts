@@ -152,6 +152,15 @@ export function generateLeagueFixtures(state: GameState): GameState {
     return `${weekday} ${day} ${month}`;
   }
 
+  // OPTIMIZATION: Pre-compute league → clubs index once instead of filtering per league
+  const leagueToClubs = new Map<string, string[]>();
+  for (const [clubId, club] of Object.entries(state.clubs)) {
+    if (!leagueToClubs.has(club.leagueId)) {
+      leagueToClubs.set(club.leagueId, []);
+    }
+    leagueToClubs.get(club.leagueId)!.push(clubId);
+  }
+
   for (const leagueId of Object.keys(state.leagues)) {
     const league = state.leagues[leagueId];
     if (!league) continue;
@@ -162,11 +171,11 @@ export function generateLeagueFixtures(state: GameState): GameState {
     );
     if (existingLeagueFixtures.length > 0) continue;
 
-    const clubs = Object.values(state.clubs).filter((c) => c.leagueId === leagueId);
-    const n = clubs.length;
+    const clubIds = leagueToClubs.get(leagueId) ?? [];
+    const n = clubIds.length;
     if (n < 2) continue;
 
-    const teams = clubs.map((c) => c.id);
+    const teams = clubIds;
     const slots = n % 2 === 0 ? teams : [...teams, "__bye__"];
     const rounds = slots.length - 1;
     const isDemoLeague = leagueId === "national-league" && n === 9;
@@ -786,6 +795,18 @@ export function simulateSeason(state: GameState): GameState {
     }
   }
 
+  for (const competition of next.competitions.filter((item) => item.type === "continental")) {
+    const champion = getEuropeanChampion(next, competition.id);
+    if (typeof champion !== "string") continue;
+    next = recordEuropeanWinner(
+      next,
+      champion,
+      competition.name,
+      String(next.time.season),
+      competition.id,
+    );
+  }
+
   next = applyPromotionRelegation(next);
   next = generateSeasonAwards(next);
 
@@ -866,7 +887,13 @@ export function simulateSeasonQuick(state: GameState): GameState {
     const table = computeLeagueTable(next, leagueId);
     const champion = table[0];
     if (champion)
-      next = recordSeasonChampion(next, champion.clubId, league.name, String(next.time.season));
+      next = recordSeasonChampion(
+        next,
+        champion.clubId,
+        league.name,
+        String(next.time.season),
+        league.competitionId,
+      );
   }
 
   next = applyLongTermEvolution(next);

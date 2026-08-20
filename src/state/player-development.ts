@@ -220,11 +220,14 @@ export function recordPlayerLoan(
   const player = state.players[playerId];
   if (!player) return state;
 
+  const loanId = `loan-${playerId}-${startDate}`;
+  if ((player.loanHistory ?? []).some((loan) => loan.id === loanId)) return state;
+
   const nextPlayer = {
     ...player,
     loanHistory: [
       ...(player.loanHistory ?? []),
-      { id: `loan-${playerId}-${startDate}`, clubId: loanClubId, startDate, endDate },
+      { id: loanId, clubId: loanClubId, startDate, endDate },
     ],
     career: {
       clubHistory: [...(player.career?.clubHistory ?? []), loanClubId],

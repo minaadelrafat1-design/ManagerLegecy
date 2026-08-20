@@ -29,9 +29,12 @@ function getCompetitionParticipants(
   state: GameState,
   competition: WorldCompetitionConfig,
 ): string[] {
+  const currentSeason = String(state.time.season);
   const registered =
     state.meta?.europeanQualifications
-      ?.filter((entry) => entry.competitionId === competition.id)
+      ?.filter(
+        (entry) => entry.season === currentSeason && entry.competitionId === competition.id,
+      )
       .map((entry) => entry.clubId) ?? [];
 
   if (registered.length > 0) {
@@ -419,7 +422,10 @@ export function getEuropeanChampion(state: GameState, competitionId: string): st
 
   // Find the FINAL round from configuration (not just last round with results)
   const finalRound = competition.format.knockoutStage.rounds.find(
-    (r) => (r as any).isFinal || r.name?.toLowerCase().includes("final"),
+    (r) =>
+      (r as any).isFinal ||
+      r.id?.toLowerCase() === "final" ||
+      r.name?.toLowerCase() === "final",
   );
 
   if (!finalRound) return null;
@@ -584,7 +590,7 @@ export function runEuropeanCompetitions(state: GameState): GameState {
             nextState,
             competition,
             teams,
-            firstRound.name,
+            firstRound.id,
             firstRound.twoLegged ?? false,
             nextFixtureIndex,
           );
@@ -643,7 +649,7 @@ export function runEuropeanCompetitions(state: GameState): GameState {
               nextState,
               competition,
               teams,
-              nextRound.name,
+              nextRound.id,
               nextRound.twoLegged ?? false,
               nextFixtureIndex,
             );

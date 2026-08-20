@@ -1,0 +1,1 @@
+CANONICAL TRUTH GATE FAILED: --quick intentionally skips match execution and cannot prove football occurred.

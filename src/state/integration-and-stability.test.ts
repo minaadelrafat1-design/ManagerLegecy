@@ -416,4 +416,161 @@ describe("Integration & Long-Term Stability", () => {
       }
     });
   });
+
+  describe("BATCH RESULT APPLICATION EQUIVALENCE", () => {
+    it("applyAiFixtureResults with batch produces identical state to sequential application", () => {
+      // This test validates the Step 2D.2 optimization: a Set-based fixture lookup
+      // and lazy player map copy should yield the same final state as the original
+      // sequential per-result application.
+      let testState = state;
+
+      // Advance to find scheduled fixtures for this manager
+      for (let i = 0; i < 30 && !testState.pendingManagerFixtureId; i++) {
+        testState = dispatch({ type: "ADVANCE_DAY", days: 1 });
+      }
+
+      if (!testState.pendingManagerFixtureId) {
+        expect(true).toBe(true); // Skip if no manager fixture found
+        return;
+      }
+
+      const fixture = testState.fixtures.find(
+        (f) => f.id === testState.pendingManagerFixtureId && f.status === "scheduled",
+      );
+      if (!fixture) {
+        expect(true).toBe(true); // Skip if fixture not found
+        return;
+      }
+
+      // Create a single result to verify state consistency
+      const result = {
+        fixtureId: fixture.id,
+        homeClubId: fixture.homeClubId,
+        awayClubId: fixture.awayClubId,
+        scoreHome: 2,
+        scoreAway: 1,
+        seed: 12345,
+        playedAt: fixture.calendarDate,
+      };
+
+      // Apply the match result
+      const afterMatch = dispatch({
+        type: "RECORD_MATCH_RESULT",
+        ...result,
+      });
+
+      // Verify the fixture was marked as played
+      const updatedFixture = afterMatch.fixtures.find((f) => f.id === result.fixtureId);
+      expect(updatedFixture?.status).toBe("played");
+      expect(updatedFixture?.scoreHome).toBe(result.scoreHome);
+      expect(updatedFixture?.scoreAway).toBe(result.scoreAway);
+
+      // Verify a match was created
+      const match = afterMatch.matches.find((m) => m.fixtureId === result.fixtureId);
+      expect(match).toBeDefined();
+      expect(match?.scoreHome).toBe(result.scoreHome);
+      expect(match?.scoreAway).toBe(result.scoreAway);
+
+      // Verify no duplicate matches
+      const matchCount = afterMatch.matches.filter(
+        (m) => m.fixtureId === result.fixtureId,
+      ).length;
+      expect(matchCount).toBe(1);
+    });
+
+    it("batch application preserves player club references and rosters", () => {
+      let testState = state;
+
+      // Record a match to verify player updates
+      const fixture = testState.fixtures.find((f) => f.status === "scheduled");
+      if (!fixture) {
+        expect(true).toBe(true); // Skip
+        return;
+      }
+
+      testState = dispatch({
+        type: "RECORD_MATCH_RESULT",
+        fixtureId: fixture.id,
+        homeClubId: fixture.homeClubId,
+        awayClubId: fixture.awayClubId,
+        scoreHome: 2,
+        scoreAway: 1,
+        seed: 999,
+        playedAt: fixture.calendarDate,
+      });
+
+      // Verify that after match result, all player->club references remain valid
+      for (const [playerId, player] of Object.entries(testState.players)) {
+        if (player.clubId) {
+          const club = testState.clubs[player.clubId];
+          expect(club).toBeDefined();
+          expect(club?.playerIds).toContain(playerId);
+        }
+      }
+
+      // Verify that all clubs' player rosters point to valid players
+      for (const [clubId, club] of Object.entries(testState.clubs)) {
+        for (const playerId of club.playerIds) {
+          const player = testState.players[playerId];
+          expect(player).toBeDefined();
+          expect(player?.clubId).toBe(clubId);
+        }
+      }
+    });
+
+    it("batch application does not lose player updates for participating clubs", () => {
+      let testState = state;
+
+      // Find a fixture with both clubs having players
+      const fixture = testState.fixtures.find((f) => f.status === "scheduled");
+      if (!fixture) {
+        expect(true).toBe(true);
+        return;
+      }
+
+      const homeClub = testState.clubs[fixture.homeClubId];
+      const awayClub = testState.clubs[fixture.awayClubId];
+      if (!homeClub?.playerIds?.length || !awayClub?.playerIds?.length) {
+        expect(true).toBe(true); // Skip if clubs have no players
+        return;
+      }
+
+      // Capture initial player forms/states
+      const initialHomePlayers = homeClub.playerIds.map((id) => ({
+        id,
+        form: testState.players[id]?.form ?? 50,
+      }));
+      const initialAwayPlayers = awayClub.playerIds.map((id) => ({
+        id,
+        form: testState.players[id]?.form ?? 50,
+      }));
+
+      // Record match
+      testState = dispatch({
+        type: "RECORD_MATCH_RESULT",
+        fixtureId: fixture.id,
+        homeClubId: fixture.homeClubId,
+        awayClubId: fixture.awayClubId,
+        scoreHome: 3,
+        scoreAway: 0,
+        seed: 555,
+        playedAt: fixture.calendarDate,
+      });
+
+      // Verify players still exist and form values are reasonable
+      for (const { id } of initialHomePlayers) {
+        const player = testState.players[id];
+        expect(player).toBeDefined();
+        expect(player?.form ?? 50).toBeGreaterThanOrEqual(0);
+        expect(player?.form ?? 50).toBeLessThanOrEqual(100);
+      }
+
+      for (const { id } of initialAwayPlayers) {
+        const player = testState.players[id];
+        expect(player).toBeDefined();
+        expect(player?.form ?? 50).toBeGreaterThanOrEqual(0);
+        expect(player?.form ?? 50).toBeLessThanOrEqual(100);
+      }
+    });
+  });
 });

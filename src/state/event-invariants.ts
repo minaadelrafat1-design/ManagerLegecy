@@ -403,12 +403,27 @@ export function detectYouthEventWithoutPlayerCreation(state: GameState): Invaria
 export function detectMatchEventWithoutResult(state: GameState): InvariantViolation[] {
   const violations: InvariantViolation[] = [];
   const matchEvents = (state.events ?? []).filter((e) => e.type === "MATCH_PLAYED");
+  const matchRecordsByFixture = new Map<string, NonNullable<GameState["matches"]>>();
+  for (const match of state.matches ?? []) {
+    if (!match.fixtureId) continue;
+    const records = matchRecordsByFixture.get(match.fixtureId) ?? [];
+    records.push(match);
+    matchRecordsByFixture.set(match.fixtureId, records);
+  }
 
   for (const event of matchEvents) {
     const fixtureId = event.meta?.["fixtureId"] as string | undefined;
     const scoreHome = event.meta?.["scoreHome"] as number | undefined;
     const scoreAway = event.meta?.["scoreAway"] as number | undefined;
     const fixture = fixtureId ? state.fixtures.find((f) => f.id === fixtureId) : undefined;
+    const matchRecord = (fixtureId ? matchRecordsByFixture.get(fixtureId) : undefined)?.find(
+      (match) =>
+        match.playedAt === event.date &&
+        match.scoreHome === scoreHome &&
+        match.scoreAway === scoreAway &&
+        match.homeClubId === event.meta?.["homeClubId"] &&
+        match.awayClubId === event.meta?.["awayClubId"],
+    );
 
     if (!fixtureId) {
       violations.push({
@@ -421,6 +436,36 @@ export function detectMatchEventWithoutResult(state: GameState): InvariantViolat
     }
 
     if (!fixture) {
+      // Completed fixtures are legitimately pruned after their MatchRecord
+      // and MATCH_PLAYED evidence have been retained. Validate that durable
+      // evidence before accepting the missing fixture.
+      if (matchRecord) {
+        if (
+          matchRecord.scoreHome !== scoreHome ||
+          matchRecord.scoreAway !== scoreAway ||
+          matchRecord.homeClubId !== event.meta?.["homeClubId"] ||
+          matchRecord.awayClubId !== event.meta?.["awayClubId"]
+        ) {
+          violations.push({
+            type: "MATCH_PLAYED_HISTORICAL_RESULT_MISMATCH",
+            severity: "error",
+            description: `MATCH_PLAYED historical evidence does not match MatchRecord for fixture ${fixtureId}`,
+            eventId: event.id,
+            data: { fixtureId },
+          });
+        }
+        continue;
+      }
+      if (fixtureId && (matchRecordsByFixture.get(fixtureId)?.length ?? 0) > 0) {
+        violations.push({
+          type: "MATCH_PLAYED_HISTORICAL_RESULT_MISMATCH",
+          severity: "error",
+          description: `MATCH_PLAYED evidence does not match any MatchRecord for fixture ${fixtureId}`,
+          eventId: event.id,
+          data: { fixtureId },
+        });
+        continue;
+      }
       violations.push({
         type: "MATCH_PLAYED_MISSING_FIXTURE",
         severity: "error",
@@ -461,6 +506,122 @@ export function detectMatchEventWithoutResult(state: GameState): InvariantViolat
       });
     }
   }
+  return violations;
+}
+
+/**
+ * Validate the durable match record against whatever fixture/event evidence
+ * remains after fixture pruning. A retained played fixture must still have a
+ * MatchRecord; a pruned fixture is valid only when its MatchRecord and
+ * MATCH_PLAYED event agree.
+ */
+export function detectMatchRecordIntegrity(state: GameState): InvariantViolation[] {
+  const violations: InvariantViolation[] = [];
+  const fixturesById = new Map((state.fixtures ?? []).map((fixture) => [fixture.id, fixture]));
+  const eventsByFixture = new Map<string, EventLogEntry[]>();
+  for (const event of state.events ?? []) {
+    const fixtureId = event.meta?.["fixtureId"];
+    if (event.type !== "MATCH_PLAYED" || !fixtureId) continue;
+    const events = eventsByFixture.get(String(fixtureId)) ?? [];
+    events.push(event);
+    eventsByFixture.set(String(fixtureId), events);
+  }
+  const matchesByFixture = new Map<string, NonNullable<GameState["matches"]>>();
+  for (const match of state.matches ?? []) {
+    if (!match.fixtureId) continue;
+    const matches = matchesByFixture.get(String(match.fixtureId)) ?? [];
+    matches.push(match);
+    matchesByFixture.set(String(match.fixtureId), matches);
+  }
+
+  for (const fixture of state.fixtures ?? []) {
+    if (fixture.status !== "played") continue;
+    const match = matchesByFixture.get(fixture.id)?.find(
+      (candidate) =>
+        candidate.playedAt === fixture.calendarDate &&
+        candidate.homeClubId === fixture.homeClubId &&
+        candidate.awayClubId === fixture.awayClubId &&
+        candidate.scoreHome === fixture.scoreHome &&
+        candidate.scoreAway === fixture.scoreAway,
+    );
+    if (!match) {
+      violations.push({
+        type: "PLAYED_FIXTURE_MISSING_MATCH_RECORD",
+        severity: "error",
+        description: `Played fixture ${fixture.id} has no MatchRecord`,
+        data: { fixtureId: fixture.id },
+      });
+    }
+  }
+
+  for (const match of state.matches ?? []) {
+    if (!match.fixtureId) {
+      violations.push({
+        type: "MATCH_RECORD_MISSING_FIXTURE_ID",
+        severity: "error",
+        description: `MatchRecord ${match.id} has no fixtureId`,
+        data: { matchId: match.id },
+      });
+      continue;
+    }
+
+    const retainedFixture = fixturesById.get(match.fixtureId);
+    const fixture =
+      retainedFixture &&
+      retainedFixture.calendarDate === match.playedAt &&
+      retainedFixture.homeClubId === match.homeClubId &&
+      retainedFixture.awayClubId === match.awayClubId &&
+      retainedFixture.scoreHome === match.scoreHome &&
+      retainedFixture.scoreAway === match.scoreAway
+        ? retainedFixture
+        : undefined;
+    const eventCandidates = eventsByFixture.get(String(match.fixtureId)) ?? [];
+    const event = eventCandidates.find(
+      (candidate) =>
+        candidate.date === match.playedAt &&
+        candidate.meta?.["homeClubId"] === match.homeClubId &&
+        candidate.meta?.["awayClubId"] === match.awayClubId &&
+        candidate.meta?.["scoreHome"] === match.scoreHome &&
+        candidate.meta?.["scoreAway"] === match.scoreAway,
+    );
+    if (!fixture && !event) {
+      if (eventCandidates.length > 0) {
+        violations.push({
+          type: "MATCH_RECORD_RESULT_MISMATCH",
+          severity: "error",
+          description: `MatchRecord ${match.id} does not match any MATCH_PLAYED event evidence`,
+          data: { matchId: match.id, fixtureId: match.fixtureId },
+        });
+        continue;
+      }
+      violations.push({
+        type: "MATCH_RECORD_MISSING_HISTORICAL_EVIDENCE",
+        severity: "error",
+        description: `MatchRecord ${match.id} has neither a retained fixture nor MATCH_PLAYED evidence`,
+        data: { matchId: match.id, fixtureId: match.fixtureId },
+      });
+      continue;
+    }
+
+    const expectedHomeClubId = fixture?.homeClubId ?? event?.meta?.["homeClubId"];
+    const expectedAwayClubId = fixture?.awayClubId ?? event?.meta?.["awayClubId"];
+    const expectedScoreHome = fixture?.scoreHome ?? event?.meta?.["scoreHome"];
+    const expectedScoreAway = fixture?.scoreAway ?? event?.meta?.["scoreAway"];
+    if (
+      match.homeClubId !== expectedHomeClubId ||
+      match.awayClubId !== expectedAwayClubId ||
+      match.scoreHome !== expectedScoreHome ||
+      match.scoreAway !== expectedScoreAway
+    ) {
+      violations.push({
+        type: "MATCH_RECORD_RESULT_MISMATCH",
+        severity: "error",
+        description: `MatchRecord ${match.id} does not match fixture/event evidence`,
+        data: { matchId: match.id, fixtureId: match.fixtureId },
+      });
+    }
+  }
+
   return violations;
 }
 
@@ -670,6 +831,7 @@ export function checkAllInvariants(state: GameState): InvariantViolation[] {
     ...detectInvalidYouthGeneration(state),
     ...detectYouthEventWithoutPlayerCreation(state),
     ...detectMatchEventWithoutResult(state),
+    ...detectMatchRecordIntegrity(state),
     ...detectPlayerDuplication(state),
     ...detectInvalidAges(state),
     ...detectSquadConsistency(state),
@@ -689,6 +851,7 @@ export default {
   detectInvalidYouthGeneration,
   detectYouthEventWithoutPlayerCreation,
   detectMatchEventWithoutResult,
+  detectMatchRecordIntegrity,
   detectPlayerDuplication,
   detectInvalidAges,
   detectSquadConsistency,

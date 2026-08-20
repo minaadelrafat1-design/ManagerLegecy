@@ -1,0 +1,9 @@
+
+ RUN  v4.1.10 C:/Users/adelr/Downloads/squad-hub-phase-d2.1-ai-decisions
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  13:49:46
+   Duration  273.39s (transform 494ms, setup 0ms, import 1.37s, tests 271.17s, environment 602ms)
+

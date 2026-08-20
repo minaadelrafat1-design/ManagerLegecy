@@ -1,0 +1,8 @@
+5 seasons seed 0: 256251.5ms | fixtures=84 matches=22692 goals=47948 transfers=182 promotions=960 relegations=960 retirements=235 youth=1316 managers=1139 players=16724 aiMemory=25920 invariants=0
+Same-seed reproducibility: NOT RUN
+Different-seed divergence: FAIL
+Malformed cases: 1
+Report: outputs/final-d2.1-regression-5-seed-0.json
+World scope: representative
+Representative density: 8 clubs per league
+Invariant counts are reported per run; non-zero counts require review and are not hidden.

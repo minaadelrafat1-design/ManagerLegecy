@@ -32,6 +32,7 @@ import {
   formatWageBudget,
   parseMoney,
 } from "./finance";
+import { recordTransaction } from "./office-finance";
 import { upgradeFacility, type FacilityKey } from "./facilities";
 import { queueTrainingGroundUpgrade } from "./training-ground";
 import { queueStadiumUpgrade } from "./stadium";
@@ -306,7 +307,8 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         : `${scoreHome}-${scoreAway}`;
 
       // adjust morale and form for players based on result
-      const nextPlayers = { ...state.players };
+      let nextPlayers = state.players;
+      let playersCopied = false;
       const playerRatings = (action as Extract<GameAction, { type: "RECORD_MATCH_RESULT" }>)
         .playerRatings;
       const homeResult = scoreHome > scoreAway ? "W" : scoreHome < scoreAway ? "L" : "D";
@@ -318,6 +320,10 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         for (const pid of club.playerIds) {
           const p = nextPlayers[pid];
           if (!p) continue;
+          if (!playersCopied) {
+            nextPlayers = { ...nextPlayers };
+            playersCopied = true;
+          }
           const starter = !!p.starter;
           const rating =
             (action as Extract<GameAction, { type: "RECORD_MATCH_RESULT" }>).playerRatings?.[pid] ??
@@ -525,8 +531,28 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         ],
       };
 
+      let withTransactions = nextState;
+      if (action.fee > 0) {
+        withTransactions = recordTransaction(
+          withTransactions,
+          "transfer_fee",
+          action.description ?? "Transfer fee",
+          -action.fee,
+          "expense",
+        );
+      }
+      if (action.wageWeeklyDelta > 0) {
+        withTransactions = recordTransaction(
+          withTransactions,
+          "player_salary",
+          `${action.description ?? "Transfer"}: annualized wages`,
+          -(action.wageWeeklyDelta * 52),
+          "expense",
+        );
+      }
+
       // apply transfer consequences (signing/sale reactions)
-      const withConsequences = consequences.applyRecordTransferConsequences(nextState, action.fee, action.wageWeeklyDelta, action.description);
+      const withConsequences = consequences.applyRecordTransferConsequences(withTransactions, action.fee, action.wageWeeklyDelta, action.description);
       const transferCostRatio = action.fee / Math.max(1, parseMoney(state.finances?.transferBudget ?? "0"));
       return {
         ...withConsequences,

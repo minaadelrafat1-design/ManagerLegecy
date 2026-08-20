@@ -161,28 +161,15 @@ export function applyEuropeanQualificationRegistrations(state: GameState): GameS
   if (continentalCompetitions.length === 0) return state;
 
   const events = [...(state.events ?? [])];
-  // PHASE AAA-REPAIR-3: Clear old season qualifications before registering new ones
-  // Only keep qualifications from the CURRENT season to prevent historical contamination
-  const currentSeason = state.time.season;
-  const registrations: GameStateMeta["europeanQualifications"] = (
-    state.meta?.europeanQualifications ?? []
-  )
-    .filter((entry) => {
-      const entryDate = entry.registeredAt ?? "";
-      // Keep entries from this season only
-      // If no season data, parse from date or assume current
-      return true; // For now keep all; will clear if from different season
-    })
-    .filter((entry) => {
-      // Check if this is from a previous season by looking at events
-      // If a season already completed event exists, clear those registrations
-      const seasonCompleteEvent = state.events?.find(
-        (e) => e.type === "SEASON_COMPLETED" && (e.meta?.["season"] ?? "") < currentSeason,
-      );
-      if (!seasonCompleteEvent) return true; // No completed seasons, keep all
-      // Clear registrations from before the completed season
-      return (entry.registeredAt ?? "") >= seasonCompleteEvent.date;
-    });
+  const currentSeason = String(state.time.season);
+  const registrations: GameStateMeta["europeanQualifications"] = [];
+  const registrationKeys = new Set<string>();
+  for (const entry of state.meta?.europeanQualifications ?? []) {
+    const key = `${entry.season}:${entry.competitionId}:${entry.clubId}`;
+    if (registrationKeys.has(key)) continue;
+    registrationKeys.add(key);
+    registrations.push(entry);
+  }
   let next = { ...state } as GameState;
 
   for (const competition of continentalCompetitions) {
@@ -194,15 +181,19 @@ export function applyEuropeanQualificationRegistrations(state: GameState): GameS
     const leagueEntries = clubIds.map((clubId) => {
       const reason = reasons[clubId] ?? `Qualified for ${competition.name}`;
       const registration = {
+        season: currentSeason,
         competitionId: competition.id,
         clubId,
         reason,
         registeredAt: next.time.date,
         stage: "qualification" as const,
       };
+      const key = `${registration.season}:${registration.competitionId}:${registration.clubId}`;
+      if (registrationKeys.has(key)) return "";
+      registrationKeys.add(key);
       registrations.push(registration);
       return `${next.clubs[clubId]?.name ?? clubId} (${reason})`;
-    });
+    }).filter(Boolean);
 
     if (leagueEntries.length > 0) {
       events.push({

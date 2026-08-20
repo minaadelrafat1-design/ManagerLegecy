@@ -6,24 +6,21 @@ import { buildInitialState } from "../src/state/seed";
 import { simulateSeason } from "../src/state/season";
 import { simulateSeasonQuick } from "../src/state/season";
 import { applyWorldSeasonProgression } from "../src/state/world";
+import { daysBetweenISO } from "../src/state/calendar";
 import type { GameState } from "../src/state/types";
 import {
-  countCompletedTransfers,
-  countPromotions,
-  countRelegations,
-  countRetirements,
-  countYouthGenerated,
-  countManagerChanges,
-  countMatchesPlayed,
   checkAllInvariants,
 } from "../src/state/event-invariants";
 
 export interface SeasonSummary {
   seasonIndex: number;
   seasonLabel: string;
+  daysAdvanced: number;
   worldDate: string;
+  fixturesGenerated: number;
   fixturesScheduled: number;
   fixturesPlayed: number;
+  matchesCompleted: number;
   goals: number;
   completedTransfers: number;
   transferAttempts: number;
@@ -36,9 +33,26 @@ export interface SeasonSummary {
   uniqueRelegatedClubs: number;
 }
 
+export type AuthoritativeSeasonMetrics = Pick<
+  SeasonSummary,
+  | "fixturesGenerated"
+  | "fixturesPlayed"
+  | "matchesCompleted"
+  | "goals"
+  | "completedTransfers"
+  | "transferAttempts"
+  | "promotions"
+  | "relegations"
+  | "managerChanges"
+  | "retirements"
+  | "youthGenerated"
+>;
+
 export interface SimulationReport {
   mode: "full" | "quick";
+  worldScope: "REPRESENTATIVE" | "FULL-WORLD";
   years: number;
+  daysAdvanced: number;
   seasonsCompleted: number;
   worldDate: string;
   worldSeason: string;
@@ -46,6 +60,7 @@ export interface SimulationReport {
   matchesPlayed: number;
   goals: number;
   completedTransfers: number;
+  transferAttempts: number;
   promotions: number;
   relegations: number;
   retirements: number;
@@ -64,6 +79,14 @@ export interface SimulationReport {
   invariantBreakdown: Record<string, number>;
   perSeason: SeasonSummary[];
 }
+
+export interface CanonicalAuditDiagnostic {
+  phase: string;
+  elapsedMs: number;
+  metrics?: Record<string, number>;
+}
+
+export type CanonicalAuditObserver = (diagnostic: CanonicalAuditDiagnostic) => void;
 
 function buildRepresentativeState(
   seedOverride: string | undefined,
@@ -179,35 +202,6 @@ function getLeagueStrength(state: any): number {
 }
 
 /**
- * Capture metrics at a point in time for delta calculation
- */
-interface MetricsSnapshot {
-  completedTransfers: number;
-  promotions: number;
-  relegations: number;
-  retirements: number;
-  youthGenerated: number;
-  managerChanges: number;
-  fixturesPlayed: number;
-  goals: number;
-}
-
-function captureMetrics(state: any, initialPlayerIds: Set<string>): MetricsSnapshot {
-  const fixtures = state.fixtures ?? [];
-  const played = fixtures.filter((f: any) => f.status === "played");
-  return {
-    completedTransfers: countCompletedTransfers(state),
-    promotions: countPromotions(state),
-    relegations: countRelegations(state),
-    retirements: countRetirements(state),
-    youthGenerated: countYouthGenerated(state, initialPlayerIds),
-    managerChanges: countManagerChanges(state),
-    fixturesPlayed: played.length,
-    goals: played.reduce((sum: number, f: any) => sum + (f.scoreHome ?? 0) + (f.scoreAway ?? 0), 0),
-  };
-}
-
-/**
  * Get season date range. Seasons run Aug 1 - Jul 31.
  * For season "2026/27", start = 2026-08-01, end = 2027-07-31
  */
@@ -221,169 +215,85 @@ function getSeasonDateRange(season: string): { start: string; end: string } {
   };
 }
 
-/**
- * Check if date falls within season (inclusive)
- */
-function isDateInSeason(dateISO: string, season: string): boolean {
-  const range = getSeasonDateRange(season);
-  return dateISO >= range.start && dateISO <= range.end;
+function getNewEvents(beforeState: GameState, afterState: GameState) {
+  const beforeEventIds = new Set((beforeState.events ?? []).map((event) => event.id));
+  return (afterState.events ?? []).filter((event) => !beforeEventIds.has(event.id));
 }
 
-/**
- * Get unique clubs that were promoted in a season based on PROMOTION events.
- * Validates that promotion events have correct meta fields.
- */
-function getUniquePromotedClubs(state: any, season: string): string[] {
-  const range = getSeasonDateRange(season);
-  const promotedClubs = new Set<string>();
+export function collectAuthoritativeSeasonMetrics(
+  beforeState: GameState,
+  afterState: GameState,
+  seasonLabel: string,
+): AuthoritativeSeasonMetrics {
+  const range = getSeasonDateRange(seasonLabel);
+  const fixturesGenerated = (beforeState.fixtures ?? []).filter(
+    (fixture) => fixture.season === seasonLabel,
+  ).length;
+  const beforeMatchIds = new Set((beforeState.matches ?? []).map((match) => match.id));
+  const seasonMatches = (afterState.matches ?? []).filter(
+    (match) =>
+      !beforeMatchIds.has(match.id) &&
+      match.playedAt >= range.start &&
+      match.playedAt <= range.end,
+  );
+  const seasonEvents = getNewEvents(beforeState, afterState).filter(
+    (event) => event.date.slice(0, 10) >= range.start && event.date.slice(0, 10) <= range.end,
+  );
+  const countEvents = (type: string) => seasonEvents.filter((event) => event.type === type).length;
 
-  for (const event of state.events ?? []) {
-    if (
-      event.type === "PROMOTION" &&
-      event.date >= range.start &&
-      event.date <= range.end &&
-      event.meta?.clubId
-    ) {
-      promotedClubs.add(event.meta.clubId);
-    }
-  }
-
-  return Array.from(promotedClubs);
-}
-
-/**
- * Get unique clubs that were relegated in a season based on RELEGATION events.
- * Validates that relegation events have correct meta fields.
- */
-function getUniqueRelegatedClubs(state: any, season: string): string[] {
-  const range = getSeasonDateRange(season);
-  const relegatedClubs = new Set<string>();
-
-  for (const event of state.events ?? []) {
-    if (
-      event.type === "RELEGATION" &&
-      event.date >= range.start &&
-      event.date <= range.end &&
-      event.meta?.clubId
-    ) {
-      relegatedClubs.add(event.meta.clubId);
-    }
-  }
-
-  return Array.from(relegatedClubs);
-}
-
-/**
- * Validate promotion/relegation rules for all divisions.
- * Returns list of violations.
- */
-function validatePromotionRelegationRules(state: any, season: string): string[] {
-  const violations: string[] = [];
-  const promotedClubs = getUniquePromotedClubs(state, season);
-  const relegatedClubs = getUniqueRelegatedClubs(state, season);
-
-  // Check no club is both promoted and relegated in same season
-  for (const clubId of promotedClubs) {
-    if (relegatedClubs.includes(clubId)) {
-      violations.push(`Club ${clubId} was both promoted and relegated in ${season}`);
-    }
-  }
-
-  // Check that promoted/relegated clubs only changed division once
-  // (count how many times each club appears in promotion/relegation events)
-  const range = getSeasonDateRange(season);
-  const clubDivisionChanges: Record<string, number> = {};
-
-  for (const event of state.events ?? []) {
-    if (
-      (event.type === "PROMOTION" || event.type === "RELEGATION") &&
-      event.date >= range.start &&
-      event.date <= range.end &&
-      event.meta?.clubId
-    ) {
-      const clubId = event.meta.clubId;
-      clubDivisionChanges[clubId] = (clubDivisionChanges[clubId] ?? 0) + 1;
-    }
-  }
-
-  for (const [clubId, count] of Object.entries(clubDivisionChanges)) {
-    if (count > 1) {
-      violations.push(`Club ${clubId} changed division ${count} times in ${season} (should be 1)`);
-    }
-  }
-
-  return violations;
+  return {
+    fixturesGenerated,
+    fixturesPlayed: seasonEvents.filter((event) => event.type === "MATCH_PLAYED").length,
+    matchesCompleted: seasonMatches.length,
+    goals: seasonMatches.reduce(
+      (sum, match) => sum + match.scoreHome + match.scoreAway,
+      0,
+    ),
+    transferAttempts: seasonEvents.filter(
+      (event) =>
+        event.type === "transfer" &&
+        event.meta?.["action"] === "negotiation_start" &&
+        event.meta?.["type"] === "transfer",
+    ).length,
+    completedTransfers: countEvents("TRANSFER_COMPLETED"),
+    promotions: countEvents("PROMOTION"),
+    relegations: countEvents("RELEGATION"),
+    retirements: countEvents("PLAYER_RETIRED"),
+    youthGenerated: countEvents("YOUTH_GENERATED"),
+    managerChanges: seasonEvents.filter(
+      (event) => event.type === "manager" && event.meta?.["action"] === "appointed",
+    ).length,
+  };
 }
 
 function summarizePerSeason(
   state: any,
   seasonIndex: number,
-  beforeMetrics: MetricsSnapshot,
+  beforeState: GameState,
   seasonLabel: string,
-  initialPlayerIds: Set<string>,
 ): SeasonSummary {
-  const afterMetrics = captureMetrics(state, initialPlayerIds);
-  const range = getSeasonDateRange(seasonLabel);
-
-  // Count fixtures created during this season (using fixture.season)
-  const fixturesInSeason = (state.fixtures ?? []).filter((f: any) => f.season === seasonLabel);
-  const fixturesPlayedInSeason = fixturesInSeason.filter((f: any) => f.status === "played");
-
-  // Count goals from fixtures played in this season
-  const goalsInSeason = fixturesPlayedInSeason.reduce(
-    (sum: number, f: any) => sum + (f.scoreHome ?? 0) + (f.scoreAway ?? 0),
-    0,
+  const metrics = collectAuthoritativeSeasonMetrics(beforeState, state, seasonLabel);
+  const newEvents = getNewEvents(beforeState, state);
+  const promotedClubs = new Set(
+    newEvents
+      .filter((event) => event.type === "PROMOTION" && event.meta?.["clubId"])
+      .map((event) => String(event.meta?.["clubId"])),
   );
-
-  // Count events in this season
-  const seasonEvents = (state.events ?? []).filter(
-    (e: any) => e.date >= range.start && e.date <= range.end,
+  const relegatedClubs = new Set(
+    newEvents
+      .filter((event) => event.type === "RELEGATION" && event.meta?.["clubId"])
+      .map((event) => String(event.meta?.["clubId"])),
   );
-
-  // Calculate deltas - but for transfers, promotions, relegations, we use per-season counts from events
-  // Transfer events use lowercase "transfer" type, with "moved" in description for completions
-  const transfersInSeason = seasonEvents.filter(
-    (e: any) => e.type === "transfer" && e.description?.includes("moved"),
-  ).length;
-  const promotionsInSeason = seasonEvents.filter((e: any) => e.type === "PROMOTION").length;
-  const relegationsInSeason = seasonEvents.filter((e: any) => e.type === "RELEGATION").length;
-  const retirementsInSeason = seasonEvents.filter((e: any) => e.type === "PLAYER_RETIRED").length;
-  const youthInSeason = seasonEvents.filter((e: any) => e.type === "YOUTH_GENERATED").length;
-  const managerChangesInSeason = seasonEvents.filter((e: any) => {
-    if (e.type === "manager") return true;
-    if (e.type === "milestone" || e.type === "board") {
-      const text = `${e.description ?? ""} ${e.meta?.action ?? ""}`.toLowerCase();
-      return (
-        text.includes("manager") &&
-        (text.includes("sacked") || text.includes("appointed") || text.includes("change"))
-      );
-    }
-    return false;
-  }).length;
-
-  // Transfer attempts (all transfer events in season, including passed/rejected)
-  const transferAttemptsInSeason = seasonEvents.filter((e: any) => e.type === "transfer").length;
-
-  // Unique promoted/relegated clubs
-  const promotedClubs = getUniquePromotedClubs(state, seasonLabel);
-  const relegatedClubs = getUniqueRelegatedClubs(state, seasonLabel);
 
   return {
-    seasonIndex: seasonIndex,
-    seasonLabel: seasonLabel,
+    seasonIndex,
+    seasonLabel,
+    daysAdvanced: daysBetweenISO(beforeState.time.date, state.time.date),
     worldDate: state.time?.date ?? "",
-    fixturesScheduled: fixturesInSeason.length,
-    fixturesPlayed: fixturesPlayedInSeason.length,
-    goals: goalsInSeason,
-    completedTransfers: transfersInSeason,
-    transferAttempts: transferAttemptsInSeason,
-    promotions: promotionsInSeason,
-    relegations: relegationsInSeason,
-    managerChanges: managerChangesInSeason,
-    retirements: retirementsInSeason,
-    youthGenerated: youthInSeason,
-    uniquePromotedClubs: promotedClubs.length,
-    uniqueRelegatedClubs: relegatedClubs.length,
+    ...metrics,
+    fixturesScheduled: metrics.fixturesGenerated,
+    uniquePromotedClubs: promotedClubs.size,
+    uniqueRelegatedClubs: relegatedClubs.size,
   };
 }
 
@@ -392,26 +302,56 @@ export function collectCanonicalSimulationReport(
   seedOverride?: string,
   mode: "full" | "quick" = "full",
   representative = false,
+  observer?: CanonicalAuditObserver,
 ): SimulationReport {
+  const observe = (phase: string, startMs: number, currentState?: GameState) => {
+    observer?.({
+      phase,
+      elapsedMs: performance.now() - startMs,
+      ...(currentState
+        ? {
+            metrics: {
+              players: Object.keys(currentState.players ?? {}).length,
+              clubs: Object.keys(currentState.clubs ?? {}).length,
+              fixtures: (currentState.fixtures ?? []).length,
+              matches: (currentState.matches ?? []).length,
+              events: (currentState.events ?? []).length,
+              transfers: (currentState.transfers ?? []).length,
+              negotiations: (currentState.negotiations ?? []).length,
+              inbox: (currentState.inbox ?? []).length,
+              news: (currentState.news ?? []).length,
+            },
+          }
+        : {}),
+    });
+  };
+  const initializationStart = performance.now();
   const representativeClubsPerLeague = years >= 30 ? 2 : years >= 10 ? 4 : 8;
   let state = representative
     ? buildRepresentativeState(seedOverride, representativeClubsPerLeague)
     : buildInitialState(seedOverride);
+  observe("initial-state", initializationStart, state);
+  const initialSerializationStart = performance.now();
+  const initialSerializedState = JSON.stringify(state);
+  observer?.({
+    phase: "initial-state-serialization",
+    elapsedMs: performance.now() - initialSerializationStart,
+    metrics: { bytes: initialSerializedState.length },
+  });
   const perSeason: SeasonSummary[] = [];
 
-  const initialPlayerIds = new Set(Object.keys(state.players ?? {}));
-  let beforeMetrics = captureMetrics(state, initialPlayerIds);
+  const initialDate = state.time.date;
 
   for (let i = 0; i < years; i++) {
     const seasonBefore = state.time.season;
+    const beforeState = state;
+    const simulationStart = performance.now();
     if (mode === "quick") {
       state = simulateSeasonQuick(state);
     } else {
       state = simulateSeason(state as any) as any;
     }
-
-    // Use the season BEFORE progression (the one just completed)
-    perSeason.push(summarizePerSeason(state, i + 1, beforeMetrics, seasonBefore, initialPlayerIds));
+    observe(`simulation-season-${i + 1}`, simulationStart, state);
 
     if (mode === "quick") {
       state = compactQuickAuditState(state);
@@ -420,18 +360,26 @@ export function collectCanonicalSimulationReport(
     if (mode === "full") {
       state = applyWorldSeasonProgression(state as any) as any;
     }
-    beforeMetrics = captureMetrics(state, initialPlayerIds);
+
+    // Summarize after the existing calendar progression so daysAdvanced
+    // reflects the completed season, while match/fixture evidence still
+    // comes from beforeState and the appended match records.
+    const metricsStart = performance.now();
+    perSeason.push(summarizePerSeason(state, i + 1, beforeState, seasonBefore));
+    observe(`metrics-season-${i + 1}`, metricsStart, state);
   }
 
-  const allFixtures = state.fixtures ?? [];
-  const played = allFixtures.filter((f: any) => f.status === "played");
-  const totalGoals = played.reduce(
-    (sum: number, f: any) => sum + (f.scoreHome ?? 0) + (f.scoreAway ?? 0),
-    0,
-  );
-  const allEvents = state.events ?? [];
   const players = Object.values(state.players ?? {});
+  const invariantStart = performance.now();
   const invariantViolations = checkAllInvariants(state);
+  observe("invariants", invariantStart, state);
+  const serializationStart = performance.now();
+  const serializedState = JSON.stringify(state);
+  observer?.({
+    phase: "state-serialization",
+    elapsedMs: performance.now() - serializationStart,
+    metrics: { bytes: serializedState.length },
+  });
   const invariantBreakdown = invariantViolations.reduce<Record<string, number>>(
     (counts, violation) => {
       counts[violation.type] = (counts[violation.type] ?? 0) + 1;
@@ -444,18 +392,11 @@ export function collectCanonicalSimulationReport(
     0,
   );
 
-  // Use authoritative event-based metrics
-  const completedTransfers = countCompletedTransfers(state);
-  const promotions = countPromotions(state);
-  const relegations = countRelegations(state);
-  const managerChanges = countManagerChanges(state);
-  const retirements = countRetirements(state);
-  const youthGenerated = countYouthGenerated(state, initialPlayerIds);
-
   const cumulativeFixturesScheduled = sumSeasonMetrics("fixturesScheduled", perSeason);
-  const cumulativeMatchesPlayed = sumSeasonMetrics("fixturesPlayed", perSeason);
+  const cumulativeMatchesPlayed = sumSeasonMetrics("matchesCompleted", perSeason);
   const cumulativeGoals = sumSeasonMetrics("goals", perSeason);
   const cumulativeTransfers = sumSeasonMetrics("completedTransfers", perSeason);
+  const cumulativeTransferAttempts = sumSeasonMetrics("transferAttempts", perSeason);
   const cumulativePromotions = sumSeasonMetrics("promotions", perSeason);
   const cumulativeRelegations = sumSeasonMetrics("relegations", perSeason);
   const cumulativeRetirements = sumSeasonMetrics("retirements", perSeason);
@@ -465,6 +406,8 @@ export function collectCanonicalSimulationReport(
   return {
     years,
     mode,
+    worldScope: representative ? "REPRESENTATIVE" : "FULL-WORLD",
+    daysAdvanced: daysBetweenISO(initialDate, state.time?.date ?? initialDate),
     seasonsCompleted: perSeason.length,
     worldDate: state.time?.date ?? "",
     worldSeason: state.time?.season ?? "",
@@ -472,6 +415,7 @@ export function collectCanonicalSimulationReport(
     matchesPlayed: cumulativeMatchesPlayed,
     goals: cumulativeGoals,
     completedTransfers: cumulativeTransfers,
+    transferAttempts: cumulativeTransferAttempts,
     promotions: cumulativePromotions,
     relegations: cumulativeRelegations,
     retirements: cumulativeRetirements,
@@ -522,7 +466,7 @@ if (import.meta.url === directScriptPath) {
     } else {
       console.log(`Season ${season.seasonLabel}: ✓ OK`);
       console.log(
-        `  Fixtures: ${season.fixturesScheduled} scheduled, ${season.fixturesPlayed} played`,
+        `  Days: ${season.daysAdvanced}, Fixtures: ${season.fixturesGenerated} generated, ${season.fixturesPlayed} played, Matches: ${season.matchesCompleted}`,
       );
       console.log(
         `  Goals: ${season.goals}, Transfers: ${season.completedTransfers}, Promotions: ${season.promotions}, Relegations: ${season.relegations}`,

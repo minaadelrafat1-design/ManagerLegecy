@@ -396,6 +396,9 @@ export function applyAiFixtureResults(
   playedAt: string,
 ): GameState {
   let next = state;
+  const scheduledFixtureIds = new Set(
+    next.fixtures.filter((fixture) => fixture.status === "scheduled").map((fixture) => fixture.id),
+  );
 
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
@@ -406,14 +409,12 @@ export function applyAiFixtureResults(
     // to still be scheduled, so an already-played fixture sharing the same id
     // can never swallow a result meant for a scheduled fixture. The reducer's
     // own idempotency guard is preserved unchanged.
-    const fixture = next.fixtures.find(
-      (f) => f.id === result.fixtureId && f.status === "scheduled",
-    );
-    if (!fixture) {
+    if (!scheduledFixtureIds.has(result.fixtureId)) {
       continue; // unknown or already-applied fixture
     }
 
     next = gameReducer(next, toRecordMatchResultAction(result, playedAt));
+    scheduledFixtureIds.delete(result.fixtureId);
   }
 
   return next;

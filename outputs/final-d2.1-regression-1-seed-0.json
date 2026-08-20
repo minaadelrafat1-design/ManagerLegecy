@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-08-20T12:17:27.253Z",
+  "mode": "full",
+  "representative": true,
+  "years": [
+    1
+  ],
+  "seeds": [
+    "0"
+  ],
+  "deterministic": null,
+  "differentSeedDiverges": false,
+  "repeatElapsedMs": null,
+  "cases": [
+    {
+      "years": 1,
+      "seed": "0",
+      "elapsedMs": 61041.752,
+      "report": {
+        "years": 1,
+        "mode": "full",
+        "worldScope": "REPRESENTATIVE",
+        "daysAdvanced": 263,
+        "seasonsCompleted": 1,
+        "worldDate": "2027-08-01",
+        "worldSeason": "2027/28",
+        "fixturesScheduled": 84,
+        "matchesPlayed": 4548,
+        "goals": 5594,
+        "completedTransfers": 34,
+        "transferAttempts": 107,
+        "promotions": 192,
+        "relegations": 192,
+        "retirements": 0,
+        "youthGenerated": 0,
+        "managerChanges": 0,
+        "averagePlayerAge": 23.53167185877466,
+        "averageOverall": 67.73429387331257,
+        "averagePotential": 71.73598130841121,
+        "averageClubBalance": 22853370.722222224,
+        "leagueStrength": 61.035493827160494,
+        "playerPopulation": 15408,
+        "retiredPlayers": 0,
+        "activePlayers": 15408,
+        "aiMemoryItems": 9096,
+        "invariantViolations": 0,
+        "invariantBreakdown": {},
+        "perSeason": [
+          {
+            "seasonIndex": 1,
+            "seasonLabel": "2026/27",
+            "daysAdvanced": 263,
+            "worldDate": "2027-08-01",
+            "fixturesGenerated": 84,
+            "fixturesPlayed": 4548,
+            "matchesCompleted": 4548,
+            "goals": 5594,
+            "transferAttempts": 107,
+            "completedTransfers": 34,
+            "promotions": 192,
+            "relegations": 192,
+            "retirements": 0,
+            "youthGenerated": 0,
+            "managerChanges": 0,
+            "fixturesScheduled": 84,
+            "uniquePromotedClubs": 192,
+            "uniqueRelegatedClubs": 192
+          }
+        ]
+      },
+      "checks": []
+    }
+  ]
+}

@@ -1868,6 +1868,17 @@ export function buildInitialState(seedOverride?: string): GameState {
     gameSeed: seedOverride ?? "0",
   };
 
+  const managedClub = {
+    ...gameState.currentClub,
+    playerIds: [...gameState.currentClub.playerIds],
+    academy: {
+      ...gameState.currentClub.academy,
+      prospectIds: [...gameState.currentClub.academy.prospectIds],
+    },
+  };
+  gameState.currentClub = managedClub;
+  gameState.clubs = { ...gameState.clubs, [managedClub.id]: managedClub };
+
   // Initialize enhanced revenue systems for the current (player-managed) club
   initializeAllEnhancedRevenueSystems(gameState.currentClub, gameState);
 

@@ -1,0 +1,29 @@
+[RUN A] START
+[RUN A] END 215636.66ms
+{"run":"A","elapsedMs":215636.6558,"metrics":{"seasons":5,"days":1724,"fixtures":84,"matches":22692,"goals":48360,"transferAttempts":538,"transfers":197,"promotions":960,"relegations":960,"retirements":235,"youth":1313,"managers":0,"invariants":0,"lastSeason":"2030/31"}}
+[RUN B] START
+[RUN B] END 335789.95ms
+{"run":"B","elapsedMs":335789.9521,"metrics":{"seasons":5,"days":1724,"fixtures":84,"matches":22692,"goals":48360,"transferAttempts":538,"transfers":197,"promotions":960,"relegations":960,"retirements":235,"youth":1313,"managers":0,"invariants":0,"lastSeason":"2030/31"}}
+{
+  "comparison": "PASS",
+  "firstDifference": null,
+  "runADurationMs": 215636.6558,
+  "runBDurationMs": 335789.9521,
+  "totalDurationMs": 551426.6079,
+  "metrics": {
+    "seasons": 5,
+    "days": 1724,
+    "fixtures": 84,
+    "matches": 22692,
+    "goals": 48360,
+    "transferAttempts": 538,
+    "transfers": 197,
+    "promotions": 960,
+    "relegations": 960,
+    "retirements": 235,
+    "youth": 1313,
+    "managers": 0,
+    "invariants": 0,
+    "lastSeason": "2030/31"
+  }
+}

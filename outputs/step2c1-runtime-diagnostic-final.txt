@@ -1,0 +1,21 @@
+[first] START
+{"run":"first","phase":"initial-state","elapsedMs":78.63229999999999,"metrics":{"players":15408,"clubs":648,"fixtures":84,"matches":0,"events":0,"transfers":35,"negotiations":0,"inbox":0,"news":3}}
+{"run":"first","phase":"initial-state-serialization","elapsedMs":119.3796000000001,"metrics":{"bytes":17000915}}
+{"run":"first","phase":"simulation-season-1","elapsedMs":44694.7693,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5696,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"first","phase":"metrics-season-1","elapsedMs":3.463000000003376,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5697,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"first","phase":"invariants","elapsedMs":49.25480000000243,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5697,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"first","phase":"state-serialization","elapsedMs":119.1255999999994,"metrics":{"bytes":23491354}}
+{"run":"first","phase":"canonical-report-complete","elapsedMs":45152.6634}
+{"run":"first","report":{"seasonsCompleted":1,"daysAdvanced":263,"fixturesGenerated":84,"matchesCompleted":4548,"goals":5482,"invariants":0}}
+{"run":"first","phase":"report-serialization","elapsedMs":0.03929999999672873,"metrics":{"bytes":1051}}
+[second] START
+{"run":"second","phase":"initial-state","elapsedMs":56.016999999999825,"metrics":{"players":15408,"clubs":648,"fixtures":84,"matches":0,"events":0,"transfers":35,"negotiations":0,"inbox":0,"news":3}}
+{"run":"second","phase":"initial-state-serialization","elapsedMs":87.9059999999954,"metrics":{"bytes":17000373}}
+{"run":"second","phase":"simulation-season-1","elapsedMs":43376.6844,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5696,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"second","phase":"metrics-season-1","elapsedMs":4.077600000004168,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5697,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"second","phase":"invariants","elapsedMs":55.88310000000638,"metrics":{"players":15408,"clubs":648,"fixtures":0,"matches":4548,"events":5697,"transfers":35,"negotiations":107,"inbox":0,"news":213}}
+{"run":"second","phase":"state-serialization","elapsedMs":179.15350000000035,"metrics":{"bytes":23490812}}
+{"run":"second","phase":"canonical-report-complete","elapsedMs":43867.084800000004}
+{"run":"second","report":{"seasonsCompleted":1,"daysAdvanced":263,"fixturesGenerated":84,"matchesCompleted":4548,"goals":5482,"invariants":0}}
+{"run":"second","phase":"report-serialization","elapsedMs":0.01570000000356231,"metrics":{"bytes":1051}}
+{"phase":"comparison","elapsedMs":0.005900000003748573,"equal":true}
