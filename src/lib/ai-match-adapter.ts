@@ -596,21 +596,27 @@ export function simulateAiFixtureViaEngine(
  * routed through the engine instead. Every currently-`"scheduled"` fixture
  * the managed club isn't part of. Still not wired into
  * `state/calendar.ts`'s daily tick — see this file's header comment. */
-export function simulateScheduledAiFixturesViaEngine(state: GameState): AiFixtureResult[] {
+export function simulateScheduledAiFixturesViaEngine(
+  state: GameState,
+  eligibleFixtures?: Fixture[],
+): AiFixtureResult[] {
   const managedClubId = state.currentClub.id;
   const today = state.time.date;
   const season = String(state.time.season);
-  return state.fixtures
-    .filter(
+  const fixtures =
+    eligibleFixtures ??
+    state.fixtures.filter(
       (f) =>
         f.status === "scheduled" &&
         f.calendarDate === today &&
         String(f.season ?? season) === season &&
         isAiFixture(f, managedClubId),
-    )
+    );
+  const results = fixtures
     .map((f) =>
       simulateAiFixtureViaEngine(f, state.clubs, state.players, seedFromFixtureId(f.id), state),
     );
+  return results;
 }
 
 /** Same convenience shape as `ai-fixture-sim.ts`'s
@@ -621,8 +627,13 @@ export function simulateScheduledAiFixturesViaEngine(state: GameState): AiFixtur
 export function simulateAndApplyScheduledAiFixturesViaEngine(
   state: GameState,
   playedAt: string,
+  eligibleFixtures?: Fixture[],
 ): GameState {
-  return applyAiFixtureResults(state, simulateScheduledAiFixturesViaEngine(state), playedAt);
+  return applyAiFixtureResults(
+    state,
+    simulateScheduledAiFixturesViaEngine(state, eligibleFixtures),
+    playedAt,
+  );
 }
 
 /** For callers/tests that want to inspect the full engine output (events,

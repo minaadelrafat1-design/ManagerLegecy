@@ -90,18 +90,12 @@ export function verifyTransferLegality(
  *
  * Returns: { success, reason?, updatedState }
  */
-export function movePlayerAtomically(
+function movePlayerAtomicallyVerified(
   state: GameState,
   playerId: string,
   fromClubId: string,
   toClubId: string,
 ): { success: boolean; reason?: string; state: GameState } {
-  // Verify legality
-  const legality = verifyTransferLegality(state, playerId, fromClubId, toClubId);
-  if (!legality.legal) {
-    return { success: false, reason: legality.reason ?? "unknown-reason", state };
-  }
-
   const player = state.players[playerId]!;
   const fromClub = state.clubs[fromClubId]!;
   const toClub = state.clubs[toClubId]!;
@@ -182,6 +176,19 @@ export function movePlayerAtomically(
   }
 }
 
+export function movePlayerAtomically(
+  state: GameState,
+  playerId: string,
+  fromClubId: string,
+  toClubId: string,
+): { success: boolean; reason?: string; state: GameState } {
+  const legality = verifyTransferLegality(state, playerId, fromClubId, toClubId);
+  if (!legality.legal) {
+    return { success: false, reason: legality.reason ?? "unknown-reason", state };
+  }
+  return movePlayerAtomicallyVerified(state, playerId, fromClubId, toClubId);
+}
+
 /**
  * Complete a transfer with full atomic guarantees.
  *
@@ -219,7 +226,7 @@ export function completeTransferAtomically(
   }
 
   // Step 2: Move player atomically
-  const movement = movePlayerAtomically(state, playerId, fromClubId, toClubId);
+  const movement = movePlayerAtomicallyVerified(state, playerId, fromClubId, toClubId);
   if (!movement.success) {
     return {
       success: false,

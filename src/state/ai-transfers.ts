@@ -4,6 +4,8 @@ import {
   determineSquadNeedForClub,
   identifyTransferTargets,
   buildFinancialProfile,
+  buildTransferMarketIndex,
+  type SimpleSquadNeed,
 } from "./ai-decisions";
 import { evaluateOffer } from "./negotiation";
 import {
@@ -56,6 +58,46 @@ function updateTransferListingStatus(
 
 function isPlayerInMarket(state: GameState, playerId: string) {
   return Boolean(findTransferListing(state, playerId));
+}
+
+interface TransferEvaluationMemo {
+  signability: Map<string, { allowed: boolean; reason?: string }>;
+  affordability: Map<string, { state: GameState; canAfford: boolean }>;
+}
+
+function createTransferEvaluationMemo(): TransferEvaluationMemo {
+  return {
+    signability: new Map(),
+    affordability: new Map(),
+  };
+}
+
+function memoizedSignability(
+  memo: TransferEvaluationMemo,
+  state: GameState,
+  playerId: string,
+  targetClubId: string,
+) {
+  const key = `${playerId}|${targetClubId}|${state.time.date}`;
+  const cached = memo.signability.get(key);
+  if (cached) return cached;
+  const result = canSignPlayer(state, playerId, targetClubId, state.time.date);
+  memo.signability.set(key, result);
+  return result;
+}
+
+function memoizedAffordability(
+  memo: TransferEvaluationMemo,
+  state: GameState,
+  buyer: GameState["clubs"][string],
+  offer: Offer,
+) {
+  const key = `${buyer.id}|${offer.fee ?? 0}|${offer.salaryWeekly ?? 0}|${offer.loanFee ?? 0}|${offer.bonuses ?? 0}`;
+  const cached = memo.affordability.get(key);
+  if (cached) return cached;
+  const result = canBuyerAfford(state, buyer, offer);
+  memo.affordability.set(key, result);
+  return result;
 }
 
 function appendUniqueEvent(state: GameState, event: EventLogEntry): GameState {
@@ -450,7 +492,12 @@ function resolveOpenNegotiations(state: GameState) {
       if (!last) continue;
       const buyer = next.clubs[session.buyerClubId];
       const affordability = buyer
-        ? canBuyerAfford(next, buyer, last.offer)
+        ? memoizedAffordability(
+            createTransferEvaluationMemo(),
+            next,
+            buyer,
+            last.offer,
+          )
         : { state: next, canAfford: false };
       next = affordability.state;
       if (affordability.canAfford) {
@@ -537,11 +584,19 @@ function aiDailyTick(state: GameState): GameState {
   for (const listing of next.transfers) {
     if (listing.playerId) listingByPlayer.set(listing.playerId, listing);
   }
+  const marketIndex = buildTransferMarketIndex(next);
+  const financialProfiles = new Map<string, ReturnType<typeof buildFinancialProfile>>();
+  const squadNeeds = new Map<string, SimpleSquadNeed>();
+  const evaluationMemo = createTransferEvaluationMemo();
 
   for (const club of Object.values(next.clubs)) {
     if (!club.aiManager) continue;
-    const fin = buildFinancialProfile(club, club.aiManager.financialTendency, undefined, next);
-    const need = determineSquadNeedForClub(next, club.id);
+    const fin =
+      financialProfiles.get(club.id) ??
+      buildFinancialProfile(club, club.aiManager.financialTendency, undefined, next);
+    financialProfiles.set(club.id, fin);
+    const need = squadNeeds.get(club.id) ?? determineSquadNeedForClub(next, club.id);
+    squadNeeds.set(club.id, need);
 
     if (club.academy?.prospectIds?.length && club.aiManager.youthPreference >= 50) {
       const prospectId = club.academy.prospectIds[0];
@@ -589,12 +644,13 @@ function aiDailyTick(state: GameState): GameState {
     const canSign = fin.spendingPower >= 35;
     if (!canSign) continue;
 
-    const targets = identifyTransferTargets(next, club.id, 3).filter((target) => {
-      const listing = next.transfers.find((item) => item.id === target.listingId);
+    const targets = identifyTransferTargets(next, club.id, 3, need, marketIndex).filter((target) => {
+      const listing = marketIndex.listingById.get(target.listingId) ?? listingByPlayer.get(target.playerId ?? "");
       if (!listing) return false;
       if (listing.playerId && listing.sellerClubId) {
         return (
-          listing.sellerClubId !== club.id && canSignPlayer(next, listing.playerId, club.id).allowed
+          listing.sellerClubId !== club.id &&
+          memoizedSignability(evaluationMemo, next, listing.playerId, club.id).allowed
         );
       }
       return false;
@@ -602,7 +658,7 @@ function aiDailyTick(state: GameState): GameState {
 
     const target = targets[0];
     if (target) {
-      const listing = next.transfers.find((item) => item.id === target.listingId);
+      const listing = marketIndex.listingById.get(target.listingId) ?? listingByPlayer.get(target.playerId ?? "");
       if (!listing) {
         continue;
       }
@@ -647,7 +703,7 @@ function aiDailyTick(state: GameState): GameState {
         }
 
         const offer = buildTransferOffer(next, club, listing);
-        const affordability = canBuyerAfford(next, club, offer);
+        const affordability = memoizedAffordability(evaluationMemo, next, club, offer);
         next = affordability.state;
         if (affordability.canAfford) {
           const res = evaluateOffer(next, club.id, listing.sellerClubId, listing.playerId, offer);
@@ -698,10 +754,14 @@ function aiDailyTick(state: GameState): GameState {
       continue;
     }
 
-    const freeAgentListing = next.transfers.find(
-      (item) =>
-        item.playerId && !item.sellerClubId && canSignPlayer(next, item.playerId, club.id).allowed,
-    );
+    let freeAgentListing: TransferListing | undefined;
+    for (const item of marketIndex.freeAgents) {
+      if (!item.playerId) continue;
+      if (memoizedSignability(evaluationMemo, next, item.playerId, club.id).allowed) {
+        freeAgentListing = item;
+        break;
+      }
+    }
     if (freeAgentListing && freeAgentListing.playerId) {
       const player = next.players[freeAgentListing.playerId];
       if (player && !findPlayerClub(next, player.id)) {
@@ -727,6 +787,8 @@ function aiDailyTick(state: GameState): GameState {
             },
           ],
         };
+        evaluationMemo.signability.clear();
+        evaluationMemo.affordability.clear();
       }
     }
   }
@@ -808,11 +870,19 @@ registerDailyHook("events", (state, time) => {
   for (const listing of next2.transfers) {
     if (listing.playerId) listingByPlayer.set(listing.playerId, listing);
   }
+  const marketIndex = buildTransferMarketIndex(next2);
+  const financialProfiles = new Map<string, ReturnType<typeof buildFinancialProfile>>();
+  const squadNeeds = new Map<string, SimpleSquadNeed>();
+  const evaluationMemo = createTransferEvaluationMemo();
 
   for (const club of Object.values(next2.clubs)) {
     if (!club.aiManager) continue;
-    const fin = buildFinancialProfile(club, club.aiManager.financialTendency, undefined, next2);
-    const need = determineSquadNeedForClub(next2, club.id);
+    const fin =
+      financialProfiles.get(club.id) ??
+      buildFinancialProfile(club, club.aiManager.financialTendency, undefined, next2);
+    financialProfiles.set(club.id, fin);
+    const need = squadNeeds.get(club.id) ?? determineSquadNeedForClub(next2, club.id);
+    squadNeeds.set(club.id, need);
 
     if (club.academy?.prospectIds?.length && club.aiManager.youthPreference >= 50) {
       const prospectId = club.academy.prospectIds[0];
@@ -860,17 +930,17 @@ registerDailyHook("events", (state, time) => {
     const canSign = fin.spendingPower >= 35;
     if (!canSign) continue;
 
-    const targets = identifyTransferTargets(next2, club.id, 3).filter((target) => {
+    const targets = identifyTransferTargets(next2, club.id, 3, need, marketIndex).filter((target) => {
       const listing =
-        next2.transfers.find((item) => item.id === target.listingId) ??
-        listingByPlayer.get(target.listingId);
+        marketIndex.listingById.get(target.listingId) ??
+        listingByPlayer.get(target.playerId ?? "");
       if (!listing) return false;
       if (listing.playerId && listing.sellerClubId) {
         const alreadyNegotiating = activeNegotiationPlayers.has(listing.playerId);
         return (
           !alreadyNegotiating &&
           listing.sellerClubId !== club.id &&
-          canSignPlayer(next2, listing.playerId, club.id).allowed
+          memoizedSignability(evaluationMemo, next2, listing.playerId, club.id).allowed
         );
       }
       return false;
@@ -879,8 +949,8 @@ registerDailyHook("events", (state, time) => {
     const target = targets[0];
     if (target) {
       const listing =
-        next2.transfers.find((item) => item.id === target.listingId) ??
-        listingByPlayer.get(target.listingId);
+        marketIndex.listingById.get(target.listingId) ??
+        listingByPlayer.get(target.playerId ?? "");
       if (!listing) {
         continue;
       }
@@ -927,7 +997,7 @@ registerDailyHook("events", (state, time) => {
         }
 
         const offer = buildTransferOffer(next2, club, listing);
-        const affordability = canBuyerAfford(next2, club, offer);
+        const affordability = memoizedAffordability(evaluationMemo, next2, club, offer);
         next2 = affordability.state;
         if (affordability.canAfford) {
           const res = evaluateOffer(next2, club.id, listing.sellerClubId, listing.playerId, offer);
@@ -978,10 +1048,14 @@ registerDailyHook("events", (state, time) => {
       continue;
     }
 
-    const freeAgentListing = next2.transfers.find(
-      (item) =>
-        item.playerId && !item.sellerClubId && canSignPlayer(next2, item.playerId, club.id).allowed,
-    );
+    let freeAgentListing: TransferListing | undefined;
+    for (const item of next2.transfers) {
+      if (!item.playerId || item.sellerClubId) continue;
+      if (memoizedSignability(evaluationMemo, next2, item.playerId, club.id).allowed) {
+        freeAgentListing = item;
+        break;
+      }
+    }
     if (freeAgentListing && freeAgentListing.playerId) {
       const player = next2.players[freeAgentListing.playerId];
       if (player && !findPlayerClub(next2, player.id)) {
@@ -1007,6 +1081,8 @@ registerDailyHook("events", (state, time) => {
             },
           ],
         };
+        evaluationMemo.signability.clear();
+        evaluationMemo.affordability.clear();
       }
     }
   }

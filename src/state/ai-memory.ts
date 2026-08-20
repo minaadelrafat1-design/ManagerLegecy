@@ -27,20 +27,31 @@ export function addClubMemory(
   clubId: string,
   item: Omit<MemoryItem, "id" | "date">,
 ): GameState {
-  const club = state.clubs[clubId];
-  if (!club) return state;
-  const date = nowISO(state);
-  const id = makeId(item.kind, state, clubId);
-  const full: MemoryItem = { id, date, ...item } as MemoryItem;
+  return addClubMemories(state, [{ clubId, item }]);
+}
 
-  const prev = club.aiMemory?.items ?? [];
-  const nextItems = [...prev, full].slice(-MEMORY_MAX_ITEMS);
-  const counts: Partial<Record<MemoryKind, number>> = {};
-  for (const it of nextItems) counts[it.kind] = (counts[it.kind] ?? 0) + 1;
+export function addClubMemories(
+  state: GameState,
+  updates: Array<{ clubId: string; item: Omit<MemoryItem, "id" | "date"> }>,
+): GameState {
+  if (updates.length === 0) return state;
+  const clubs = { ...state.clubs };
 
-  const nextClub = { ...club, aiMemory: { items: nextItems, counts } };
+  for (const { clubId, item } of updates) {
+    const club = clubs[clubId];
+    if (!club) continue;
+    const date = nowISO(state);
+    const id = makeId(item.kind, { ...state, clubs }, clubId);
+    const full: MemoryItem = { id, date, ...item } as MemoryItem;
 
-  return { ...state, clubs: { ...state.clubs, [clubId]: nextClub } };
+    const prev = club.aiMemory?.items ?? [];
+    const nextItems = [...prev, full].slice(-MEMORY_MAX_ITEMS);
+    const counts: Partial<Record<MemoryKind, number>> = {};
+    for (const it of nextItems) counts[it.kind] = (counts[it.kind] ?? 0) + 1;
+    clubs[clubId] = { ...club, aiMemory: { items: nextItems, counts } };
+  }
+
+  return { ...state, clubs };
 }
 
 export function clearClubMemory(state: GameState, clubId: string): GameState {
@@ -53,6 +64,7 @@ export function clearClubMemory(state: GameState, clubId: string): GameState {
 export default {
   getClubMemory,
   addClubMemory,
+  addClubMemories,
   clearClubMemory,
   MEMORY_MAX_ITEMS,
 };

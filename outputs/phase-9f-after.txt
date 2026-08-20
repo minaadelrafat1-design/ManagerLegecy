@@ -1,0 +1,6 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+Building mature five-season state with simulateSeasonQuick...
+  Mature setup season 1/5: 2027/28
+  Mature setup season 2/5: 2028/29

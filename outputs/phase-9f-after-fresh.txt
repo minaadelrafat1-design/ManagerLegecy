@@ -1,0 +1,60 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 7 DAYS
+Advancing 7 consecutive days...
+====================================================================================================
+  Day 7/7: 1343.86ms | Transfers=35 Negotiations=28 Events=25
+
+  SUMMARY:
+    Total time: 5826.22ms (7 days)
+    Average per day: 832.32ms
+    Max day: 1343.86ms
+    Min day: 629.30ms
+    State size growth: 41099 bytes (0.04 MB)
+    Initial state size: 43.43 MB
+    Final state size: 43.47 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai[0]: 921.03ms total (avg 131.58ms)
+    ai: 921.03ms total (avg 131.58ms)
+    fixtures: 216.89ms total (avg 30.98ms)
+    fixtures[1]: 216.48ms total (avg 30.93ms)
+    recovery[0]: 213.07ms total (avg 30.44ms)
+    recovery: 213.07ms total (avg 30.44ms)
+    injuries[0]: 200.07ms total (avg 28.58ms)
+    injuries: 200.07ms total (avg 28.58ms)
+    training[0]: 197.71ms total (avg 28.24ms)
+    training: 197.71ms total (avg 28.24ms)
+
+====================================================================================================
+BASELINE MEASUREMENT: FRESH CAREER - 30 DAYS TOTAL
+Advancing 23 consecutive days...
+====================================================================================================
+  Day 10/23: 2268.29ms | Transfers=36 Negotiations=77 Events=4166
+  Day 20/23: 608.65ms | Transfers=37 Negotiations=116 Events=64
+  Day 23/23: 665.72ms | Transfers=37 Negotiations=130 Events=20
+
+  SUMMARY:
+    Total time: 15983.50ms (23 days)
+    Average per day: 694.93ms
+    Max day: 2268.29ms
+    Min day: 445.43ms
+    State size growth: 1091280 bytes (1.04 MB)
+    Initial state size: 43.47 MB
+    Final state size: 44.51 MB
+
+  HOOK TIMING SUMMARY (if available):
+    ai[0]: 3088.67ms total (avg 134.29ms)
+    ai: 3088.67ms total (avg 134.29ms)
+    development[0]: 1531.11ms total (avg 66.57ms)
+    development: 1531.11ms total (avg 66.57ms)
+    fixtures: 665.11ms total (avg 28.92ms)
+    events: 513.99ms total (avg 22.35ms)
+    recovery[0]: 473.07ms total (avg 20.57ms)
+    recovery: 473.07ms total (avg 20.57ms)
+    injuries[0]: 442.24ms total (avg 19.23ms)
+    injuries: 442.24ms total (avg 19.23ms)
+
+Fresh-career measurements complete (--fresh-only).

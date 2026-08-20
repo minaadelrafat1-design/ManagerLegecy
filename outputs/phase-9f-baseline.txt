@@ -1,0 +1,14 @@
+PHASE 1: ADVANCE DAY PERFORMANCE BASELINE MEASUREMENTS
+Building initial state...
+
+Building mature five-season state with simulateSeasonQuick...
+  Mature setup season 1/5: 2027/28
+  Mature setup season 2/5: 2028/29
+  Mature setup season 3/5: 2029/30
+  Mature setup season 4/5: 2030/31
+  Mature setup season 5/5: 2031/32
+
+====================================================================================================
+BASELINE MEASUREMENT: MATURE CAREER - 5 SEASONS + 30 DAYS
+Advancing 30 consecutive days...
+====================================================================================================

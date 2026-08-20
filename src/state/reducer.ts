@@ -17,7 +17,7 @@ import {
   acceptTransferSession,
   submitTransferOffer,
 } from "./negotiation-sessions";
-import { addClubMemory } from "./ai-memory";
+import { addClubMemory, addClubMemories } from "./ai-memory";
 import consequences from "./ai-consequences";
 import { advanceGameDays, canAdvanceGameDay } from "./calendar";
 import {
@@ -398,19 +398,29 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       const goalDiff = Math.abs(scoreHome - scoreAway);
       const rel = goalDiff >= 3 ? 90 : goalDiff >= 2 ? 65 : goalDiff === 1 ? 40 : 25;
 
-      let nextState = addClubMemory(intermediate, homeClubId, {
-        kind: "tactical",
-        summary: `${intermediate.clubs[homeClubId]?.name ?? homeClubId} ${scoreHome}-${scoreAway}`,
-        meta: { opponentId: awayClubId, scoreHome, scoreAway, competitionId: fixtures.find((f) => f.homeClubId === homeClubId && f.awayClubId === awayClubId)?.competitionId ?? null },
-        relevance: rel,
-      });
-
-      nextState = addClubMemory(nextState, awayClubId, {
-        kind: "tactical",
-        summary: `${nextState.clubs[awayClubId]?.name ?? awayClubId} ${scoreAway}-${scoreHome}`,
-        meta: { opponentId: homeClubId, scoreHome, scoreAway, competitionId: fixtures.find((f) => f.homeClubId === homeClubId && f.awayClubId === awayClubId)?.competitionId ?? null },
-        relevance: rel,
-      });
+      const competitionId = fixtures.find(
+        (f) => f.homeClubId === homeClubId && f.awayClubId === awayClubId,
+      )?.competitionId ?? null;
+      let nextState = addClubMemories(intermediate, [
+        {
+          clubId: homeClubId,
+          item: {
+            kind: "tactical",
+            summary: `${intermediate.clubs[homeClubId]?.name ?? homeClubId} ${scoreHome}-${scoreAway}`,
+            meta: { opponentId: awayClubId, scoreHome, scoreAway, competitionId },
+            relevance: rel,
+          },
+        },
+        {
+          clubId: awayClubId,
+          item: {
+            kind: "tactical",
+            summary: `${intermediate.clubs[awayClubId]?.name ?? awayClubId} ${scoreAway}-${scoreHome}`,
+            meta: { opponentId: homeClubId, scoreHome, scoreAway, competitionId },
+            relevance: rel,
+          },
+        },
+      ]);
 
       const playedFixture = fixtureId
         ? fixtures.find((f) => f.id === fixtureId)

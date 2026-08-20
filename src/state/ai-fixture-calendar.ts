@@ -9,7 +9,7 @@ import type { GameState } from "./types";
  */
 export function resolveTodaysAiFixtures(state: GameState): GameState {
   const currentSeason = String(state.time.season);
-  const hasEligibleFixture = (state.fixtures ?? []).some(
+  const eligibleFixtures = (state.fixtures ?? []).filter(
     (fixture) =>
       fixture.status === "scheduled" &&
       fixture.calendarDate === state.time.date &&
@@ -18,8 +18,12 @@ export function resolveTodaysAiFixtures(state: GameState): GameState {
       fixture.awayClubId !== state.currentClub.id,
   );
 
-  if (!hasEligibleFixture) return state;
-  return simulateAndApplyScheduledAiFixturesViaEngine(state, state.time.date);
+  if (eligibleFixtures.length === 0) return state;
+  return simulateAndApplyScheduledAiFixturesViaEngine(
+    state,
+    state.time.date,
+    eligibleFixtures,
+  );
 }
 
 registerDailyHook("fixtures", (state) => resolveTodaysAiFixtures(state));

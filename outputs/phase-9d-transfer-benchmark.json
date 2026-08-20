@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-20T19:37:47.445Z",
+  "aiClubs": 1736,
+  "listingCount": 10451,
+  "candidateCount": 6,
+  "legacyAiEvaluationLoopMs": 28004.49,
+  "indexedAiEvaluationLoopMs": 7520.11,
+  "improvementPct": 73.15,
+  "sampleNeed": "goalkeeper",
+  "sampleLegacyTargetIds": [
+    "benchmark-listing-10357",
+    "benchmark-listing-1117",
+    "benchmark-listing-1537"
+  ],
+  "sampleOptimizedTargetIds": [
+    "benchmark-listing-10357",
+    "benchmark-listing-1117",
+    "benchmark-listing-1537"
+  ],
+  "legacySampleScore": [
+    {
+      "id": "benchmark-listing-10357",
+      "score": 69
+    },
+    {
+      "id": "benchmark-listing-1117",
+      "score": 69
+    },
+    {
+      "id": "benchmark-listing-1537",
+      "score": 69
+    }
+  ],
+  "optimizedSampleScore": [
+    {
+      "id": "benchmark-listing-10357",
+      "score": 69
+    },
+    {
+      "id": "benchmark-listing-1117",
+      "score": 69
+    },
+    {
+      "id": "benchmark-listing-1537",
+      "score": 69
+    }
+  ]
+}

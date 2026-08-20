@@ -874,42 +874,128 @@ function transferPreferenceScore(listing: TransferListing, pref: string): number
   }
 }
 
+export interface TransferMarketIndex {
+  all: TransferListing[];
+  byPosition: Map<string, TransferListing[]>;
+  byPlayerId: Map<string, TransferListing>;
+  listingById: Map<string, TransferListing>;
+  freeAgents: TransferListing[];
+}
+
+function isActiveTransferListing(listing: TransferListing): boolean {
+  return listing.status !== "agreed" && listing.status !== "rejected";
+}
+
+export function buildTransferMarketIndex(state: GameState): TransferMarketIndex {
+  const all = (state.transfers ?? []).filter(isActiveTransferListing);
+  const byPosition = new Map<string, TransferListing[]>();
+  const byPlayerId = new Map<string, TransferListing>();
+  const listingById = new Map<string, TransferListing>();
+
+  for (const listing of all) {
+    const positionKey = String(listing.position ?? "");
+    if (positionKey) {
+      const existing = byPosition.get(positionKey) ?? [];
+      existing.push(listing);
+      byPosition.set(positionKey, existing);
+    }
+
+    if (listing.playerId) {
+      byPlayerId.set(listing.playerId, listing);
+    }
+    listingById.set(listing.id, listing);
+  }
+
+  const freeAgents = all.filter((listing) => Boolean(listing.playerId) && !listing.sellerClubId);
+
+  return { all, byPosition, byPlayerId, listingById, freeAgents };
+}
+
+function getCandidatePoolForNeed(
+  index: TransferMarketIndex,
+  need: SimpleSquadNeed,
+): TransferListing[] {
+  if (need === "no-urgent-need") {
+    return index.all;
+  }
+
+  const positions = NEED_TO_POS[need];
+  if (!positions.length) return index.all;
+
+  const seen = new Set<string>();
+  const candidates: TransferListing[] = [];
+
+  for (const position of positions) {
+    const matches = index.byPosition.get(position) ?? [];
+    for (const listing of matches) {
+      if (seen.has(listing.id)) continue;
+      seen.add(listing.id);
+      candidates.push(listing);
+    }
+  }
+
+  return candidates.length ? candidates : index.all;
+}
+
+function selectTopTransferTargets(
+  scored: Array<{ listing: TransferListing; score: number; reason: string }>,
+  maxTargets: number,
+): TransferTarget[] {
+  return scored
+    .sort(
+      (a, b) =>
+        b.score - a.score || a.listing.id.localeCompare(b.listing.id),
+    )
+    .slice(0, maxTargets)
+    .map(({ listing, score, reason }) => ({
+      listingId: listing.id,
+      playerId: listing.playerId,
+      name: listing.name,
+      position: listing.position,
+      score,
+      reason,
+    }));
+}
+
 export function identifyTransferTargets(
   state: GameState,
   clubId: string,
   maxTargets = 5,
+  suppliedNeed?: SimpleSquadNeed,
+  marketIndex?: TransferMarketIndex,
 ): TransferTarget[] {
   const club = state.clubs[clubId];
   if (!club) throw new Error(`identifyTransferTargets: unknown clubId "${clubId}"`);
-  const need = determineSquadNeedForClub(state, clubId);
+  const need = suppliedNeed ?? determineSquadNeedForClub(state, clubId);
   const preferences = club.aiManager?.transferPriorities ?? [
     "value-for-money",
     "youth-potential",
     "proven-experience",
   ];
 
-  return state.transfers
-    .map((listing) => {
-      const basePosition = positionMatchScore(listing.position as Pos, need);
-      const prefScore = preferences.reduce(
-        (sum, pref) => sum + transferPreferenceScore(listing, pref),
-        0,
-      );
-      const ageScore = listing.age <= 23 ? 10 : listing.age >= 28 ? 5 : 0;
-      const overallScore = clamp(Math.round(listing.rating * 0.8));
-      const score = clamp(basePosition + prefScore + ageScore + overallScore * 0.1);
-      return {
-        listingId: listing.id,
-        playerId: listing.playerId,
-        name: listing.name,
-        position: listing.position,
-        score,
-        reason: `need ${need}, prefs ${preferences.join(", ")}, rating ${listing.rating}`,
-      };
-    })
-    .filter((target) => target.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, maxTargets);
+  const index = marketIndex ?? buildTransferMarketIndex(state);
+  const scored: Array<{ listing: TransferListing; score: number; reason: string }> = [];
+
+  for (const listing of getCandidatePoolForNeed(index, need)) {
+    const basePosition = positionMatchScore(listing.position as Pos, need);
+    const prefScore = preferences.reduce(
+      (sum, pref) => sum + transferPreferenceScore(listing, pref),
+      0,
+    );
+    const ageScore = listing.age <= 23 ? 10 : listing.age >= 28 ? 5 : 0;
+    const overallScore = clamp(Math.round(listing.rating * 0.8));
+    const score = clamp(basePosition + prefScore + ageScore + overallScore * 0.1);
+
+    if (score <= 0) continue;
+
+    scored.push({
+      listing,
+      score,
+      reason: `need ${need}, prefs ${preferences.join(", ")}, rating ${listing.rating}`,
+    });
+  }
+
+  return selectTopTransferTargets(scored, maxTargets);
 }
 
 export function recommendBudgetAllocation(

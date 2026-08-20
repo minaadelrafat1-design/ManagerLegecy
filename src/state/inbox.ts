@@ -6,7 +6,7 @@ import {
   EventLogEntry,
 } from "./types";
 import { Player, Club, TransferListing, Fixture } from "./types";
-import { registerDailyHook } from "./calendar";
+import { addDaysISO, registerDailyHook } from "./calendar";
 
 /**
  * Transform an EventLogEntry into zero or more InboxMessage objects.
@@ -405,30 +405,28 @@ export function generateInboxMessagesFromEvents(
   state: GameState,
   lookbackDays: number = 1,
 ): InboxMessage[] {
-  if (!state.inbox) state.inbox = [];
-  if (!state.inboxSettings) {
-    state.inboxSettings = {
-      archiveOldAfterDays: 30,
-      dedupeWindowDays: 1,
-    };
-  }
-
-  const cutoffDate = new Date(state.time.date);
-  cutoffDate.setDate(cutoffDate.getDate() - lookbackDays);
+  const inbox = state.inbox ?? [];
+  const inboxSettings = state.inboxSettings ?? {
+    archiveOldAfterDays: 30,
+    dedupeWindowDays: 1,
+  };
+  const cutoffDate = addDaysISO(state.time.date, -lookbackDays);
 
   const existingSourceIds = new Set<string>();
   const dedupeKeys = new Set<string>();
-  const dedupeCutoff = new Date(state.time.date);
-  dedupeCutoff.setDate(dedupeCutoff.getDate() - lookbackDays - state.inboxSettings.dedupeWindowDays);
+  const dedupeCutoff = addDaysISO(
+    state.time.date,
+    -lookbackDays - inboxSettings.dedupeWindowDays,
+  );
 
-  for (const message of state.inbox ?? []) {
+  for (const message of inbox) {
     if (typeof message.sourceEventId === "string") existingSourceIds.add(message.sourceEventId);
-    if (message.archivedAt || new Date(message.date) < dedupeCutoff) continue;
+    if (message.archivedAt || message.date < dedupeCutoff) continue;
     dedupeKeys.add(`${message.title}\u0000${message.category}\u0000${message.relatedEntityId ?? ""}`);
   }
 
   const newEvents = (state.events ?? []).filter(
-    (event) => new Date(event.date) >= cutoffDate && !existingSourceIds.has(event.id),
+    (event) => event.date >= cutoffDate && !existingSourceIds.has(event.id),
   );
 
   const newMessages: InboxMessage[] = [];
@@ -452,25 +450,31 @@ export function generateInboxMessagesFromEvents(
 export function cleanupInbox(state: GameState): GameState {
   if (!state.inbox || !state.inboxSettings) return state;
 
-  const archiveThreshold = new Date(state.time.date);
-  archiveThreshold.setDate(archiveThreshold.getDate() - state.inboxSettings.archiveOldAfterDays);
+  const archiveThreshold = addDaysISO(
+    state.time.date,
+    -state.inboxSettings.archiveOldAfterDays,
+  );
+  const permanentDeleteThreshold = addDaysISO(
+    archiveThreshold,
+    -10,
+  );
+  let changed = false;
+  const filtered: typeof state.inbox = [];
 
-  const nextInbox = (state.inbox ?? []).map((msg) => {
-    if (!msg.archivedAt && new Date(msg.date) < archiveThreshold) {
-      return {
-        ...msg,
-        archivedAt: state.time.date,
-      };
+  for (const msg of state.inbox) {
+    let nextMessage = msg;
+    if (!msg.archivedAt && msg.date < archiveThreshold) {
+      nextMessage = { ...msg, archivedAt: state.time.date };
+      changed = true;
     }
-    return msg;
-  });
+    if (nextMessage.archivedAt && nextMessage.archivedAt <= permanentDeleteThreshold) {
+      changed = true;
+      continue;
+    }
+    filtered.push(nextMessage);
+  }
 
-  // Remove archived messages older than archive threshold + 10 days
-  const permanentDeleteThreshold = new Date(archiveThreshold.getTime() - 10 * 24 * 60 * 60 * 1000);
-  const filtered = nextInbox.filter((msg) => {
-    if (!msg.archivedAt) return true;
-    return new Date(msg.archivedAt) > permanentDeleteThreshold;
-  });
+  if (!changed) return state;
 
   return {
     ...state,
