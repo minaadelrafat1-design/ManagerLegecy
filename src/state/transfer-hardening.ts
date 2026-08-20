@@ -95,6 +95,7 @@ function movePlayerAtomicallyVerified(
   playerId: string,
   fromClubId: string,
   toClubId: string,
+  includeCareerHistory = false,
 ): { success: boolean; reason?: string; state: GameState } {
   const player = state.players[playerId]!;
   const fromClub = state.clubs[fromClubId]!;
@@ -117,6 +118,15 @@ function movePlayerAtomicallyVerified(
     const updatedPlayer = {
       ...player,
       clubId: toClubId,
+      ...(includeCareerHistory && player.career
+        ? {
+            career: {
+              ...player.career,
+              clubHistory: [...(player.career.clubHistory ?? []), toClubId],
+              transfers: (player.career.transfers ?? 0) + 1,
+            },
+          }
+        : {}),
     };
 
     // Step 3: Create new state
@@ -226,7 +236,7 @@ export function completeTransferAtomically(
   }
 
   // Step 2: Move player atomically
-  const movement = movePlayerAtomicallyVerified(state, playerId, fromClubId, toClubId);
+  const movement = movePlayerAtomicallyVerified(state, playerId, fromClubId, toClubId, true);
   if (!movement.success) {
     return {
       success: false,
@@ -251,27 +261,7 @@ export function completeTransferAtomically(
     }
   }
 
-  // Step 4: Record transfer in player career history
-  if (player.career) {
-    const updatedCareer = {
-      ...player.career,
-      clubHistory: [...(player.career.clubHistory ?? []), toClubId],
-      transfers: (player.career.transfers ?? 0) + 1,
-    };
-
-    next = {
-      ...next,
-      players: {
-        ...next.players,
-        [playerId]: {
-          ...next.players[playerId]!,
-          career: updatedCareer,
-        },
-      },
-    };
-  }
-
-  // Step 5: Emit exactly one TRANSFER_COMPLETED event
+  // Step 4: Emit exactly one TRANSFER_COMPLETED event
   // Check if event already exists (idempotency)
   const existingCompletionEvent = next.events?.find(
     (e) =>
@@ -303,6 +293,7 @@ export function completeTransferAtomically(
       events: [...(next.events ?? []), completionEvent],
     };
   }
+
 
   return {
     success: true,

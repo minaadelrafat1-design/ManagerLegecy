@@ -62,6 +62,7 @@ export type GameAction =
       seed: number;
       playedAt: string;
       playerRatings?: Record<string, number>;
+      batchPlayerUpdates?: true;
     }
   | { type: "UPDATE_TRANSFER_STATUS"; id: string; status: TransferListing["status"] }
   | { type: "ADD_TRANSFER_TARGET"; listing: TransferListing }
@@ -115,6 +116,7 @@ export type GameAction =
       offer: any;
       message?: string;
     }
+
   | {
       type: "ADD_NEGOTIATION_ENTRY";
       sessionId: string;
@@ -134,6 +136,68 @@ export type GameAction =
   | { type: "SET_PLAYER_ROLE"; playerId: string; roleId: string }
   | { type: "SET_PLAYER_INSTRUCTIONS"; playerId: string; instructions: string[] }
   | { type: "SET_PLAYER_ROLE_FAMILIARITY"; playerId: string; familiarity: number };
+
+export function calculateMatchPlayerUpdates(
+  state: GameState,
+  homePlayerIds: string[],
+  awayPlayerIds: string[],
+  scoreHome: number,
+  scoreAway: number,
+  playerRatings?: Record<string, number>,
+): Map<string, Player> {
+  const updates = new Map<string, Player>();
+  const currentPlayers = new Map<string, Player>();
+  const homeResult = scoreHome > scoreAway ? "W" : scoreHome < scoreAway ? "L" : "D";
+  const awayResult = homeResult === "W" ? "L" : homeResult === "L" ? "W" : "D";
+
+  const applyResultToPlayers = (playerIds: string[], result: string) => {
+    for (const playerId of playerIds) {
+      const player = currentPlayers.get(playerId) ?? state.players[playerId];
+      if (!player) continue;
+      const starter = !!player.starter;
+      const rating = playerRatings?.[playerId] ?? player.lastMatchRating ?? 5;
+      let moraleDelta = 0;
+      if (result === "W") moraleDelta = starter ? 6 : 3;
+      else if (result === "D") moraleDelta = starter ? 1 : 0;
+      else moraleDelta = starter ? -6 : -3;
+      if (!starter && result === "L") moraleDelta -= 1;
+      if (rating >= 7.5) moraleDelta += 2;
+      else if (rating <= 4.5) moraleDelta -= 2;
+      const newMorale = Math.max(0, Math.min(100, (player.morale ?? 50) + moraleDelta));
+      let formDelta = 0;
+      if (result === "W") formDelta = starter ? 8 : 4;
+      else if (result === "D") formDelta = starter ? 2 : 1;
+      else formDelta = starter ? -8 : -4;
+      formDelta += Math.round((rating - 5) * 1.8);
+      const newForm = Math.max(0, Math.min(100, (player.form ?? 50) + formDelta));
+      let repDelta = 0;
+      if (rating >= 8) repDelta = 1;
+      else if (rating <= 4) repDelta = -1;
+      const newReputation = Math.max(0, Math.min(100, (player.reputation ?? 50) + repDelta));
+      const ageFactor = player.age
+        ? Math.max(0.75, Math.min(1.25, (30 - player.age) / 20 + 1))
+        : 1;
+      const valueDelta = Math.round((rating - 5) * 12000 * ageFactor);
+      const newMarketValue = Math.max(0, (player.marketValue ?? 0) + valueDelta);
+      const nextHistory = [...(player.matchRatingHistory ?? []), rating].slice(-5);
+      const updatedPlayer: Player = {
+        ...player,
+        morale: newMorale,
+        form: newForm,
+        reputation: newReputation,
+        marketValue: newMarketValue,
+        lastMatchRating: rating,
+        matchRatingHistory: nextHistory,
+      };
+      currentPlayers.set(playerId, updatedPlayer);
+      updates.set(playerId, updatedPlayer);
+    }
+  };
+
+  applyResultToPlayers(homePlayerIds, homeResult);
+  applyResultToPlayers(awayPlayerIds, awayResult);
+  return updates;
+}
 
 function resultFor(scoreFor: number, scoreAgainst: number): "W" | "D" | "L" {
   if (scoreFor > scoreAgainst) return "W";
@@ -308,72 +372,20 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         ? `${homeClub.name} ${scoreHome}-${scoreAway} ${state.clubs[awayClubId]?.name ?? awayClubId}`
         : `${scoreHome}-${scoreAway}`;
 
-      // adjust morale and form for players based on result
-      let nextPlayers = state.players;
-      let playersCopied = false;
       const playerRatings = (action as Extract<GameAction, { type: "RECORD_MATCH_RESULT" }>)
         .playerRatings;
-      const homeResult = scoreHome > scoreAway ? "W" : scoreHome < scoreAway ? "L" : "D";
-      const awayResult = homeResult === "W" ? "L" : homeResult === "L" ? "W" : "D";
-
-      function applyResultToClub(clubId: string, result: string) {
-        const club = state.clubs[clubId];
-        if (!club) return;
-        for (const pid of club.playerIds) {
-          const p = nextPlayers[pid];
-          if (!p) continue;
-          if (!playersCopied) {
-            nextPlayers = { ...nextPlayers };
-            playersCopied = true;
-          }
-          const starter = !!p.starter;
-          const rating =
-            (action as Extract<GameAction, { type: "RECORD_MATCH_RESULT" }>).playerRatings?.[pid] ??
-            p.lastMatchRating ??
-            5;
-
-          let moraleDelta = 0;
-          if (result === "W") moraleDelta = starter ? 6 : 3;
-          else if (result === "D") moraleDelta = starter ? 1 : 0;
-          else moraleDelta = starter ? -6 : -3;
-          if (!starter && result === "L") moraleDelta -= 1;
-          if (rating >= 7.5) moraleDelta += 2;
-          else if (rating <= 4.5) moraleDelta -= 2;
-
-          const newMorale = Math.max(0, Math.min(100, (p.morale ?? 50) + moraleDelta));
-
-          let formDelta = 0;
-          if (result === "W") formDelta = starter ? 8 : 4;
-          else if (result === "D") formDelta = starter ? 2 : 1;
-          else formDelta = starter ? -8 : -4;
-          formDelta += Math.round((rating - 5) * 1.8);
-
-          const newForm = Math.max(0, Math.min(100, (p.form ?? 50) + formDelta));
-
-          let repDelta = 0;
-          if (rating >= 8) repDelta = 1;
-          else if (rating <= 4) repDelta = -1;
-          const newReputation = Math.max(0, Math.min(100, (p.reputation ?? 50) + repDelta));
-
-          const ageFactor = p.age ? Math.max(0.75, Math.min(1.25, (30 - p.age) / 20 + 1)) : 1;
-          const valueDelta = Math.round((rating - 5) * 12000 * ageFactor);
-          const newMarketValue = Math.max(0, (p.marketValue ?? 0) + valueDelta);
-
-          const nextHistory = [...(p.matchRatingHistory ?? []), rating].slice(-5);
-          nextPlayers[pid] = {
-            ...p,
-            morale: newMorale,
-            form: newForm,
-            reputation: newReputation,
-            marketValue: newMarketValue,
-            lastMatchRating: rating,
-            matchRatingHistory: nextHistory,
-          };
-        }
-      }
-
-      applyResultToClub(homeClubId, homeResult);
-      applyResultToClub(awayClubId, awayResult);
+      const playerUpdates = action.batchPlayerUpdates
+        ? new Map<string, Player>()
+        : calculateMatchPlayerUpdates(
+            state,
+            state.clubs[homeClubId]?.playerIds ?? [],
+            state.clubs[awayClubId]?.playerIds ?? [],
+            scoreHome,
+            scoreAway,
+            playerRatings,
+          );
+      const nextPlayers = playerUpdates.size > 0 ? { ...state.players } : state.players;
+      for (const [playerId, player] of playerUpdates) nextPlayers[playerId] = player;
 
       const intermediate: GameState = {
         ...state,

@@ -42,7 +42,7 @@
 
 import type { Club, Fixture, GameState, Player } from "@/state/types";
 import type { GameAction } from "@/state/reducer";
-import { gameReducer } from "@/state/reducer";
+import { calculateMatchPlayerUpdates, gameReducer } from "@/state/reducer";
 import { clubStrengthGen } from "./cache-utils";
 import { getLeagueStrengthRating } from "@/state/league-strength";
 
@@ -417,6 +417,52 @@ export function applyAiFixtureResults(
     scheduledFixtureIds.delete(result.fixtureId);
   }
 
+  return next;
+}
+
+/** Applies same-day AI results with one player-map commit while retaining the
+ * existing reducer sequence for every non-player consequence. */
+export function applyAiFixtureResultsBatched(
+  state: GameState,
+  results: AiFixtureResult[],
+  playedAt: string,
+): GameState {
+  if (results.length === 0) return state;
+
+  const scheduledFixtureIds = new Set(
+    state.fixtures.filter((fixture) => fixture.status === "scheduled").map((fixture) => fixture.id),
+  );
+  const playerUpdates = new Map<string, Player>();
+
+  for (const result of results) {
+    if (!result || !scheduledFixtureIds.has(result.fixtureId)) return applyAiFixtureResults(state, results, playedAt);
+    const fixture = state.fixtures.find((item) => item.id === result.fixtureId);
+    if (!fixture) return applyAiFixtureResults(state, results, playedAt);
+
+    const updates = calculateMatchPlayerUpdates(
+      state,
+      state.clubs[fixture.homeClubId]?.playerIds ?? [],
+      state.clubs[fixture.awayClubId]?.playerIds ?? [],
+      result.scoreHome,
+      result.scoreAway,
+    );
+    for (const [playerId, player] of updates) {
+      if (playerUpdates.has(playerId)) return applyAiFixtureResults(state, results, playedAt);
+      playerUpdates.set(playerId, player);
+    }
+    scheduledFixtureIds.delete(result.fixtureId);
+  }
+
+  const players = { ...state.players };
+  for (const [playerId, player] of playerUpdates) players[playerId] = player;
+  let next: GameState = { ...state, players };
+
+  for (const result of results) {
+    next = gameReducer(next, {
+      ...toRecordMatchResultAction(result, playedAt),
+      batchPlayerUpdates: true,
+    });
+  }
   return next;
 }
 

@@ -82,6 +82,7 @@ import {
   isAiFixture,
   toRecordMatchResultAction,
   applyAiFixtureResults,
+  applyAiFixtureResultsBatched,
   type AiFixtureResult,
 } from "@/lib/ai-fixture-sim";
 
@@ -629,7 +630,7 @@ export function simulateAndApplyScheduledAiFixturesViaEngine(
   playedAt: string,
   eligibleFixtures?: Fixture[],
 ): GameState {
-  return applyAiFixtureResults(
+  return applyAiFixtureResultsBatched(
     state,
     simulateScheduledAiFixturesViaEngine(state, eligibleFixtures),
     playedAt,
