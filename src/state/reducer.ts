@@ -250,55 +250,57 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       // against) is always recorded, same as before.
       const { fixtureId, homeClubId, awayClubId, scoreHome, scoreAway, seed, playedAt } = action;
 
+      // PERFORMANCE: Reuse the already-located fixture record rather than
+      // scanning the full fixtures array multiple times for the same result.
+      const fixtureIndex = fixtureId ? state.fixtures.findIndex((f) => f.id === fixtureId) : -1;
+      const existingFixture = fixtureIndex >= 0 ? state.fixtures[fixtureIndex] : null;
+
       // PERFORMANCE: Invalidate caches for this match's competition so
       // downstream reads (league tables, club strengths) don't return stale data.
       // We do this *before* the early-return guard below so the first time a
       // fixture is recorded both caches are properly invalidated. The early
       // return only fires for an identical replay, which is harmless.
-      if (fixtureId) {
-        const existingFixture = state.fixtures.find((f) => f.id === fixtureId);
-        if (existingFixture) {
-          // Invalidate the league table for this fixture's competition.
-          invalidateLeagueTable(existingFixture.competitionId);
-          // Invalidate club strengths for both participating clubs.
-          invalidateClubStrength(homeClubId);
-          invalidateClubStrength(awayClubId);
-        }
-        const existing = state.fixtures.find((f) => f.id === fixtureId);
-        if (
-          existing?.status === "played" &&
-          existing.scoreHome === scoreHome &&
-          existing.scoreAway === scoreAway
-        ) {
-          return state;
-        }
-        if (existing && existing.status === "played" && (existing.scoreHome !== scoreHome || existing.scoreAway !== scoreAway)) {
-          console.warn(`[RECORD_MATCH_RESULT] Fixture ${fixtureId} already played with different score: ${existing.scoreHome}-${existing.scoreAway} vs new ${scoreHome}-${scoreAway}`);
-        }
-        if (!existing) {
-          console.warn(`[RECORD_MATCH_RESULT] Fixture ${fixtureId} not found in state!`);
-        }
+      if (fixtureId && existingFixture) {
+        // Invalidate the league table for this fixture's competition.
+        invalidateLeagueTable(existingFixture.competitionId);
+        // Invalidate club strengths for both participating clubs.
+        invalidateClubStrength(homeClubId);
+        invalidateClubStrength(awayClubId);
+      }
+      if (
+        existingFixture?.status === "played" &&
+        existingFixture.scoreHome === scoreHome &&
+        existingFixture.scoreAway === scoreAway
+      ) {
+        return state;
+      }
+      if (existingFixture && existingFixture.status === "played" && (existingFixture.scoreHome !== scoreHome || existingFixture.scoreAway !== scoreAway)) {
+        console.warn(`[RECORD_MATCH_RESULT] Fixture ${fixtureId} already played with different score: ${existingFixture.scoreHome}-${existingFixture.scoreAway} vs new ${scoreHome}-${scoreAway}`);
+      }
+      if (!existingFixture && fixtureId) {
+        console.warn(`[RECORD_MATCH_RESULT] Fixture ${fixtureId} not found in state!`);
       }
       const matchId = `match-${state.matches.length + 1}`;
 
       let fixturesUpdated = 0;
       const fixtures = fixtureId
-        ? state.fixtures.map((f) => {
-            if (f.id === fixtureId) {
+        ? (() => {
+            const nextFixtures = state.fixtures.slice();
+            if (fixtureIndex >= 0 && existingFixture) {
               fixturesUpdated++;
-              return {
-                ...f,
+              nextFixtures[fixtureIndex] = {
+                ...existingFixture,
                 status: "played" as const,
                 scoreHome,
                 scoreAway,
                 result: resultFor(
-                  f.homeClubId === homeClubId ? scoreHome : scoreAway,
-                  f.homeClubId === homeClubId ? scoreAway : scoreHome,
+                  existingFixture.homeClubId === homeClubId ? scoreHome : scoreAway,
+                  existingFixture.homeClubId === homeClubId ? scoreAway : scoreHome,
                 ),
               };
             }
-            return f;
-          })
+            return nextFixtures;
+          })()
         : state.fixtures;
 
       const homeClub = state.clubs[homeClubId];
@@ -410,7 +412,9 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         relevance: rel,
       });
 
-      const playedFixture = fixtureId ? fixtures.find((f) => f.id === fixtureId) : fixtures.find((f) => f.homeClubId === homeClubId && f.awayClubId === awayClubId);
+      const playedFixture = fixtureId
+        ? fixtures.find((f) => f.id === fixtureId)
+        : fixtures.find((f) => f.homeClubId === homeClubId && f.awayClubId === awayClubId);
       if (playedFixture) nextState = consequences.applyMatchResultConsequences(nextState, playedFixture, scoreHome, scoreAway);
 
       const tacticBias = Math.max(-8, Math.min(8, (state.tactics?.tempo ?? 50) - 50));
