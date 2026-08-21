@@ -102,11 +102,17 @@ function memoizedAffordability(
 
 function appendUniqueEvent(state: GameState, event: EventLogEntry): GameState {
   const eventKey = event.meta?.["eventKey"] ?? event.id;
-  const duplicate = (state.events ?? []).some((existing) => {
-    if (existing.id === event.id) return true;
-    return (existing.meta?.["eventKey"] ?? existing.id) === eventKey;
-  });
-  if (duplicate) return state;
+  const seen = new Set<string>();
+
+  for (const existing of state.events ?? []) {
+    if (!existing) continue;
+    if (existing.id === event.id) return state;
+    const existingKey = existing.meta?.["eventKey"] ?? existing.id;
+    seen.add(existingKey);
+    seen.add(existing.id);
+  }
+
+  if (seen.has(eventKey) || seen.has(event.id)) return state;
   return { ...state, events: [...(state.events ?? []), event] };
 }
 
@@ -116,6 +122,7 @@ function activeTransferSessionsForPlayer(state: GameState, playerId: string) {
       session.type === "transfer" && session.status === "open" && session.playerId === playerId,
   );
 }
+
 
 function getLastEntry(session: NonNullable<GameState["negotiations"]>[number]) {
   return session.entries[session.entries.length - 1];

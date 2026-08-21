@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDaysISO } from "./calendar";
+import { addDaysISO, runDailyTick } from "./calendar";
 import { buildInitialState } from "./seed";
 import { planAiWorldWork, runAiWorldScheduler } from "./ai-world-scheduler";
 
@@ -19,6 +19,20 @@ describe("AI world scheduler", () => {
   it("does not schedule expensive AI work on a normal quiet day", () => {
     const state = quietState();
     expect(planAiWorldWork(state).items).toHaveLength(0);
+  });
+
+  it("keeps the original event list when the event hook has no work to do", () => {
+    const state = quietState();
+    const safeEvents = [
+      {
+        id: "event-safe-1",
+        date: state.time.date,
+        type: "milestone" as const,
+        description: "No active event work",
+      },
+    ];
+    const next = runDailyTick({ ...state, events: safeEvents }, state.time);
+    expect(next.events).toBe(safeEvents);
   });
 
   it("schedules clubs with an upcoming fixture", () => {

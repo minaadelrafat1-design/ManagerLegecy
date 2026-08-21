@@ -6,8 +6,15 @@ import { seededUnit } from "./utils";
 registerDailyHook("events", (state: GameState, time) => {
   const next = state;
 
-  // run once per day but create items only when there are recent matches
   const recent = (next.matches ?? []).slice(-3);
+  const hasBoardEvent = (next.events ?? []).some(
+    (ev) => ev && ev.type === "board" && ev.date >= addDaysISO(next.time.date, -7),
+  );
+
+  if (recent.length === 0 && !hasBoardEvent) {
+    return next;
+  }
+
   const news = [...(next.news ?? [])];
 
   for (const m of recent) {

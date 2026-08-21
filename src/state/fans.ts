@@ -15,11 +15,19 @@ registerDailyHook("events", (state: GameState, time) => {
   const clubId = next.manager?.clubId ?? next.currentClub?.id;
   if (!clubId) return next;
 
-  const old = next.fans?.approval ?? 50;
-
   const recent = (next.matches ?? [])
     .filter((m) => m.homeClubId === clubId || m.awayClubId === clubId)
     .slice(-6);
+
+  const hasRelevantEvent = (next.events ?? []).some((event) => {
+    if (!event || !event.date) return false;
+    if (event.type === "transfer" || event.type === "board") return true;
+    return false;
+  });
+
+  if (recent.length === 0 && !hasRelevantEvent) return next;
+
+  const old = next.fans?.approval ?? 50;
   let resultsScore = 50;
   if (recent.length > 0) {
     let points = 0;

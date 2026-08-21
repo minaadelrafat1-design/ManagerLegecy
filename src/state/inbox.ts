@@ -494,6 +494,14 @@ export function getUnreadCount(state: GameState): number {
  * Runs after events have been created, deduplicates, and cleans up old messages.
  */
 registerDailyHook("events", (state, time) => {
+  const recentEvents = (state.events ?? []).filter(
+    (event) => event.date >= addDaysISO(state.time.date, -2),
+  );
+
+  if (recentEvents.length === 0) {
+    return state;
+  }
+
   // Generate messages from events created on previous day
   const newMessages = generateInboxMessagesFromEvents(state, 1);
   const nextState = {

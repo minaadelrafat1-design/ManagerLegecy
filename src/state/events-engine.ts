@@ -7,9 +7,27 @@ import { changeRelationship, relationshipLabel, getRelationship } from "./relati
 registerDailyHook("events", (state: GameState, time) => {
   let next = state;
 
-  // OPTIMIZATION: Index events by delayedUntil date for O(1) lookup
   const today = next.time.date;
   const events = [...(next.events ?? [])];
+  if (events.length === 0) {
+    return state;
+  }
+
+  const hasDueEvents = events.some((ev) => {
+    if (!ev) return false;
+    const meta = (ev.meta ?? {}) as Record<string, unknown>;
+    const delayedUntil = meta["delayedUntil"] as string | undefined;
+    return delayedUntil === today && !meta["applied"];
+  });
+
+  if (!hasDueEvents) {
+    const managedClubId = next.currentClub?.id;
+    const managedClub = managedClubId ? next.clubs[managedClubId] : undefined;
+    const playerIds = managedClub?.playerIds ?? [];
+    if (playerIds.length === 0) {
+      return state;
+    }
+  }
 
   // Build index of events scheduled for today (avoid O(n) scan of all events)
   const eventsForToday: Array<{ event: (typeof events)[number]; index: number }> = [];
@@ -115,27 +133,28 @@ registerDailyHook("events", (state: GameState, time) => {
     }
   }
 
-  // OPTIMIZATION: Archive old events (>90 days) to prevent unbounded array growth
-  // Calculate cutoff date (90 days ago)
   const cutoffDate = addDaysISO(today, -90);
-
-  // Keep only recent events and events with future delayedUntil dates
-  const recentEvents = events.filter((ev) => {
+  const needsArchive = events.some((ev) => {
     if (!ev) return false;
     const meta = (ev.meta ?? {}) as Record<string, unknown>;
     const delayedUntil = meta["delayedUntil"] as string | undefined;
-
-    // Keep if:
-    // 1. Has future delayedUntil date (not yet processed)
     if (delayedUntil && delayedUntil > today) return true;
-
-    // 2. Event date is recent, including applied events for history
-    if (ev.date >= cutoffDate) return true;
-
-    return false;
+    return ev.date < cutoffDate;
   });
 
-  next = { ...next, events: recentEvents };
+  if (needsArchive) {
+    const recentEvents = events.filter((ev) => {
+      if (!ev) return false;
+      const meta = (ev.meta ?? {}) as Record<string, unknown>;
+      const delayedUntil = meta["delayedUntil"] as string | undefined;
+      if (delayedUntil && delayedUntil > today) return true;
+      if (ev.date >= cutoffDate) return true;
+      return false;
+    });
+    next = { ...next, events: recentEvents };
+  } else {
+    next = { ...next, events };
+  }
 
   return next;
 });

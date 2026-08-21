@@ -10,6 +10,7 @@
  */
 
 import type { GameState, Player } from "./types";
+import { createTransactionDraft } from "./transaction-local";
 
 /**
  * Verify that a transfer is legally possible:
@@ -103,6 +104,8 @@ function movePlayerAtomicallyVerified(
 
   // ATOMIC OPERATION: all-or-nothing
   try {
+    const draft = createTransactionDraft(state);
+
     // Step 1: Update clubs
     const updatedFromClub = {
       ...fromClub,
@@ -129,16 +132,11 @@ function movePlayerAtomicallyVerified(
         : {}),
     };
 
-    // Step 3: Create new state
-    const newState = {
-      ...state,
-      players: { ...state.players, [playerId]: updatedPlayer },
-      clubs: {
-        ...state.clubs,
-        [fromClubId]: updatedFromClub,
-        [toClubId]: updatedToClub,
-      },
-    };
+    draft.setPlayer(playerId, updatedPlayer);
+    draft.setClub(fromClubId, updatedFromClub);
+    draft.setClub(toClubId, updatedToClub);
+
+    const newState = draft.commit();
 
     // Step 4: VERIFY ATOMICITY (before returning)
     // Verify player removed from source
@@ -252,12 +250,13 @@ export function completeTransferAtomically(
   if (next.contracts) {
     const playerContract = next.contracts.find((c) => c.playerId === playerId);
     if (playerContract && playerContract.clubId !== toClubId) {
-      next = {
-        ...next,
-        contracts: next.contracts.map((c) =>
+      const draft = createTransactionDraft(next);
+      draft.setContracts(
+        next.contracts.map((c) =>
           c.playerId === playerId ? { ...c, clubId: toClubId, status: "active" } : c,
         ),
-      };
+      );
+      next = draft.commit();
     }
   }
 
@@ -288,10 +287,9 @@ export function completeTransferAtomically(
       },
     };
 
-    next = {
-      ...next,
-      events: [...(next.events ?? []), completionEvent],
-    };
+    const draft = createTransactionDraft(next);
+    draft.pushEvent(completionEvent);
+    next = draft.commit();
   }
 
 

@@ -14,6 +14,7 @@ import { completeTransferAtomically } from "./transfer-hardening";
 import { parseMoney, formatMoney, formatWageBudget } from "./finance";
 import { getBoardTransferBudgetLimit } from "./board-pressure";
 import { evaluateOffer, evaluatePlayerTransferOffer } from "./negotiation";
+import { createTransactionDraft } from "./transaction-local";
 
 function nowIso(state: GameState) {
   return state.time.date;
@@ -38,13 +39,21 @@ function buildNegotiationKey(
 
 function appendUniqueEvent(state: GameState, event: EventLogEntry): GameState {
   const existingKey = event.meta?.["eventKey"] ?? event.id;
-  const duplicate = (state.events ?? []).some((existing) => {
-    if (existing.id === event.id) return true;
+  const seen = new Set<string>();
+
+  for (const existing of state.events ?? []) {
+    if (!existing) continue;
+    if (existing.id === event.id) return state;
     const existingKeyValue = existing.meta?.["eventKey"] ?? existing.id;
-    return existingKeyValue === existingKey;
-  });
-  if (duplicate) return state;
-  return { ...state, events: [...(state.events ?? []), event] };
+    seen.add(existing.id);
+    seen.add(existingKeyValue);
+  }
+
+  if (seen.has(existingKey) || seen.has(event.id)) return state;
+
+  const draft = createTransactionDraft(state);
+  draft.pushEvent(event);
+  return draft.commit();
 }
 
 function appendShortlistApproachMessage(
@@ -148,8 +157,9 @@ export function createNegotiationSession(
       eventKey: `negotiation_start|${buildNegotiationKey(buyerClubId, sellerClubId, playerId, type)}|${nowIso(state)}`,
     },
   };
-  const next = { ...state, negotiations: [...sessions, session] };
-  const withEvent = appendUniqueEvent(next, event);
+  const draft = createTransactionDraft(state);
+  draft.setNegotiations([...sessions, session]);
+  const withEvent = appendUniqueEvent(draft.commit(), event);
   return appendShortlistApproachMessage(withEvent, buyerClubId, playerId);
 }
 
@@ -195,6 +205,8 @@ export function addNegotiationEntry(
   };
   const updated: NegotiationSession = { ...found, entries: [...found.entries, entry] };
   const nextSessions = sessions.map((s) => (s.id === sessionId ? updated : s));
+  const draft = createTransactionDraft(state);
+  draft.setNegotiations(nextSessions);
   const event: EventLogEntry = {
     id: `event-neg-${state.events.length + 1}`,
     date: nowIso(state),
@@ -211,7 +223,7 @@ export function addNegotiationEntry(
       eventKey: `negotiation_update|${sessionId}|${found.playerId}|${nowIso(state)}`,
     },
   };
-  return appendUniqueEvent({ ...state, negotiations: nextSessions }, event);
+  return appendUniqueEvent(draft.commit(), event);
 }
 
 export function submitTransferOffer(
@@ -267,6 +279,8 @@ export function closeNegotiation(
   if (!found) return state;
   const updated: NegotiationSession = { ...found, status };
   const nextSessions = sessions.map((s) => (s.id === sessionId ? updated : s));
+  const draft = createTransactionDraft(state);
+  draft.setNegotiations(nextSessions);
   const event: EventLogEntry = {
     id: `event-neg-${state.events.length + 1}`,
     date: nowIso(state),
@@ -283,7 +297,7 @@ export function closeNegotiation(
       eventKey: `negotiation_close|${sessionId}|${status}|${nowIso(state)}`,
     },
   };
-  return appendUniqueEvent({ ...state, negotiations: nextSessions }, event);
+  return appendUniqueEvent(draft.commit(), event);
 }
 
 export function acceptContractSession(
