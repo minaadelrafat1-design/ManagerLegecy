@@ -1448,6 +1448,15 @@ export interface WorldHistory {
   records: HistoricalRecordSummary[];
 }
 
+export interface EventRuntimeIndex {
+  byId: Record<string, EventLogEntry>;
+  byEventKey: Record<string, EventLogEntry>;
+  dueByDate: Record<string, EventLogEntry[]>;
+  byPlayer: Record<string, EventLogEntry[]>;
+  byClub: Record<string, EventLogEntry[]>;
+  eventCount: number;
+}
+
 export interface GameStateMeta {
   leagueHierarchy?: Record<string, string>;
   worldConfig?: WorldConfig;
@@ -1467,6 +1476,7 @@ export interface GameStateMeta {
   lastSeasonFinalizedDate?: string;
   lastSeasonFinalizedSeason?: string;
   history?: WorldHistory | undefined;
+  eventRuntimeIndex?: EventRuntimeIndex;
   [key: string]: any;
 }
 

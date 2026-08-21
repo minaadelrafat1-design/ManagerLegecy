@@ -2,6 +2,7 @@ import { registerDailyHook, addDaysISO } from "./calendar";
 import type { GameState } from "./types";
 import { seededUnit } from "./utils";
 import { changeRelationship, relationshipLabel, getRelationship } from "./relationships";
+import { ensureEventRuntimeIndex } from "./event-runtime-index";
 
 // Basic event engine: processes delayed events and generates emergent ones.
 registerDailyHook("events", (state: GameState, time) => {
@@ -9,41 +10,12 @@ registerDailyHook("events", (state: GameState, time) => {
 
   const today = next.time.date;
   const events = [...(next.events ?? [])];
-  if (events.length === 0) {
-    return state;
-  }
+  const runtimeIndex = ensureEventRuntimeIndex(next);
+  const eventsForToday = (runtimeIndex.dueByDate[today] ?? []).map((event) => ({
+    event,
+    index: events.findIndex((item) => item.id === event.id),
+  }));
 
-  const hasDueEvents = events.some((ev) => {
-    if (!ev) return false;
-    const meta = (ev.meta ?? {}) as Record<string, unknown>;
-    const delayedUntil = meta["delayedUntil"] as string | undefined;
-    return delayedUntil === today && !meta["applied"];
-  });
-
-  if (!hasDueEvents) {
-    const managedClubId = next.currentClub?.id;
-    const managedClub = managedClubId ? next.clubs[managedClubId] : undefined;
-    const playerIds = managedClub?.playerIds ?? [];
-    if (playerIds.length === 0) {
-      return state;
-    }
-  }
-
-  // Build index of events scheduled for today (avoid O(n) scan of all events)
-  const eventsForToday: Array<{ event: (typeof events)[number]; index: number }> = [];
-
-  for (let i = 0; i < events.length; i++) {
-    const ev = events[i];
-    if (!ev) continue;
-    const meta = (ev.meta ?? {}) as Record<string, unknown>;
-    const delayedUntil = meta["delayedUntil"] as string | undefined;
-
-    if (delayedUntil === today && !meta["applied"]) {
-      eventsForToday.push({ event: ev, index: i });
-    }
-  }
-
-  // Process only events scheduled for today (typically 0-5 events, not all 100+)
   for (const { event: ev, index: i } of eventsForToday) {
     const meta = (ev.meta ?? {}) as Record<string, unknown>;
 
@@ -133,28 +105,27 @@ registerDailyHook("events", (state: GameState, time) => {
     }
   }
 
+  // OPTIMIZATION: Archive old events (>90 days) to prevent unbounded array growth
+  // Calculate cutoff date (90 days ago)
   const cutoffDate = addDaysISO(today, -90);
-  const needsArchive = events.some((ev) => {
+
+  // Keep only recent events and events with future delayedUntil dates
+  const recentEvents = events.filter((ev) => {
     if (!ev) return false;
     const meta = (ev.meta ?? {}) as Record<string, unknown>;
     const delayedUntil = meta["delayedUntil"] as string | undefined;
+
+    // Keep if:
+    // 1. Has future delayedUntil date (not yet processed)
     if (delayedUntil && delayedUntil > today) return true;
-    return ev.date < cutoffDate;
+
+    // 2. Event date is recent, including applied events for history
+    if (ev.date >= cutoffDate) return true;
+
+    return false;
   });
 
-  if (needsArchive) {
-    const recentEvents = events.filter((ev) => {
-      if (!ev) return false;
-      const meta = (ev.meta ?? {}) as Record<string, unknown>;
-      const delayedUntil = meta["delayedUntil"] as string | undefined;
-      if (delayedUntil && delayedUntil > today) return true;
-      if (ev.date >= cutoffDate) return true;
-      return false;
-    });
-    next = { ...next, events: recentEvents };
-  } else {
-    next = { ...next, events };
-  }
+  next = { ...next, events: recentEvents };
 
   return next;
 });

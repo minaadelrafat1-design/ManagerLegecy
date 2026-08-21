@@ -6,15 +6,8 @@ import { seededUnit } from "./utils";
 registerDailyHook("events", (state: GameState, time) => {
   const next = state;
 
+  // run once per day but create items only when there are recent matches
   const recent = (next.matches ?? []).slice(-3);
-  const hasBoardEvent = (next.events ?? []).some(
-    (ev) => ev && ev.type === "board" && ev.date >= addDaysISO(next.time.date, -7),
-  );
-
-  if (recent.length === 0 && !hasBoardEvent) {
-    return next;
-  }
-
   const news = [...(next.news ?? [])];
 
   for (const m of recent) {
@@ -67,17 +60,7 @@ registerDailyHook("events", (state: GameState, time) => {
     }
   }
 
-  // OPTIMIZATION: Archive news older than current season to prevent unbounded growth
-  // Keep news only from the current season to reduce state size in mature careers
-  const currentSeason = String(next.time.season);
-  const seasonStartDate = next.time.seasonStartDate;
-
-  const recentNews = news.filter((item) => {
-    // Keep all news from the current season (from seasonStartDate onward)
-    return item.time >= seasonStartDate;
-  });
-
-  return { ...next, news: recentNews };
+  return { ...next, news };
 });
 
 export {};

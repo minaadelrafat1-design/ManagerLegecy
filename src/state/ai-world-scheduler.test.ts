@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDaysISO, runDailyTick } from "./calendar";
+import { addDaysISO, clearDailyHooks, registerDailyHook, runDailyTick } from "./calendar";
 import { buildInitialState } from "./seed";
 import { planAiWorldWork, runAiWorldScheduler } from "./ai-world-scheduler";
 
@@ -130,5 +130,59 @@ describe("AI world scheduler", () => {
     const second = runAiWorldScheduler(first);
     expect(second.meta?.["aiScheduler"]?.["lastRunDate"]).toBeUndefined();
     expect(second.meta?.["aiScheduler"]?.["lastPlanDate"]).toBe(state.time.date);
+  });
+
+  it("does not reprocess newly created events during the same events-hook pass", () => {
+    clearDailyHooks();
+
+    const state = buildInitialState();
+    const eventA = {
+      id: "event-A",
+      date: state.time.date,
+      type: "milestone" as const,
+      description: "Event A",
+    };
+
+    const seenDuringPass: string[] = [];
+
+    registerDailyHook("events", (currentState, _time) => {
+      const ids = (currentState.events ?? []).map((event) => event.id);
+      seenDuringPass.push(ids.join(","));
+      if (ids.includes("event-A") && !ids.includes("event-B")) {
+        return {
+          ...currentState,
+          events: [...(currentState.events ?? []), {
+            id: "event-B",
+            date: currentState.time.date,
+            type: "milestone" as const,
+            description: "Event B created during same pass",
+          }],
+        };
+      }
+      return currentState;
+    });
+
+    registerDailyHook("events", (currentState, _time) => {
+      const ids = (currentState.events ?? []).map((event) => event.id);
+      if (ids.includes("event-B")) {
+        return {
+          ...currentState,
+          events: [...(currentState.events ?? []), {
+            id: "event-C",
+            date: currentState.time.date,
+            type: "milestone" as const,
+            description: "Event C should never be created in same pass",
+          }],
+        };
+      }
+      return currentState;
+    });
+
+    const next = runDailyTick({ ...state, events: [eventA] }, state.time);
+
+    expect(next.events.map((event) => event.id)).toEqual(["event-A", "event-B"]);
+    expect(seenDuringPass).toContain("event-A");
+    expect(seenDuringPass).not.toContain("event-A,event-B");
+    expect(seenDuringPass).not.toContain("event-A,event-B,event-C");
   });
 });

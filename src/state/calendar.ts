@@ -614,21 +614,85 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
       `[ADVANCE_DAY] [DATE] ${time.date} [START] hook-group:${name} hooks=${registeredHooks.length} metrics=${JSON.stringify(countStateMetrics(next))}`,
     );
 
-    next = dailyHooks[name](next, time);
+    if (name === "events") {
+      const snapshotEvents = next.events ?? [];
+      const existingIdSet = new Set(snapshotEvents.map((event) => event.id));
+      const mergedEvents = [...snapshotEvents];
+      const newEvents: GameState["events"] = [];
+      let passState = next;
+      let didMutateEvents = false;
 
-    for (let i = 0; i < registeredHooks.length; i++) {
-      const hook = registeredHooks[i];
-      if (!hook) continue;
-      const subHookStart = performance.now();
-      debugAdvanceDay(
-        `[ADVANCE_DAY] [DATE] ${time.date} [START] hook:${name}[${i}] metrics=${JSON.stringify(countStateMetrics(next))}`,
-      );
-      timingCollector.recordHookStart(name, i);
-      next = hook(next, time);
-      timingCollector.recordHookEnd(name, i);
-      debugAdvanceDay(
-        `[ADVANCE_DAY] [DATE] ${time.date} [END] hook:${name}[${i}] elapsedMs=${(performance.now() - subHookStart).toFixed(2)} metrics=${JSON.stringify(countStateMetrics(next))}`,
-      );
+      const processHook = (hookFn: DailyHook, hookIndex: number) => {
+        const subHookStart = performance.now();
+        debugAdvanceDay(
+          `[ADVANCE_DAY] [DATE] ${time.date} [START] hook:${name}[${hookIndex}] metrics=${JSON.stringify(countStateMetrics(passState))}`,
+        );
+        timingCollector.recordHookStart(name, hookIndex);
+
+        const hookInput = { ...passState, events: snapshotEvents };
+        const hookOutput = hookFn(hookInput, time);
+        const outputEvents = hookOutput.events ?? snapshotEvents;
+
+        for (const event of outputEvents) {
+          const isExisting = existingIdSet.has(event.id);
+          if (isExisting) {
+            const index = mergedEvents.findIndex((item) => item.id === event.id);
+            if (index >= 0) {
+              if (mergedEvents[index] !== event) {
+                mergedEvents[index] = event;
+                didMutateEvents = true;
+              }
+            }
+          } else if (!newEvents.some((item) => item.id === event.id)) {
+            newEvents.push(event);
+            didMutateEvents = true;
+          }
+        }
+
+        passState = {
+          ...passState,
+          ...hookOutput,
+          events: snapshotEvents,
+        };
+
+        timingCollector.recordHookEnd(name, hookIndex);
+        debugAdvanceDay(
+          `[ADVANCE_DAY] [DATE] ${time.date} [END] hook:${name}[${hookIndex}] elapsedMs=${(performance.now() - subHookStart).toFixed(2)} metrics=${JSON.stringify(countStateMetrics(passState))}`,
+        );
+      };
+
+      const defaultHook = dailyHooks[name];
+      if (defaultHook !== noop) {
+        processHook(defaultHook, -1);
+      }
+
+      for (let i = 0; i < registeredHooks.length; i++) {
+        const hook = registeredHooks[i];
+        if (!hook) continue;
+        processHook(hook, i);
+      }
+
+      next = {
+        ...passState,
+        events: didMutateEvents ? [...mergedEvents, ...newEvents] : snapshotEvents,
+      };
+    } else {
+      next = dailyHooks[name](next, time);
+
+      for (let i = 0; i < registeredHooks.length; i++) {
+        const hook = registeredHooks[i];
+        if (!hook) continue;
+        const subHookStart = performance.now();
+        debugAdvanceDay(
+          `[ADVANCE_DAY] [DATE] ${time.date} [START] hook:${name}[${i}] metrics=${JSON.stringify(countStateMetrics(next))}`,
+        );
+        timingCollector.recordHookStart(name, i);
+        next = hook(next, time);
+        timingCollector.recordHookEnd(name, i);
+        debugAdvanceDay(
+          `[ADVANCE_DAY] [DATE] ${time.date} [END] hook:${name}[${i}] elapsedMs=${(performance.now() - subHookStart).toFixed(2)} metrics=${JSON.stringify(countStateMetrics(next))}`,
+        );
+      }
     }
 
     debugAdvanceDay(
