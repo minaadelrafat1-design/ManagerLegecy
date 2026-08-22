@@ -223,6 +223,52 @@ export function applyMatchResultConsequences(
   return next;
 }
 
+export function applyMatchResultConsequencesToDraft(
+  draft: GameState,
+  fixture: Fixture,
+  scoreHome: number,
+  scoreAway: number,
+): void {
+  const homeWin = scoreHome > scoreAway;
+  const awayWin = scoreAway > scoreHome;
+  const homeDelta = homeWin ? 3 : scoreHome === scoreAway ? 0 : -4;
+  const awayDelta = awayWin ? 3 : scoreHome === scoreAway ? 0 : -4;
+
+  draft.fans = {
+    ...draft.fans,
+    approval: Math.max(
+      0,
+      Math.min(100, (draft.fans?.approval ?? 50) + (homeDelta + awayDelta) / 2),
+    ),
+  };
+
+  const adjustClub = (clubId: string, delta: number) => {
+    const club = draft.clubs[clubId];
+    if (!club) return;
+    draft.clubs[clubId] = {
+      ...club,
+      reputation: Math.max(0, Math.min(100, (club.reputation ?? 50) + delta)),
+    };
+  };
+
+  if (homeWin) {
+    adjustClub(fixture.homeClubId, 1);
+    adjustClub(fixture.awayClubId, -1);
+  } else if (awayWin) {
+    adjustClub(fixture.awayClubId, 1);
+    adjustClub(fixture.homeClubId, -1);
+  }
+
+  if (Math.abs(scoreHome - scoreAway) >= 3) {
+    draft.news.push({
+      id: `news-match-${draft.news.length + 1}`,
+      tag: "match",
+      time: draft.time.date,
+      text: `${fixture.homeClubId} ${scoreHome}-${scoreAway} ${fixture.awayClubId}`,
+    });
+  }
+}
+
 export function applyInjuryConsequences(state: GameState, playerId: string, injury: any) {
   let next = { ...state } as GameState;
   const player = next.players[playerId];

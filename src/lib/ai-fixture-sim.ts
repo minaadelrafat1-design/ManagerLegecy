@@ -43,6 +43,9 @@
 import type { Club, Fixture, GameState, Player } from "@/state/types";
 import type { GameAction } from "@/state/reducer";
 import { calculateMatchPlayerUpdates, gameReducer } from "@/state/reducer";
+import { addClubMemories } from "@/state/ai-memory";
+import { applyMatchResultConsequencesToDraft } from "@/state/ai-consequences";
+import { invalidateLeagueTable } from "@/state/standings";
 import { clubStrengthGen } from "./cache-utils";
 import { getLeagueStrengthRating } from "@/state/league-strength";
 
@@ -77,6 +80,12 @@ export function seedFromFixtureId(fixtureId: string): number {
 
 function clamp(v: number, min = 0, max = 100): number {
   return Math.max(min, Math.min(max, v));
+}
+
+function resultFor(scoreFor: number, scoreAgainst: number): "W" | "D" | "L" {
+  if (scoreFor > scoreAgainst) return "W";
+  if (scoreFor < scoreAgainst) return "L";
+  return "D";
 }
 
 interface Weighted<T> {
@@ -432,38 +441,170 @@ export function applyAiFixtureResultsBatched(
   const scheduledFixtureIds = new Set(
     state.fixtures.filter((fixture) => fixture.status === "scheduled").map((fixture) => fixture.id),
   );
-  const playerUpdates = new Map<string, Player>();
+  const fixtureIndexes = new Map<string, number>();
+  const fixtureByPair = new Map<string, Fixture>();
+  for (let index = 0; index < state.fixtures.length; index += 1) {
+    const fixture = state.fixtures[index];
+    if (!fixture) continue;
+    if (!fixtureIndexes.has(fixture.id)) fixtureIndexes.set(fixture.id, index);
+    const key = `${fixture.homeClubId}\u0000${fixture.awayClubId}`;
+    if (!fixtureByPair.has(key)) fixtureByPair.set(key, fixture);
+  }
+
+  const workingFixtures = state.fixtures.slice();
+  const workingPlayers = { ...state.players };
+  const workingClubs = { ...state.clubs };
+  const workingMatches = [...state.matches];
+  const workingEvents = [...state.events];
+  const workingNews = [...(state.news ?? [])];
+  const workingManager = { ...state.manager };
+  const workingState: GameState = {
+    ...state,
+    clubs: workingClubs,
+    players: workingPlayers,
+    fixtures: workingFixtures,
+    matches: workingMatches,
+    events: workingEvents,
+    news: workingNews,
+    manager: workingManager,
+  };
+  const memoryUpdates: Parameters<typeof addClubMemories>[1] = [];
+  const affectedCompetitions = new Set<string>();
+  const affectedClubs = new Set<string>();
+  let pendingManagerFixtureId = state.pendingManagerFixtureId;
+  let appliedResults = 0;
 
   for (const result of results) {
-    if (!result || !scheduledFixtureIds.has(result.fixtureId)) return applyAiFixtureResults(state, results, playedAt);
-    const fixture = state.fixtures.find((item) => item.id === result.fixtureId);
-    if (!fixture) return applyAiFixtureResults(state, results, playedAt);
+    if (!result || !scheduledFixtureIds.has(result.fixtureId)) continue;
 
-    const updates = calculateMatchPlayerUpdates(
-      state,
-      state.clubs[fixture.homeClubId]?.playerIds ?? [],
-      state.clubs[fixture.awayClubId]?.playerIds ?? [],
+    const fixtureIndex = fixtureIndexes.get(result.fixtureId);
+    const existingFixture = fixtureIndex === undefined ? undefined : workingFixtures[fixtureIndex];
+    if (fixtureIndex === undefined || !existingFixture) continue;
+
+    scheduledFixtureIds.delete(result.fixtureId);
+    appliedResults += 1;
+    affectedCompetitions.add(existingFixture.competitionId);
+    affectedClubs.add(result.homeClubId);
+    affectedClubs.add(result.awayClubId);
+
+    const updatedFixture: Fixture = {
+      ...existingFixture,
+      status: "played",
+      scoreHome: result.scoreHome,
+      scoreAway: result.scoreAway,
+      result: resultFor(
+        existingFixture.homeClubId === result.homeClubId ? result.scoreHome : result.scoreAway,
+        existingFixture.homeClubId === result.homeClubId ? result.scoreAway : result.scoreHome,
+      ),
+    };
+    workingFixtures[fixtureIndex] = updatedFixture;
+
+    const playerUpdates = calculateMatchPlayerUpdates(
+      workingState,
+      workingClubs[result.homeClubId]?.playerIds ?? [],
+      workingClubs[result.awayClubId]?.playerIds ?? [],
       result.scoreHome,
       result.scoreAway,
     );
-    for (const [playerId, player] of updates) {
-      if (playerUpdates.has(playerId)) return applyAiFixtureResults(state, results, playedAt);
-      playerUpdates.set(playerId, player);
-    }
-    scheduledFixtureIds.delete(result.fixtureId);
-  }
+    for (const [playerId, player] of playerUpdates) workingPlayers[playerId] = player;
 
-  const players = { ...state.players };
-  for (const [playerId, player] of playerUpdates) players[playerId] = player;
-  let next: GameState = { ...state, players };
-
-  for (const result of results) {
-    next = gameReducer(next, {
-      ...toRecordMatchResultAction(result, playedAt),
-      batchPlayerUpdates: true,
+    const matchId = `match-${workingMatches.length + 1}`;
+    const homeClub = workingClubs[result.homeClubId];
+    const summary = homeClub
+      ? `${homeClub.name} ${result.scoreHome}-${result.scoreAway} ${workingClubs[result.awayClubId]?.name ?? result.awayClubId}`
+      : `${result.scoreHome}-${result.scoreAway}`;
+    workingMatches.push({
+      id: matchId,
+      fixtureId: result.fixtureId,
+      seed: result.seed,
+      homeClubId: result.homeClubId,
+      awayClubId: result.awayClubId,
+      scoreHome: result.scoreHome,
+      scoreAway: result.scoreAway,
+      playedAt,
     });
+    workingEvents.push({
+      id: `event-${matchId}`,
+      date: playedAt,
+      type: "MATCH_PLAYED" as any,
+      description: summary,
+      meta: {
+        fixtureId: result.fixtureId,
+        homeClubId: result.homeClubId,
+        awayClubId: result.awayClubId,
+        scoreHome: result.scoreHome,
+        scoreAway: result.scoreAway,
+      },
+    });
+
+    const goalDiff = Math.abs(result.scoreHome - result.scoreAway);
+    const relevance = goalDiff >= 3 ? 90 : goalDiff >= 2 ? 65 : goalDiff === 1 ? 40 : 25;
+    const pairFixture = fixtureByPair.get(`${result.homeClubId}\u0000${result.awayClubId}`);
+    const competitionId = pairFixture?.competitionId ?? null;
+    memoryUpdates.push(
+      {
+        clubId: result.homeClubId,
+        item: {
+          kind: "tactical",
+          summary: `${workingClubs[result.homeClubId]?.name ?? result.homeClubId} ${result.scoreHome}-${result.scoreAway}`,
+          meta: { opponentId: result.awayClubId, scoreHome: result.scoreHome, scoreAway: result.scoreAway, competitionId },
+          relevance,
+        },
+      },
+      {
+        clubId: result.awayClubId,
+        item: {
+          kind: "tactical",
+          summary: `${workingClubs[result.awayClubId]?.name ?? result.awayClubId} ${result.scoreAway}-${result.scoreHome}`,
+          meta: { opponentId: result.homeClubId, scoreHome: result.scoreHome, scoreAway: result.scoreAway, competitionId },
+          relevance,
+        },
+      },
+    );
+
+    applyMatchResultConsequencesToDraft(workingState, updatedFixture, result.scoreHome, result.scoreAway);
+
+    const resultBias = result.scoreHome - result.scoreAway;
+    const delayedTrustDelta = resultBias === 0 ? 0 : resultBias > 0 ? 1 : -1;
+    const tacticBias = Math.max(-8, Math.min(8, (state.tactics?.tempo ?? 50) - 50));
+    workingManager.boardConfidence = Math.max(
+      0,
+      Math.min(100, (workingManager.boardConfidence ?? 50) + delayedTrustDelta + Math.round(tacticBias / 10)),
+    );
+    workingManager.fanConfidence = Math.max(
+      0,
+      Math.min(100, (workingManager.fanConfidence ?? 50) + delayedTrustDelta),
+    );
+    workingManager.squadConfidence = Math.max(
+      0,
+      Math.min(100, (workingManager.squadConfidence ?? 50) + Math.round(tacticBias / 12)),
+    );
+
+    if (pendingManagerFixtureId === result.fixtureId) pendingManagerFixtureId = undefined;
   }
-  return next;
+
+  if (appliedResults === 0) return state;
+
+  for (const competitionId of affectedCompetitions) invalidateLeagueTable(competitionId);
+  for (const clubId of affectedClubs) invalidateClubStrength(clubId);
+
+  let next: GameState = {
+    ...state,
+    fixtures: workingFixtures,
+    matches: workingMatches,
+    events: workingEvents,
+    news: workingNews,
+    fans: workingState.fans,
+    players: workingPlayers,
+    clubs: workingClubs,
+    manager: workingManager,
+    ...(pendingManagerFixtureId ? { pendingManagerFixtureId } : {}),
+  };
+  if (state.pendingManagerFixtureId && !pendingManagerFixtureId) {
+    const { pendingManagerFixtureId: _cleared, ...withoutPendingFixture } = next;
+    next = withoutPendingFixture as GameState;
+  }
+  return addClubMemories(next, memoryUpdates);
 }
 
 /** The one-call version: simulate every currently-scheduled AI fixture and

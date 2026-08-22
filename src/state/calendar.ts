@@ -572,6 +572,45 @@ export function getRegisteredDailyHookCount(name: DailyHookName): number {
   return registeredDailyHooks[name].length;
 }
 
+export function mergeDailyEventOutputs(
+  snapshotEvents: GameState["events"],
+  outputs: GameState["events"][],
+): GameState["events"] {
+  const mergedEvents = [...snapshotEvents];
+  const existingIndexById = new Map<string, number>();
+  for (let index = 0; index < mergedEvents.length; index += 1) {
+    const event = mergedEvents[index];
+    if (event && !existingIndexById.has(event.id)) {
+      existingIndexById.set(event.id, index);
+    }
+  }
+
+  const newEvents: GameState["events"] = [];
+  const newIndexById = new Map<string, number>();
+  let didMutateEvents = false;
+
+  for (const outputEvents of outputs) {
+    for (const event of outputEvents) {
+      const existingIndex = existingIndexById.get(event.id);
+      if (existingIndex !== undefined) {
+        if (mergedEvents[existingIndex] !== event) {
+          mergedEvents[existingIndex] = event;
+          didMutateEvents = true;
+        }
+        continue;
+      }
+
+      if (!newIndexById.has(event.id)) {
+        newIndexById.set(event.id, newEvents.length);
+        newEvents.push(event);
+        didMutateEvents = true;
+      }
+    }
+  }
+
+  return didMutateEvents ? [...mergedEvents, ...newEvents] : snapshotEvents;
+}
+
 /** Fixed run order for `dailyHooks` — e.g. fixtures resolve before finances
  * would react to matchday revenue, injuries update before development
  * reads fitness. Exported so tests/tools can assert on it without
@@ -616,11 +655,8 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
 
     if (name === "events") {
       const snapshotEvents = next.events ?? [];
-      const existingIdSet = new Set(snapshotEvents.map((event) => event.id));
-      const mergedEvents = [...snapshotEvents];
-      const newEvents: GameState["events"] = [];
       let passState = next;
-      let didMutateEvents = false;
+      const eventOutputs: GameState["events"][] = [];
 
       const processHook = (hookFn: DailyHook, hookIndex: number) => {
         const subHookStart = performance.now();
@@ -632,22 +668,7 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
         const hookInput = { ...passState, events: snapshotEvents };
         const hookOutput = hookFn(hookInput, time);
         const outputEvents = hookOutput.events ?? snapshotEvents;
-
-        for (const event of outputEvents) {
-          const isExisting = existingIdSet.has(event.id);
-          if (isExisting) {
-            const index = mergedEvents.findIndex((item) => item.id === event.id);
-            if (index >= 0) {
-              if (mergedEvents[index] !== event) {
-                mergedEvents[index] = event;
-                didMutateEvents = true;
-              }
-            }
-          } else if (!newEvents.some((item) => item.id === event.id)) {
-            newEvents.push(event);
-            didMutateEvents = true;
-          }
-        }
+        eventOutputs.push(outputEvents);
 
         passState = {
           ...passState,
@@ -674,7 +695,7 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
 
       next = {
         ...passState,
-        events: didMutateEvents ? [...mergedEvents, ...newEvents] : snapshotEvents,
+        events: mergeDailyEventOutputs(snapshotEvents, eventOutputs),
       };
     } else {
       next = dailyHooks[name](next, time);

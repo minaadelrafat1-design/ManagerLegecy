@@ -100,20 +100,41 @@ function memoizedAffordability(
   return result;
 }
 
-function appendUniqueEvent(state: GameState, event: EventLogEntry): GameState {
-  const eventKey = event.meta?.["eventKey"] ?? event.id;
-  const seen = new Set<string>();
+export interface EventIdentityIndex {
+  ids: Set<string>;
+  keys: Set<string>;
+}
 
-  for (const existing of state.events ?? []) {
+export function createEventIdentityIndex(events: EventLogEntry[] = []): EventIdentityIndex {
+  const ids = new Set<string>();
+  const keys = new Set<string>();
+
+  for (const existing of events ?? []) {
     if (!existing) continue;
-    if (existing.id === event.id) return state;
-    const existingKey = existing.meta?.["eventKey"] ?? existing.id;
-    seen.add(existingKey);
-    seen.add(existing.id);
+    const eventKey = existing.meta?.["eventKey"] ?? existing.id;
+    ids.add(existing.id);
+    ids.add(eventKey);
+    keys.add(eventKey);
+    keys.add(existing.id);
   }
 
-  if (seen.has(eventKey) || seen.has(event.id)) return state;
-  return { ...state, events: [...(state.events ?? []), event] };
+  return { ids, keys };
+}
+
+export function appendUniqueEvent(
+  state: GameState,
+  event: EventLogEntry,
+  index: EventIdentityIndex = createEventIdentityIndex(state.events ?? []),
+): GameState {
+  const eventKey = event.meta?.["eventKey"] ?? event.id;
+  if (index.ids.has(event.id) || index.keys.has(eventKey)) return state;
+
+  const nextState = { ...state, events: [...(state.events ?? []), event] };
+  index.ids.add(event.id);
+  index.ids.add(eventKey);
+  index.keys.add(event.id);
+  index.keys.add(eventKey);
+  return nextState;
 }
 
 function activeTransferSessionsForPlayer(state: GameState, playerId: string) {
@@ -463,20 +484,21 @@ function resolveOpenNegotiations(state: GameState) {
       };
       next = closeOtherOpenTransferSessions(
         next,
-        playerId,
-        winner.session.id,
-        "Transfer completed with another club.",
+          playerId,
+          winner.session.id,
+          "Transfer completed with another club.",
       );
       continue;
     }
 
     for (const { session, result } of buyerResults) {
-      if (result.outcome === "counter" && result.offer) {
+      const counterOffer = result.offer;
+      if (result.outcome === "counter" && counterOffer) {
         next = addNegotiationEntry(
           next,
           session.id,
           session.sellerClubId,
-          result.offer,
+          counterOffer,
           result.message,
         );
         const listing = state.transfers.find((item) => item.playerId === playerId);
@@ -510,17 +532,17 @@ function resolveOpenNegotiations(state: GameState) {
       if (affordability.canAfford) {
         next = addNegotiationEntry(
           next,
-          session.id,
-          session.buyerClubId,
-          last.offer,
-          "Buyer accepts the seller's counter.",
+            session.id,
+            session.buyerClubId,
+            last.offer,
+            "Buyer accepts the seller's counter.",
         );
         next = acceptTransferSession(next, session.id);
         next = closeOtherOpenTransferSessions(
           next,
-          playerId,
-          session.id,
-          "Transfer completed with another club.",
+            playerId,
+            session.id,
+            "Transfer completed with another club.",
         );
         break;
       }
