@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { mergeDailyEventOutputs } from "./calendar";
-import type { EventLogEntry } from "./types";
+import { mergeDailyEventOutputs, registerDailyHook, runDailyTick } from "./calendar";
+import type { EventLogEntry, GameState } from "./types";
+import "./events-engine";
 
 function event(id: string, description: string): EventLogEntry {
   return { id, date: "2026-08-22", type: "news", description };
@@ -44,5 +45,47 @@ describe("daily event output merge", () => {
     const snapshot = [existing];
 
     expect(mergeDailyEventOutputs(snapshot, [[existing]])).toBe(snapshot);
+  });
+
+  it("keeps event-engine archival while merging other hook updates and additions", () => {
+    const oldEvent = { ...event("old", "old event"), date: "2026-01-01" };
+    const recentEvent = event("recent", "recent event");
+    const appendedEvent = event("appended", "appended event");
+    const state = {
+      time: { date: "2026-08-01", day: 1, week: 1, season: "2026/27" },
+      events: [oldEvent, recentEvent],
+      players: {},
+      clubs: { club: { id: "club", playerIds: [] } },
+      currentClub: { id: "club", playerIds: [] },
+      manager: { id: "manager" },
+    } as unknown as GameState;
+
+    registerDailyHook("events", (current) => ({
+      ...current,
+      events: [
+        oldEvent,
+        { ...recentEvent, description: "updated recent event" },
+        appendedEvent,
+      ],
+    }));
+
+    const next = runDailyTick(state, state.time);
+
+    expect(next.events.map((item) => item.id)).toEqual(["recent", "appended"]);
+    expect(next.events.find((item) => item.id === "recent")?.description).toBe(
+      "updated recent event",
+    );
+    expect(next.events.some((item) => item.id === "old")).toBe(false);
+  });
+
+  it("preserves unrelated events when an incremental hook returns a partial slice", () => {
+    const retained = event("retained", "retained event");
+    const updated = { ...retained, description: "updated retained event" };
+    const authoritative = [retained, event("other", "other event")];
+
+    expect(mergeDailyEventOutputs(authoritative, [[updated]], authoritative)).toEqual([
+      updated,
+      authoritative[1],
+    ]);
   });
 });

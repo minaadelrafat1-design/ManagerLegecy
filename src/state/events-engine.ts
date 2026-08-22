@@ -133,6 +133,6 @@ registerDailyHook("events", (state: GameState, time) => {
   next = { ...next, events: recentEvents };
 
   return next;
-});
+}, { mergeMode: "authoritative" });
 
 export {};

@@ -545,9 +545,17 @@ export function setDailyHooksEnabled(enabled: boolean) {
  * while still allowing the hook system to function correctly.
  */
 const registeredHookReferences = new WeakMap<DailyHook, Set<DailyHookName>>();
+type DailyHookMergeMode = "incremental" | "authoritative";
+const dailyHookMergeModes = new WeakMap<DailyHook, DailyHookMergeMode>();
 
-export function registerDailyHook(name: DailyHookName, hook: DailyHook) {
+export function registerDailyHook(
+  name: DailyHookName,
+  hook: DailyHook,
+  options?: { mergeMode?: DailyHookMergeMode },
+) {
   if (!dailyHooksEnabled) return;
+
+  if (options?.mergeMode) dailyHookMergeModes.set(hook, options.mergeMode);
 
   // Track which hook names this function has been registered for
   if (!registeredHookReferences.has(hook)) {
@@ -575,8 +583,13 @@ export function getRegisteredDailyHookCount(name: DailyHookName): number {
 export function mergeDailyEventOutputs(
   snapshotEvents: GameState["events"],
   outputs: GameState["events"][],
+  authoritativeOutput?: GameState["events"],
 ): GameState["events"] {
-  const mergedEvents = [...snapshotEvents];
+  const mergedEvents = [...(authoritativeOutput ?? snapshotEvents)];
+  const authoritativeIds = authoritativeOutput
+    ? new Set(authoritativeOutput.map((event) => event.id))
+    : null;
+  const snapshotIds = authoritativeOutput ? new Set(snapshotEvents.map((event) => event.id)) : null;
   const existingIndexById = new Map<string, number>();
   for (let index = 0; index < mergedEvents.length; index += 1) {
     const event = mergedEvents[index];
@@ -597,6 +610,10 @@ export function mergeDailyEventOutputs(
           mergedEvents[existingIndex] = event;
           didMutateEvents = true;
         }
+        continue;
+      }
+
+      if (authoritativeIds && snapshotIds?.has(event.id) && !authoritativeIds.has(event.id)) {
         continue;
       }
 
@@ -657,6 +674,7 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
       const snapshotEvents = next.events ?? [];
       let passState = next;
       const eventOutputs: GameState["events"][] = [];
+      let authoritativeEvents: GameState["events"] | undefined;
 
       const processHook = (hookFn: DailyHook, hookIndex: number) => {
         const subHookStart = performance.now();
@@ -669,6 +687,9 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
         const hookOutput = hookFn(hookInput, time);
         const outputEvents = hookOutput.events ?? snapshotEvents;
         eventOutputs.push(outputEvents);
+        if (dailyHookMergeModes.get(hookFn) === "authoritative") {
+          authoritativeEvents = outputEvents;
+        }
 
         passState = {
           ...passState,
@@ -695,7 +716,7 @@ export function runDailyTick(state: GameState, time: GameCalendarState): GameSta
 
       next = {
         ...passState,
-        events: mergeDailyEventOutputs(snapshotEvents, eventOutputs),
+        events: mergeDailyEventOutputs(snapshotEvents, eventOutputs, authoritativeEvents),
       };
     } else {
       next = dailyHooks[name](next, time);
