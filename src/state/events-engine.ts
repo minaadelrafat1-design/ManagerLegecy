@@ -11,9 +11,14 @@ registerDailyHook("events", (state: GameState, time) => {
   const today = next.time.date;
   const events = [...(next.events ?? [])];
   const runtimeIndex = ensureEventRuntimeIndex(next);
+  const eventIndexById = new Map<string, number>();
+  for (let index = 0; index < events.length; index += 1) {
+    const event = events[index];
+    if (event && !eventIndexById.has(event.id)) eventIndexById.set(event.id, index);
+  }
   const eventsForToday = (runtimeIndex.dueByDate[today] ?? []).map((event) => ({
     event,
-    index: events.findIndex((item) => item.id === event.id),
+    index: eventIndexById.get(event.id) ?? -1,
   }));
 
   for (const { event: ev, index: i } of eventsForToday) {
